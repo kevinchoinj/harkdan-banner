@@ -3,14 +3,15 @@ import styled from 'styled-components';
 import { ChromePicker } from 'react-color';
 
 const StyledWrapper = styled.div`
-  height: 40px;
-  width: 40px;
+  height: 25px;
+  width: 25px;
   position: relative;
 `;
 const StyledButton = styled.div`
   height: 100%;
   width: 100%;
-  border: 1px solid #000;
+  border: 1px solid ${props => props.theme.colorTextElevated};
+  border-radius: 3px;
   cursor: pointer;
 `;
 const StyledContainer = styled.div`

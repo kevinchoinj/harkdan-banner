@@ -8,6 +8,9 @@ import {
 import Home from 'pages/Home';
 import Faq from 'pages/Faq';
 import Navbar from 'components/general/Navbar';
+import TrackMouse from 'components/general/TrackMouse';
+import {routes} from 'data/routes';
+import GridLock from 'components/home/GridLock';
 
 const GlobalStyle = createGlobalStyle`
   body{
@@ -24,11 +27,14 @@ function App() {
   return (
     <ThemeProvider theme={themeData}>
       <GlobalStyle/>
-      <Navbar/>
-      <Switch>
-        <Route exact path="/" render={props => <Home {...props}/>}/>
-        <Route exact path="/faq" render={props => <Faq {...props}/>}/>
-      </Switch>
+      <TrackMouse>
+        <GridLock/>
+        <Navbar/>
+        <Switch>
+          <Route exact path={routes.home} render={props => <Home {...props}/>}/>
+          <Route exact path={routes.faq} render={props => <Faq {...props}/>}/>
+        </Switch>
+      </TrackMouse>
     </ThemeProvider>
   );
 }
