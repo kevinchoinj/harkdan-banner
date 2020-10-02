@@ -13,14 +13,16 @@ const StyledWrapper = styled.div`
   display: grid;
   grid-template-columns: repeat(50,2%);
   grid-template-rows: repeat(50,2%);
-  opacity: .5;
+  opacity: .3;
+  @media screen and (max-width: 992px) {
+    display: none;
+  }
 `;
 
 const GridLock = () => {
   return (
     <StyledWrapper>
       <GridLockItem  gridArea="10 / 1 / 26 / 7" image={`url(${placeholder})`}/>
-      <GridLockItem  gridArea="1 / 18 / 9 / 27" image={`url(${placeholder})`}/>
       <GridLockItem  gridArea="1 / 36 / 14 / 42" image={`url(${placeholder})`}/>
       <GridLockItem  gridArea="13 / 11 / 32 / 18" image={`url(${placeholder})`}/>
       <GridLockItem  gridArea="17 / 32 / 32 / 38" image={`url(${placeholder})`}/>

@@ -48,7 +48,7 @@ const useAnimationFrame = callback => {
 };
 
 function getRandomArbitrary(min, max) {
-  return (Math.random() * (max - min) + min)/10000;
+  return (Math.random() * (max - min) + min)/100000;
 }
 
 const CursorCircle = ({image, gridArea, mousePosition}) => {

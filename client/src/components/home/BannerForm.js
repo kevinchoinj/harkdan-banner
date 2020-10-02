@@ -9,7 +9,7 @@ import {setStreamer} from 'actions/form';
 const StyledWrapper = styled.div`
   background-color: ${props => props.theme.colorBackgroundElevated};
   padding: 0 2rem 2rem 2rem;
-  border-radius: 3px;
+  border-radius: 12px;
 `;
 const StyledLabelWrapper = styled.div`
   display: flex;
@@ -22,8 +22,10 @@ const StyledLabel = styled.div`
 `;
 const StyledRow = styled.div`
   display: flex;
-  background-color: #243961;
+  background-color: ${props => props.theme.colorBackgroundEmphasized};
+  border: ${props => `1px solid ${props.theme.colorInputBorder}`};
   padding: 0 3px;
+  border-radius: 3px;
   input {
     flex: 1;
     background-color: transparent;
@@ -31,6 +33,9 @@ const StyledRow = styled.div`
     color: ${props => props.theme.colorTextElevated};
     font-family: 'Roboto', sans-serif;
     font-size: 14px;
+    &:active, &:focus {
+      outline: none;
+    }
   }
 `;
 

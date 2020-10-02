@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 export const StyledButton = styled.button`
   color: #ffffff;
-  background-color: ${props => props.inactive ? '#333' : '#0087cf'};
+  background-color: ${props => props.inactive ? '#333' : props.theme.colorButton};
   font-size: 15px;
   font-family: 'Roboto', sans-serif;
   font-weight: 500;

@@ -31,6 +31,7 @@ const StyledDescription = styled.div`
   margin-bottom: 8rem;
   background-color: ${props => props.theme.colorBackgroundElevated};
   padding: 1rem 2rem 2rem 2rem;
+  border-radius: 12px;
   h1 {
     text-align: center;
     font-weight: 500;

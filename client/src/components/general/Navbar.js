@@ -16,8 +16,13 @@ const StyledLink = styled(Link)`
   color: ${props => props.theme.colorTextElevated};
   margin: 0 1rem;
 `;
+const StyledOption = styled.div`
+  color: ${props => props.theme.colorTextElevated};
+  margin: 0 1rem;
+  cursor: pointer;
+`;
 
-const Navbar = () => {
+const Navbar = ({darkMode, setDarkMode}) => {
   return (
     <StyledWrapper>
       <StyledLink to={routes.home}>
@@ -26,6 +31,9 @@ const Navbar = () => {
       <StyledLink to={routes.faq}>
         FAQ
       </StyledLink>
+      <StyledOption onClick={() => setDarkMode(prev => !prev)}>
+        {darkMode ? 'Light Mode' : 'Dark Mode'}
+      </StyledOption>
     </StyledWrapper>
   )
 }

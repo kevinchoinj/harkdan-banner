@@ -1,6 +1,6 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {createGlobalStyle, ThemeProvider} from 'styled-components';
-import {themeData} from 'data/themeData';
+import {themeData, lightData} from 'data/themeData';
 import {
   Route,
   Switch,
@@ -24,12 +24,13 @@ const GlobalStyle = createGlobalStyle`
 `;
 
 function App() {
+  const [darkMode, setDarkMode] = useState(true);
   return (
-    <ThemeProvider theme={themeData}>
+    <ThemeProvider theme={darkMode ? themeData : lightData}>
       <GlobalStyle/>
       <TrackMouse>
         <GridLock/>
-        <Navbar/>
+        <Navbar darkMode={darkMode} setDarkMode={setDarkMode}/>
         <Switch>
           <Route exact path={routes.home} render={props => <Home {...props}/>}/>
           <Route exact path={routes.faq} render={props => <Faq {...props}/>}/>
