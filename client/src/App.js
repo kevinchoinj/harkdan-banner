@@ -10,7 +10,7 @@ import Faq from 'pages/Faq';
 import Navbar from 'components/general/Navbar';
 import TrackMouse from 'components/general/TrackMouse';
 import {routes} from 'data/routes';
-import GridLock from 'components/home/GridLock';
+import Footer from 'components/general/Footer';
 
 const GlobalStyle = createGlobalStyle`
   body{
@@ -29,12 +29,12 @@ function App() {
     <ThemeProvider theme={darkMode ? themeData : lightData}>
       <GlobalStyle/>
       <TrackMouse>
-        <GridLock/>
         <Navbar darkMode={darkMode} setDarkMode={setDarkMode}/>
         <Switch>
           <Route exact path={routes.home} render={props => <Home {...props}/>}/>
           <Route exact path={routes.faq} render={props => <Faq {...props}/>}/>
         </Switch>
+        <Footer/>
       </TrackMouse>
     </ThemeProvider>
   );

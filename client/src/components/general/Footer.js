@@ -17,26 +17,24 @@ const StyledLink = styled(Link)`
   color: ${props => props.theme.colorTextElevated};
   margin: 0 1rem;
 `;
-const StyledOption = styled.div`
-  color: ${props => props.theme.colorTextElevated};
-  margin: 0 1rem;
-  cursor: pointer;
-`;
 
-const Navbar = ({darkMode, setDarkMode}) => {
+const Footer = () => {
   return (
     <StyledWrapper>
-      <StyledLink to={routes.home}>
-        Home
+      <StyledLink to={routes.contact}>
+        Contact
       </StyledLink>
-      <StyledLink to={routes.faq}>
-        FAQ
+      <StyledLink to={routes.copyright}>
+        Copyright Claims
       </StyledLink>
-      <StyledOption onClick={() => setDarkMode(prev => !prev)}>
-        {darkMode ? 'Light Mode' : 'Dark Mode'}
-      </StyledOption>
+      <StyledLink to={routes.privacy}>
+        Privacy
+      </StyledLink>
+      <StyledLink to={routes.tos}>
+        Terms of Use
+      </StyledLink>
     </StyledWrapper>
   )
 }
 
-export default Navbar;
+export default Footer;
