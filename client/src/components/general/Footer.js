@@ -10,7 +10,10 @@ const StyledWrapper = styled.div`
   background-color: ${props => props.theme.colorBackgroundElevated};
   position: relative;
   z-index: 2;
+  font-size: ${props => props.theme.fontSizeNav};
   width: 100%;
+  height: 80px;
+  align-items: center;
 `;
 const StyledLink = styled(Link)`
   text-decoration: none;
@@ -26,9 +29,6 @@ const Footer = () => {
       </StyledLink>
       <StyledLink to={routes.copyright}>
         Copyright Claims
-      </StyledLink>
-      <StyledLink to={routes.privacy}>
-        Privacy
       </StyledLink>
       <StyledLink to={routes.tos}>
         Terms of Use

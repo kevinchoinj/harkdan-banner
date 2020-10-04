@@ -1,7 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
 import BannerForm from 'components/home/BannerForm';
-import logo from 'data/edc.webp';
 
 const StyledWrapper = styled.div`
   display: flex;
@@ -11,15 +10,6 @@ const StyledContainer = styled.div`
   flex: 1;
   max-width: ${props => props.theme.widthContent};
   position: relative;
-`;
-const StyledHeader = styled.div`
-  display: flex;
-  justify-content: center;
-  margin: 60px 0;
-  img {
-    height: 30px;
-    object-fit: contain;
-  }
 `;
 const StyledSeparater = styled.div`
   background-color: ${props => props.theme.colorBackgroundElevated};
@@ -44,9 +34,6 @@ const Home = () => {
   return (
     <StyledWrapper>
       <StyledContainer>
-        <StyledHeader>
-          <img src={logo} alt="microdan"/>
-        </StyledHeader>
         <BannerForm/>
         <StyledSeparater/>
         <StyledDescription>

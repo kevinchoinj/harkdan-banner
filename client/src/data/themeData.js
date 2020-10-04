@@ -7,6 +7,7 @@ export const themeData = {
   colorBackgroundEmphasized: '#243961',
   colorButton: '#0087cf',
   colorInputBorder: '#243961',
+  fontSizeNav: '14px',
 };
 
 export const lightData = {
@@ -18,4 +19,5 @@ export const lightData = {
   colorBackgroundEmphasized: '#fff',
   colorButton: '#0087cf',
   colorInputBorder: '#243961',
+  fontSizeNav: '14px',
 };

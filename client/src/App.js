@@ -8,9 +8,9 @@ import {
 import Home from 'pages/Home';
 import Faq from 'pages/Faq';
 import Navbar from 'components/general/Navbar';
-import TrackMouse from 'components/general/TrackMouse';
 import {routes} from 'data/routes';
 import Footer from 'components/general/Footer';
+import DarkToggle from 'components/general/DarkToggle';
 
 const GlobalStyle = createGlobalStyle`
   body{
@@ -21,6 +21,9 @@ const GlobalStyle = createGlobalStyle`
     color: ${props => props.theme.colorText};
     font-family: 'Roboto', sans-serif;
   }
+  * {
+    box-sizing: border-box;
+  }
 `;
 
 function App() {
@@ -28,14 +31,13 @@ function App() {
   return (
     <ThemeProvider theme={darkMode ? themeData : lightData}>
       <GlobalStyle/>
-      <TrackMouse>
-        <Navbar darkMode={darkMode} setDarkMode={setDarkMode}/>
+        <Navbar/>
         <Switch>
           <Route exact path={routes.home} render={props => <Home {...props}/>}/>
           <Route exact path={routes.faq} render={props => <Faq {...props}/>}/>
         </Switch>
         <Footer/>
-      </TrackMouse>
+        <DarkToggle setDarkMode={setDarkMode} darkMode={darkMode}/>
     </ThemeProvider>
   );
 }
