@@ -69,7 +69,7 @@ const StyledLink = styled(Link)`
 const StyledLogo = styled.div`
   img {
     max-width: 50%;
-    height: 24px;
+    height: 32px;
     object-fit: contain;
   }
 `;
@@ -88,6 +88,9 @@ const Navbar = () => {
         </StyledLink>
         <StyledLink to={routes.faq}>
           FAQ
+        </StyledLink>
+        <StyledLink to={routes.editor}>
+          AdvEditor
         </StyledLink>
         <StyledLink to={routes.privacy}>
           Privacy

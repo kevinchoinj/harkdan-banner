@@ -5,6 +5,7 @@ import {Formik, Form, Field} from 'formik';
 import {setStreamer} from 'actions/form';
 import {StyledButton} from 'components/general/styling';
 import {connect} from 'react-redux';
+import HeroForm from 'components/home/HeroForm';
 
 const Video = ({className}) => (
   <video
@@ -25,6 +26,7 @@ const StyledVideo = styled(Video)`
   top: 0;
   right: 0;
   min-height: 100%;
+
   width: auto;
   height: auto;
   background-size: cover;

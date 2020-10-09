@@ -4,5 +4,6 @@ export const routes = {
   contact: '/contact',
   copyright: '/copyright',
   privacy: '/privacy',
-  tos: '/terms'
+  tos: '/terms',
+  editor: '/editor'
 }

@@ -10,6 +10,7 @@ import Faq from 'pages/Faq';
 import Navbar from 'components/general/Navbar';
 import {routes} from 'data/routes';
 import Footer from 'components/general/Footer';
+import Editor from 'pages/Editor';
 import DarkToggle from 'components/general/DarkToggle';
 
 const GlobalStyle = createGlobalStyle`
@@ -35,6 +36,7 @@ function App() {
         <Switch>
           <Route exact path={routes.home} render={props => <Home {...props}/>}/>
           <Route exact path={routes.faq} render={props => <Faq {...props}/>}/>
+          <Route exact path={routes.editor} render={props => <Editor {...props}/>}/>
         </Switch>
         <Footer/>
         <DarkToggle setDarkMode={setDarkMode} darkMode={darkMode}/>
