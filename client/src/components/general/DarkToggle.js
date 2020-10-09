@@ -14,6 +14,7 @@ const StyledWrapper = styled.div`
   padding: 10px;
   cursor: pointer;
   background-color: ${props => props.theme.colorBackgroundElevated};
+  border-radius: 3px;
   z-index: 2;
   svg {
     height: 100%;

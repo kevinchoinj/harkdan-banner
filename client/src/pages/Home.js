@@ -1,10 +1,12 @@
 import React from 'react';
 import styled from 'styled-components';
 import BannerForm from 'components/home/BannerForm';
+import Hero from 'components/home/Hero';
 
 const StyledWrapper = styled.div`
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  align-items: center;
 `;
 const StyledContainer = styled.div`
   flex: 1;
@@ -19,9 +21,8 @@ const StyledSeparater = styled.div`
 `;
 const StyledDescription = styled.div`
   margin-bottom: 8rem;
-  background-color: ${props => props.theme.colorBackgroundElevated};
+  max-width: 800px;
   padding: 1rem 2rem 2rem 2rem;
-  border-radius: 12px;
   h1 {
     text-align: center;
     font-weight: 500;
@@ -33,6 +34,17 @@ const lipsum = `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do 
 const Home = () => {
   return (
     <StyledWrapper>
+      <Hero/>
+      <StyledSeparater/>
+        <StyledDescription>
+          <h1>Twitch Banners</h1>
+          {lipsum}
+          <br/><br/>
+          {lipsum}
+          <br/><br/>
+          {lipsum}
+        </StyledDescription>
+      {/*
       <StyledContainer>
         <BannerForm/>
         <StyledSeparater/>
@@ -45,6 +57,7 @@ const Home = () => {
           {lipsum}
         </StyledDescription>
       </StyledContainer>
+      */}
     </StyledWrapper>
   )
 }

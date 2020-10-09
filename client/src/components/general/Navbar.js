@@ -22,18 +22,18 @@ const animationClose = keyframes`
 `;
 
 const StyledWrapper = styled.div`
-  display: flex;
+  position: fixed;
+  top: 0;
+  left: 0;
   justify-content: space-between;
   padding: 0 2rem;
   background-color: ${props => props.theme.colorBackgroundElevated};
-  position: relative;
   z-index: 2;
   width: 100%;
   font-size: ${props => props.theme.fontSizeNav};
   height: 80px;
   display: flex;
   align-items: center;
-  margin-bottom: 3rem;
 `;
 const StyledContainer = styled.nav`
   display: flex;
