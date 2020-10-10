@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
-import Draggable from 'components/editor/Draggable';
+import DraggableRnd from 'components/editor/DraggableRnd';
+import AdvancedEditor from 'components/editor/AdvancedEditor';
 
 const StyledCanvasWrapper = styled.div`
   display: flex;
@@ -14,12 +15,17 @@ const StyledCanvas = styled.div`
   border: 1px solid #ddd;
   width: 500px;
   height: 300px;
+  background-color: #111;
+  > div {
+    border: 1px solid rgba(255, 255, 255, .5);
+  }
 `;
 
 const StyledWrapper = styled.div`
   height: 100vh;
   display: flex;
   padding-top: 80px;
+  background-color: #3b3b3b;
 `;
 const StyledOptions = styled.div`
   flex: 1;
@@ -29,11 +35,12 @@ const Editor = () => {
     <StyledWrapper>
       <StyledCanvasWrapper>
         <StyledCanvas>
-          <Draggable/>
+          <DraggableRnd/>
         </StyledCanvas>
       </StyledCanvasWrapper>
       <StyledOptions>
         options
+        <AdvancedEditor/>
       </StyledOptions>
     </StyledWrapper>
   )
