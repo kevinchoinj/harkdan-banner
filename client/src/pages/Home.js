@@ -1,17 +1,11 @@
 import React from 'react';
 import styled from 'styled-components';
-import BannerForm from 'components/home/BannerForm';
 import Hero from 'components/home/Hero';
 
 const StyledWrapper = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-`;
-const StyledContainer = styled.div`
-  flex: 1;
-  max-width: ${props => props.theme.widthContent};
-  position: relative;
 `;
 const StyledSeparater = styled.div`
   background-color: ${props => props.theme.colorBackgroundElevated};
@@ -44,20 +38,6 @@ const Home = () => {
           <br/><br/>
           {lipsum}
         </StyledDescription>
-      {/*
-      <StyledContainer>
-        <BannerForm/>
-        <StyledSeparater/>
-        <StyledDescription>
-          <h1>Twitch Banners</h1>
-          {lipsum}
-          <br/><br/>
-          {lipsum}
-          <br/><br/>
-          {lipsum}
-        </StyledDescription>
-      </StyledContainer>
-      */}
     </StyledWrapper>
   )
 }

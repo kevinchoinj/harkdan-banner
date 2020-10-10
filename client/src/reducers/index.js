@@ -1,8 +1,11 @@
 import form from 'reducers/form';
 import mouse from 'reducers/mouse';
+import formSettings from 'reducers/formSettings';
+
 
 const reducers={
   form,
+  formSettings,
   mouse,
 };
 

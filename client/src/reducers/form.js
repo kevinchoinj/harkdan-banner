@@ -1,13 +1,11 @@
 import {
   SET_STREAMER,
   RESET_FORM,
-  SET_STYLING_VALUE,
   UPDATE_ADVANCED_FIELD
 } from 'actions/form';
 
 const DEFAULT_STATE={
   streamer: null,
-  styling: {},
   valueViewers: {
     visible: false,
     x: 0,
@@ -16,7 +14,7 @@ const DEFAULT_STATE={
     height: 50,
   },
   valueAvatar: {
-    visible: false,
+    visible: true,
     x: 0,
     y: 0,
     width: 50,
@@ -37,7 +35,7 @@ const DEFAULT_STATE={
     height: 50,
   },
   valueUsername: {
-    visible: false,
+    visible: true,
     x: 0,
     y: 0,
     width: 100,
@@ -78,14 +76,6 @@ export default(state=DEFAULT_STATE, payload)=>
     return state = {
       ...state,
       DEFAULT_STATE,
-    };
-  case SET_STYLING_VALUE:
-    return state = {
-      ...state,
-      styling: {
-        ...state.styling,
-        [payload.keyValue]: payload.value,
-      }
     };
   case UPDATE_ADVANCED_FIELD:
     return state = {

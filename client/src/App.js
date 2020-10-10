@@ -12,6 +12,7 @@ import {routes} from 'data/routes';
 import Footer from 'components/general/Footer';
 import Editor from 'pages/Editor';
 import DarkToggle from 'components/general/DarkToggle';
+import "react-toggle/style.css"
 
 const GlobalStyle = createGlobalStyle`
   body{
