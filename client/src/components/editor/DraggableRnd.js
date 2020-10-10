@@ -1,16 +1,18 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import {Rnd} from 'react-rnd';
-import {updateValueViewers} from 'actions/form';
+import {updateAdvancedField} from 'actions/form';
 
-const DraggableRnd = ({viewers, updateValueViewers}) => {
+const DraggableRnd = ({keyValue, data, updateAdvancedField}) => {
   return (
     <Rnd
-      size={{ width: viewers.width,  height: viewers.height }}
-      position={{ x: viewers.x, y: viewers.y }}
-      onDragStop={(e, d) => { updateValueViewers({ x: d.x, y: d.y }) }}
+      size={{ width: data.width,  height: data.height }}
+      position={{ x: data.x, y: data.y }}
+      onDragStop={(e, d) => {
+        updateAdvancedField(keyValue, { x: d.x, y: d.y });
+      }}
       onResize={(e, direction, ref, delta, position) => {
-        updateValueViewers({
+        updateAdvancedField(keyValue, {
           width: ref.style.width,
           height: ref.style.height,
         })
@@ -22,14 +24,8 @@ const DraggableRnd = ({viewers, updateValueViewers}) => {
 }
 const mapDispatchToProps = (dispatch) => {
   return {
-    updateValueViewers: (obj) => dispatch(updateValueViewers(obj)),
+    updateAdvancedField: (keyValue, obj) => dispatch(updateAdvancedField(keyValue, obj)),
   };
 };
 
-const mapStateToProps = (state) => {
-  return {
-    viewers: state.form.valueViewers,
-  };
-};
-
-export default connect(mapStateToProps, mapDispatchToProps)(DraggableRnd);
+export default connect(null, mapDispatchToProps)(DraggableRnd);

@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import DraggableRnd from 'components/editor/DraggableRnd';
 import AdvancedEditor from 'components/editor/AdvancedEditor';
+import {connect} from 'react-redux';
 
 const StyledCanvasWrapper = styled.div`
   display: flex;
@@ -22,7 +23,7 @@ const StyledCanvas = styled.div`
 `;
 
 const StyledWrapper = styled.div`
-  height: 100vh;
+  height: 100vh;predu
   display: flex;
   padding-top: 80px;
   background-color: #3b3b3b;
@@ -30,12 +31,13 @@ const StyledWrapper = styled.div`
 const StyledOptions = styled.div`
   flex: 1;
 `;
-const Editor = () => {
+const Editor = ({formData}) => {
   return (
     <StyledWrapper>
       <StyledCanvasWrapper>
         <StyledCanvas>
-          <DraggableRnd/>
+          <DraggableRnd keyValue="valueViewers" data={formData.valueViewers}/>
+          <DraggableRnd keyValue="valueAvatar" data={formData.valueAvatar}/>
         </StyledCanvas>
       </StyledCanvasWrapper>
       <StyledOptions>
@@ -46,4 +48,10 @@ const Editor = () => {
   )
 }
 
-export default Editor;
+const mapStateToProps = (state) => {
+  return {
+    formData: state.form,
+  };
+};
+
+export default connect(mapStateToProps, null)(Editor);

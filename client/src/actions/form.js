@@ -2,7 +2,7 @@ export const RESET_FORM = Symbol('RESET_FORM');
 export const SET_STREAMER = Symbol('SET_STREAMER');
 export const SET_STYLING_VALUE = Symbol('SET_STYLING_VALUE');
 
-export const UPDATE_VALUE_VIEWERS = Symbol('UPDATE_VALUE_VIEWERS');
+export const UPDATE_ADVANCED_FIELD = Symbol('UPDATE_ADVANCED_FIELD');
 
 export const resetBrandingPreview = () => {
   return{
@@ -18,14 +18,15 @@ export const setStreamer = (value) => {
 export const setStylingValue = (keyValue, value) => {
   return{
     type: SET_STYLING_VALUE,
-    keyValue: keyValue,
-    value: value,
+    keyValue,
+    value,
   };
 };
 
-export const updateValueViewers = (obj) => {
+export const updateAdvancedField = (keyValue, obj) => {
   return{
-    type: UPDATE_VALUE_VIEWERS,
-    obj: obj,
+    type: UPDATE_ADVANCED_FIELD,
+    keyValue,
+    obj,
   };
 };

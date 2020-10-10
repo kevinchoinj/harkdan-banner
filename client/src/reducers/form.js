@@ -2,7 +2,7 @@ import {
   SET_STREAMER,
   RESET_FORM,
   SET_STYLING_VALUE,
-  UPDATE_VALUE_VIEWERS
+  UPDATE_ADVANCED_FIELD
 } from 'actions/form';
 
 const DEFAULT_STATE={
@@ -87,11 +87,11 @@ export default(state=DEFAULT_STATE, payload)=>
         [payload.keyValue]: payload.value,
       }
     };
-  case UPDATE_VALUE_VIEWERS:
+  case UPDATE_ADVANCED_FIELD:
     return state = {
       ...state,
-      valueViewers: {
-        ...state.valueViewers,
+      [payload.keyValue]: {
+        ...state[payload.keyValue],
         ...payload.obj,
       }
     };
