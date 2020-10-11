@@ -1,9 +1,13 @@
 import {
   GET_MOUSE_POSITION,
+  FORM_SECTION_HOVERED,
+  DRAGGABLE_ITEM_HOVERED,
 } from 'actions/mouse';
 
 const DEFAULT_STATE={
   mousePosition: {xValue: 0, yValue: 0},
+  hoveredItem: null,
+  hoveredDraggable: null,
 };
 
 export default(state=DEFAULT_STATE, payload)=>
@@ -16,6 +20,16 @@ export default(state=DEFAULT_STATE, payload)=>
           xValue: payload.xValue,
           yValue: payload.yValue,
         },
+      };
+    case FORM_SECTION_HOVERED:
+      return state = {
+        ...state,
+        hoveredItem: payload.keyValue,
+      };
+    case DRAGGABLE_ITEM_HOVERED:
+      return state = {
+        ...state,
+        hoveredDraggable: payload.keyValue,
       };
     default:
       return state;

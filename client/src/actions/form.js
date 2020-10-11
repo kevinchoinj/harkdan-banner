@@ -1,5 +1,6 @@
 export const RESET_FORM = Symbol('RESET_FORM');
 export const SET_STREAMER = Symbol('SET_STREAMER');
+export const SET_PLATFORM = Symbol('SET_PLATFORM');
 
 export const UPDATE_ADVANCED_FIELD = Symbol('UPDATE_ADVANCED_FIELD');
 
@@ -8,10 +9,16 @@ export const resetBrandingPreview = () => {
     type: RESET_FORM,
   };
 };
-export const setStreamer = (value) => {
+export const setStreamer = (streamer) => {
   return{
     type: SET_STREAMER,
-    streamer: value,
+    streamer,
+  };
+};
+export const setPlatform = (platform) => {
+  return{
+    type: SET_PLATFORM,
+    platform,
   };
 };
 export const updateAdvancedField = (keyValue, obj) => {

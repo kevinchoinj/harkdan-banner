@@ -1,5 +1,6 @@
 import {
   SET_STREAMER,
+  SET_PLATFORM,
   RESET_FORM,
   UPDATE_ADVANCED_FIELD
 } from 'actions/form';
@@ -78,6 +79,11 @@ export default(state=DEFAULT_STATE, payload)=>
     return state = {
       ...state,
       streamer: payload.streamer,
+    }
+  case SET_PLATFORM:
+    return state = {
+      ...state,
+      platform: payload.platform,
     }
   case RESET_FORM:
     return state = {

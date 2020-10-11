@@ -10,10 +10,11 @@ export const StyledHeader = styled.div`
   justify-content: space-between;
   padding: 10px;
   cursor: pointer;
-  background-color: #121212;
+  background-color: #202225;
   fill: #ddd;
-  text-transform: uppercase;
   font-weight: 500;
+  transition: .2s ease;
+  background-color: ${props => props.draggableHovered && '#111'};
   svg {
     height: 16px;
   }
@@ -25,12 +26,6 @@ export const StyledRow = styled.div`
   align-items: center;
   justify-content: space-between;
   padding: 10px;
-  &:nth-child(odd) {
-    background-color: #222;
-  }
-  &:nth-child(even) {
-    background-color: #333;
-  }
   input {
     background-color: transparent;
     border: none;

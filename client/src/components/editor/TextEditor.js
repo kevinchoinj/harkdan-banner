@@ -1,9 +1,9 @@
 import React, {useState} from 'react';
 import {connect} from 'react-redux';
-import {setStreamer, updateAdvancedField} from 'actions/form';
+import {setStreamer, setPlatform} from 'actions/form';
 import {StyledWrapper, StyledHeader, StyledContent, StyledRow} from 'components/editor/styling';
 
-const TextEditor = ({platform, streamer, updateStreamer, updateField}) => {
+const TextEditor = ({platform, streamer, updateStreamer, updatePlatform}) => {
   const [expanded, setExpanded] = useState(true);
   return (
     <StyledWrapper>
@@ -23,7 +23,7 @@ const TextEditor = ({platform, streamer, updateStreamer, updateField}) => {
           </StyledRow>
           <StyledRow>
             <label>Platform</label>
-            <select value={platform} onChange={(e) => updateField('platform', e.target.value)}>
+            <select value={platform} onChange={(e) => updatePlatform( e.target.value)}>
               <option value=""></option>
               <option value="twitch">Twitch</option>
               <option value="youtube">Youtube</option>
@@ -43,7 +43,7 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
   return {
     updateStreamer: (value) => dispatch(setStreamer(value)),
-    updateField: (keyValue, obj) => dispatch(updateAdvancedField(keyValue, obj)),
+    updatePlatform: (platform) => dispatch(setPlatform(platform)),
   };
 };
 

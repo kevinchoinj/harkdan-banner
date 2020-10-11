@@ -1,6 +1,6 @@
-import React, {useState} from 'react';
+import React from 'react';
 import {createGlobalStyle, ThemeProvider} from 'styled-components';
-import {themeData, lightData} from 'data/themeData';
+import {themeData} from 'data/themeData';
 import {
   Route,
   Switch,
