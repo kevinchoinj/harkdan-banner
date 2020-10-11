@@ -4,6 +4,7 @@ import styled from 'styled-components';
 import video from 'data/somegarbo.mp4';
 import {Formik, Form, Field} from 'formik';
 import {setStreamer} from 'actions/form';
+import {history} from 'store';
 
 const Video = ({className}) => (
   <video
@@ -100,7 +101,10 @@ const Hero = ({streamer, updateStreamer}) => {
             initialValues={{
               'streamer': 'xqcow'
             }}
-            onSubmit={values => updateStreamer(values.streamer)}
+            onSubmit={values => {
+              updateStreamer(values.streamer);
+              history.push('/editor')
+            }}
             render={() => (
               <Form>
                 <Field name={`streamer`} autocomplete="off" />

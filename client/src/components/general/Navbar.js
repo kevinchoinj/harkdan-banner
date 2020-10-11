@@ -31,7 +31,7 @@ const StyledWrapper = styled.div`
   z-index: 2;
   width: 100%;
   font-size: ${props => props.theme.fontSizeNav};
-  height: 80px;
+  height: ${props => props.theme.heightNavbar};
   display: flex;
   align-items: center;
 `;
@@ -67,9 +67,11 @@ const StyledLink = styled(Link)`
   }
 `;
 const StyledLogo = styled.div`
+  display: flex;
+  align-items: center;
   img {
     max-width: 50%;
-    height: 32px;
+    height: 28px;
     object-fit: contain;
   }
 `;

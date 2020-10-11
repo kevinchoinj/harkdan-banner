@@ -13,6 +13,9 @@ const StyledContent = styled.div`
   display: flex;
   justify-content: flex-start;
   align-items: center;
+  svg {
+    height: 50%;
+  }
 `;
 const genericHandleStyling = {
   height: '10px',
@@ -27,6 +30,7 @@ const DraggableRnd = ({
   hovered,
   hoverItem,
   keyValue,
+  showBorders,
   updateField,
 }) => {
   return data.visible ? (
@@ -43,12 +47,14 @@ const DraggableRnd = ({
         })
       }}
       resizeHandleStyles = {
+        showBorders ?
         {
           bottomLeft: genericHandleStyling,
           bottomRight: genericHandleStyling,
           topLeft: genericHandleStyling,
           topRight: genericHandleStyling,
         }
+        : {}
       }
       onMouseEnter={() => hoverItem(keyValue)}
       onMouseLeave={() => hoverItem(null)}
@@ -64,6 +70,11 @@ const DraggableRnd = ({
     </Rnd>
   ) : null;
 }
+const mapStateToProps = (state) => {
+  return {
+    showBorders: state.formSettings.showBorders,
+  };
+};
 const mapDispatchToProps = (dispatch) => {
   return {
     hoverItem: (keyValue) => dispatch(draggableItemHovered(keyValue)),
@@ -71,4 +82,4 @@ const mapDispatchToProps = (dispatch) => {
   };
 };
 
-export default connect(null, mapDispatchToProps)(DraggableRnd);
+export default connect(mapStateToProps, mapDispatchToProps)(DraggableRnd);

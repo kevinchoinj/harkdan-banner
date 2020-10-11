@@ -8,6 +8,7 @@ export const themeData = {
   colorButton: '#0087cf',
   colorInputBorder: '#243961',
   fontSizeNav: '14px',
+  heightNavbar: '60px',
 };
 
 export const lightData = {
@@ -20,4 +21,5 @@ export const lightData = {
   colorButton: '#0087cf',
   colorInputBorder: '#243961',
   fontSizeNav: '14px',
+  heightNavbar: '60px',
 };

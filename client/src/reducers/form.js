@@ -6,7 +6,7 @@ import {
 } from 'actions/form';
 
 const DEFAULT_STATE={
-  streamer: null,
+  streamer: '',
   platform: 'twitch',
   valueViewers: {
     visible: true,

@@ -12,7 +12,7 @@ const StyledWrapper = styled.div`
   z-index: 2;
   font-size: ${props => props.theme.fontSizeNav};
   width: 100%;
-  height: 80px;
+  height: ${props => props.theme.heightNavbar};
   align-items: center;
 `;
 const StyledLink = styled(Link)`

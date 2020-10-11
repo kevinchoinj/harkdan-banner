@@ -6,12 +6,14 @@ import FormSettings from 'components/editor/FormSettings';
 import TextEditor from 'components/editor/TextEditor';
 import SectionEditor from 'components/editor/SectionEditor';
 import xqc from 'data/xqc.jpeg';
+import SaveButton from 'components/editor/SaveButton';
 
 const StyledCanvasWrapper = styled.div`
   display: flex;
   justify-content: center;
-  padding-top: 2rem;
   flex: 1;
+  align-items: center;
+  background-color: #262626;
 `;
 const StyledCanvas = styled.div`
   position: relative;
@@ -31,16 +33,18 @@ const StyledCanvas = styled.div`
 const StyledWrapper = styled.div`
   height: 100vh;
   display: flex;
-  padding-top: 80px;
+  padding-top: ${props => props.theme.heightNavbar};
   background-color: #3b3b3b;
 `;
 const StyledMenu = styled.div`
   flex: 0 0 325px;
   height: 100%;
-  border-right: 2px solid #666;
+  border-right: 2px solid #111;
+  background-color: #464646;
   user-select: none;
   overflow-y: auto;
   font-size: 14px;
+  padding-bottom: 6rem;
 `;
 const StyledGrid = styled.div`
   position: absolute;
@@ -203,6 +207,7 @@ const Editor = ({
             }
           </DraggableRnd>
         </StyledCanvas>
+        <SaveButton/>
       </StyledCanvasWrapper>
     </StyledWrapper>
   )

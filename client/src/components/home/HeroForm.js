@@ -17,7 +17,7 @@ const StyledWrapper = styled.div`
   transform: ${props => props.streamerSelected && 'translateX(61.8%)'};
   background-color: ${props => props.theme.colorBackgroundElevated};
   transition: .4s ease;
-  padding-top: 80px;
+  padding-top: ${props => props.theme.heightNavbar};
 `;
 const StyledContainer = styled.div`
   padding: 2rem;
