@@ -1,9 +1,9 @@
 import React from 'react';
+import {connect} from 'react-redux';
 import styled from 'styled-components';
 import video from 'data/somegarbo.mp4';
 import {Formik, Form, Field} from 'formik';
 import {setStreamer} from 'actions/form';
-import {connect} from 'react-redux';
 
 const Video = ({className}) => (
   <video

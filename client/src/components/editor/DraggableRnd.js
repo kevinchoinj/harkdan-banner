@@ -3,6 +3,11 @@ import {connect} from 'react-redux';
 import {Rnd} from 'react-rnd';
 import {updateAdvancedField} from 'actions/form';
 
+const genericHandleStyling = {
+  height: '10px',
+  width: '10px',
+  border: '1px solid rgba(255, 255, 255, .2)',
+}
 const DraggableRnd = ({children, data, keyValue, updateField}) => {
   return data.visible ? (
     <Rnd
@@ -17,6 +22,14 @@ const DraggableRnd = ({children, data, keyValue, updateField}) => {
           height: ref.style.height,
         })
       }}
+      resizeHandleStyles = {
+        {
+          bottomLeft: genericHandleStyling,
+          bottomRight: genericHandleStyling,
+          topLeft: genericHandleStyling,
+          topRight: genericHandleStyling,
+        }
+      }
     >
       {children}
     </Rnd>

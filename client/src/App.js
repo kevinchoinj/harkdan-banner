@@ -9,9 +9,7 @@ import Home from 'pages/Home';
 import Faq from 'pages/Faq';
 import Navbar from 'components/general/Navbar';
 import {routes} from 'data/routes';
-import Footer from 'components/general/Footer';
 import Editor from 'pages/Editor';
-import DarkToggle from 'components/general/DarkToggle';
 import "react-toggle/style.css"
 
 const GlobalStyle = createGlobalStyle`
@@ -29,9 +27,8 @@ const GlobalStyle = createGlobalStyle`
 `;
 
 function App() {
-  const [darkMode, setDarkMode] = useState(true);
   return (
-    <ThemeProvider theme={darkMode ? themeData : lightData}>
+    <ThemeProvider theme={themeData}>
       <GlobalStyle/>
         <Navbar/>
         <Switch>
@@ -39,8 +36,6 @@ function App() {
           <Route exact path={routes.faq} render={props => <Faq {...props}/>}/>
           <Route exact path={routes.editor} render={props => <Editor {...props}/>}/>
         </Switch>
-        <Footer/>
-        <DarkToggle setDarkMode={setDarkMode} darkMode={darkMode}/>
     </ThemeProvider>
   );
 }

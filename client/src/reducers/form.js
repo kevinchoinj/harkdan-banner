@@ -6,12 +6,14 @@ import {
 
 const DEFAULT_STATE={
   streamer: null,
+  platform: 'twitch',
   valueViewers: {
-    visible: false,
+    visible: true,
     x: 0,
     y: 0,
     width: 100,
     height: 50,
+    fontSize: '12px',
   },
   valueAvatar: {
     visible: true,
@@ -24,8 +26,8 @@ const DEFAULT_STATE={
     visible: false,
     x: 0,
     y: 0,
-    width: 100,
-    height: 50,
+    width: 250,
+    height: 150,
   },
   valueCategory: {
     visible: false,
@@ -33,6 +35,7 @@ const DEFAULT_STATE={
     y: 0,
     width: 100,
     height: 50,
+    fontSize: '12px',
   },
   valueUsername: {
     visible: true,
@@ -40,6 +43,7 @@ const DEFAULT_STATE={
     y: 0,
     width: 100,
     height: 50,
+    fontSize: '12px',
   },
   valueGame: {
     visible: false,
@@ -47,6 +51,7 @@ const DEFAULT_STATE={
     y: 0,
     width: 100,
     height: 50,
+    fontSize: '12px',
   },
   valueTimeOnline: {
     visible: false,
@@ -54,6 +59,7 @@ const DEFAULT_STATE={
     y: 0,
     width: 100,
     height: 50,
+    fontSize: '12px',
   },
   valueStreamTitle: {
     visible: false,
@@ -61,6 +67,7 @@ const DEFAULT_STATE={
     y: 0,
     width: 100,
     height: 50,
+    fontSize: '16px',
   },
 };
 

@@ -31,4 +31,12 @@ export const StyledRow = styled.div`
   &:nth-child(even) {
     background-color: #333;
   }
+  input {
+    background-color: transparent;
+    border: none;
+    border-bottom: 1px solid #ddd;
+    outline: none;
+    color: #ddd;
+    font-size: 14px;
+  }
 `;

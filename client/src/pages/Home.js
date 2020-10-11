@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import Hero from 'components/home/Hero';
+import Footer from 'components/general/Footer';
 
 const StyledWrapper = styled.div`
   display: flex;
@@ -38,6 +39,7 @@ const Home = () => {
           <br/><br/>
           {lipsum}
         </StyledDescription>
+      <Footer/>
     </StyledWrapper>
   )
 }
