@@ -1,10 +1,17 @@
 import React, {useState} from 'react';
 import {connect} from 'react-redux';
 import Toggle from 'react-toggle';
-import {showBorders} from 'actions/formSettings';
+import {toggleBorders, toggleExamples, toggleGrid} from 'actions/formSettings';
 import {StyledWrapper, StyledHeader, StyledContent, StyledRow} from 'components/editor/styling';
 
-const FormSettings = ({showBorders, toggleBorders}) => {
+const FormSettings = ({
+  showBorders,
+  showExamples,
+  showGrid,
+  toggleBorders,
+  toggleExamples,
+  toggleGrid,
+}) => {
   const [expanded, setExpanded] = useState(true);
   return (
     <StyledWrapper>
@@ -25,6 +32,20 @@ const FormSettings = ({showBorders, toggleBorders}) => {
               onChange={(e) => toggleBorders(e.target.checked)}
             />
           </StyledRow>
+          <StyledRow>
+            <label>Show Grid</label>
+            <Toggle
+              defaultChecked={showGrid}
+              onChange={(e) => toggleGrid(e.target.checked)}
+            />
+          </StyledRow>
+          <StyledRow>
+            <label>Show Examples</label>
+            <Toggle
+              defaultChecked={showExamples}
+              onChange={(e) => toggleExamples(e.target.checked)}
+            />
+          </StyledRow>
         </StyledContent>
       }
     </StyledWrapper>
@@ -33,11 +54,15 @@ const FormSettings = ({showBorders, toggleBorders}) => {
 const mapStateToProps = (state) => {
   return {
     showBorders: state.formSettings.showBorders,
+    showGrid: state.formSettings.showGrid,
+    showExamples: state.formSettings.showExamples
   };
 };
 const mapDispatchToProps = (dispatch) => {
   return {
-    toggleBorders: (bool) => dispatch(showBorders(bool)),
+    toggleBorders: (bool) => dispatch(toggleBorders(bool)),
+    toggleExamples: (bool) => dispatch(toggleExamples(bool)),
+    toggleGrid: (bool) => dispatch(toggleGrid(bool)),
   };
 };
 

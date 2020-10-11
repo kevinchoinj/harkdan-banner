@@ -1,11 +1,9 @@
 import React from 'react';
 import styled from 'styled-components';
 import DraggableRnd from 'components/editor/DraggableRnd';
-import AdvancedEditor from 'components/editor/AdvancedEditor';
 import {connect} from 'react-redux';
 import FormSettings from 'components/editor/FormSettings';
 import TextEditor from 'components/editor/TextEditor';
-import FontSizeEditor from 'components/editor/FontSizeEditor';
 import SectionEditor from 'components/editor/SectionEditor';
 import xqc from 'data/xqc.jpeg';
 
@@ -17,7 +15,6 @@ const StyledCanvasWrapper = styled.div`
 `;
 const StyledCanvas = styled.div`
   position: relative;
-  border: 1px solid #ddd;
   width: 500px;
   height: 300px;
   background-color: #111;
@@ -37,21 +34,28 @@ const StyledWrapper = styled.div`
   padding-top: 80px;
   background-color: #3b3b3b;
 `;
-const StyledDraggableContent = styled.div`
-  display: flex;
-  align-items: center;
-  height: 100%;
-  svg {
-    height: 24px;
-  }
-`;
 const StyledMenu = styled.div`
-  flex: 0 0 300px;
+  flex: 0 0 325px;
   height: 100%;
   border-right: 2px solid #666;
   user-select: none;
   overflow-y: auto;
   font-size: 14px;
+`;
+const StyledGrid = styled.div`
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(10, 1fr);
+  grid-template-rows: repeat(6, 1fr);
+  pointer-events: none;
+  z-index: 0;
+  >div {
+    border: 1px solid #222;
+  }
 `;
 
 const keyValues = [
@@ -60,12 +64,17 @@ const keyValues = [
   {keyValue: 'valueSnapshot', label: 'Current Screencap'},
   {keyValue: 'valueCategory', label: 'Category'},
   {keyValue: 'valueUsername', label: 'Username'},
-  {keyValue: 'valueGame', label: 'Current Game'},
   {keyValue: 'valueTimeOnline', label: 'Time Live'},
   {keyValue: 'valueStreamTitle', label: 'Stream Title'},
 ];
 
-const Editor = ({formData, hoveredItem, showBorders}) => {
+const Editor = ({
+  formData,
+  hoveredItem,
+  showBorders,
+  showExamples,
+  showGrid,
+}) => {
   return (
     <StyledWrapper>
       <StyledMenu>
@@ -80,20 +89,43 @@ const Editor = ({formData, hoveredItem, showBorders}) => {
       <StyledCanvasWrapper>
         <StyledCanvas showBorders={showBorders}>
 
+          {showGrid &&
+            <StyledGrid>
+              <div/><div/><div/><div/><div/>
+              <div/><div/><div/><div/><div/>
+              <div/><div/><div/><div/><div/>
+              <div/><div/><div/><div/><div/>
+              <div/><div/><div/><div/><div/>
+              <div/><div/><div/><div/><div/>
+              <div/><div/><div/><div/><div/>
+              <div/><div/><div/><div/><div/>
+              <div/><div/><div/><div/><div/>
+              <div/><div/><div/><div/><div/>
+              <div/><div/><div/><div/><div/>
+              <div/><div/><div/><div/><div/>
+            </StyledGrid>
+          }
+
           <DraggableRnd
             keyValue="valueViewers"
             data={formData.valueViewers}
             fontSize={formData.valueViewers?.fontSize}
             hovered={hoveredItem==="valueViewers"}
           >
-            <svg xmlns="http://www.w3.org/2000/svg" className="icon icon-tabler icon-tabler-user"
-            width="44" height="44"
-            viewBox="0 0 24 24" strokeWidth="1.5" stroke="#ddd"
-            fill="none" strokeLinecap="round" strokeLinejoin="round">
-              <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
-              <circle cx="12" cy="7" r="4" />
-              <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
-            </svg> 3.7k viewers
+            {showExamples ?
+              <>
+              <svg xmlns="http://www.w3.org/2000/svg" className="icon icon-tabler icon-tabler-user"
+                width="44" height="44"
+                viewBox="0 0 24 24" strokeWidth="1.5" stroke="#ddd"
+                fill="none" strokeLinecap="round" strokeLinejoin="round">
+                  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                  <circle cx="12" cy="7" r="4" />
+                  <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
+                </svg> 3.7k viewers
+              </>
+              :
+              'Viewer Count'
+            }
           </DraggableRnd>
 
           <DraggableRnd
@@ -101,7 +133,11 @@ const Editor = ({formData, hoveredItem, showBorders}) => {
             data={formData.valueAvatar}
             hovered={hoveredItem==="valueAvatar"}
           >
-            <img src={xqc} alt="avatar"/>
+            {showExamples ?
+              <img src={xqc} alt="avatar"/>
+              :
+              'Avatar'
+            }
           </DraggableRnd>
 
           <DraggableRnd
@@ -109,7 +145,14 @@ const Editor = ({formData, hoveredItem, showBorders}) => {
             data={formData.valueSnapshot}
             hovered={hoveredItem==="valueSnapshot"}
           >
-            screenshot
+            {showExamples ?
+              <img
+                src="https://static-cdn.jtvnw.net/cf_vods/d2nvs31859zcd8/65b9b6ad277fb42af75e_novaruu_39778524174_1600559337//thumb/thumb0-640x360.jpg"
+                alt="screencap"
+              />
+              :
+              'screenshot'
+            }
           </DraggableRnd>
 
           <DraggableRnd
@@ -118,7 +161,11 @@ const Editor = ({formData, hoveredItem, showBorders}) => {
             fontSize={formData.valueCategory?.fontSize}
             hovered={hoveredItem==="valueCategory"}
           >
-            Category
+            {showExamples ?
+              'Category: Just Chatting'
+              :
+              'Category'
+            }
           </DraggableRnd>
 
           <DraggableRnd
@@ -131,21 +178,16 @@ const Editor = ({formData, hoveredItem, showBorders}) => {
           </DraggableRnd>
 
           <DraggableRnd
-            keyValue="valueGame"
-            data={formData.valueGame}
-            fontSize={formData.valueGame?.fontSize}
-            hovered={hoveredItem==="valueGame"}
-          >
-            Current Game
-          </DraggableRnd>
-
-          <DraggableRnd
             keyValue="valueTimeOnline"
             data={formData.valueTimeOnline}
-            fontSize={formData.valueStreamTitle?.fontSize}
+            fontSize={formData.valueTimeOnline?.fontSize}
             hovered={hoveredItem==="valueTimeOnline"}
           >
-            Time Online
+            {showExamples ?
+              'Online: 4h 20m'
+              :
+              'Time Online'
+            }
           </DraggableRnd>
 
           <DraggableRnd
@@ -154,9 +196,12 @@ const Editor = ({formData, hoveredItem, showBorders}) => {
             fontSize={formData.valueStreamTitle?.fontSize}
             hovered={hoveredItem==="valueStreamTitle"}
           >
-              Stream Title
+            {showExamples ?
+              'Trying to get 10 wins in this game'
+              :
+              'Stream Title'
+            }
           </DraggableRnd>
-
         </StyledCanvas>
       </StyledCanvasWrapper>
     </StyledWrapper>
@@ -168,6 +213,8 @@ const mapStateToProps = (state) => {
     hoveredItem: state.mouse.hoveredItem,
     formData: state.form,
     showBorders: state.formSettings.showBorders,
+    showExamples: state.formSettings.showExamples,
+    showGrid: state.formSettings.showGrid,
   };
 };
 

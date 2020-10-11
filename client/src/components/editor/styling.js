@@ -15,6 +15,9 @@ export const StyledHeader = styled.div`
   font-weight: 500;
   transition: .2s ease;
   background-color: ${props => props.draggableHovered && '#111'};
+  &:hover {
+    background-color: #111;
+  }
   svg {
     height: 16px;
   }
@@ -34,4 +37,14 @@ export const StyledRow = styled.div`
     color: #ddd;
     font-size: 14px;
   }
+`;
+export const StyledHiddenWrapper = styled.div`
+  display: flex;
+  align-items: center;
+`;
+export const StyledHidden = styled.span`
+  font-weight: 400;
+  font-size: 12px;
+  display: flex;
+  fill: ${props => props.visible ? '#fff' : '#666'};
 `;

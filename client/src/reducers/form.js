@@ -46,14 +46,6 @@ const DEFAULT_STATE={
     height: 50,
     fontSize: '12px',
   },
-  valueGame: {
-    visible: false,
-    x: 0,
-    y: 0,
-    width: 100,
-    height: 50,
-    fontSize: '12px',
-  },
   valueTimeOnline: {
     visible: false,
     x: 0,

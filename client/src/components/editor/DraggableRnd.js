@@ -8,7 +8,7 @@ import {draggableItemHovered} from 'actions/mouse';
 const StyledContent = styled.div`
   height: 100%;
   width: 100%;
-  box-shadow: ${props => props.hovered && '0px 0px 10px 5px rgba(255,255,255,0.75)'};
+  box-shadow: ${props => props.hovered && '0px 0px 15px 5px rgba(221,221,221,0.5)'};
   transition: .2s ease;
   display: flex;
   justify-content: flex-start;
