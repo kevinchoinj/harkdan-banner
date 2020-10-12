@@ -26,6 +26,7 @@ const genericHandleStyling = {
 const DraggableRnd = ({
   children,
   data,
+  fontFamily,
   fontSize,
   hovered,
   hoverItem,
@@ -61,6 +62,7 @@ const DraggableRnd = ({
     >
       <StyledContent
         style={{
+          fontFamily: fontFamily,
           fontSize: fontSize,
         }}
         hovered={hovered}

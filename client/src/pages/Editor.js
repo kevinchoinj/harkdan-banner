@@ -7,6 +7,7 @@ import TextEditor from 'components/editor/TextEditor';
 import SectionEditor from 'components/editor/SectionEditor';
 import xqc from 'data/xqc.jpeg';
 import SaveButton from 'components/editor/SaveButton';
+import LoadFont from 'components/editor/LoadFont';
 
 const StyledCanvasWrapper = styled.div`
   display: flex;
@@ -81,12 +82,16 @@ const Editor = ({
 }) => {
   return (
     <StyledWrapper>
+      <LoadFont/>
       <StyledMenu>
         <TextEditor/>
         <FormSettings/>
         {keyValues.map((value) => {
           return (
-            <SectionEditor value={value} key={value.keyValue}/>
+            <SectionEditor
+              value={value}
+              key={value.keyValue}
+            />
           )
         })}
       </StyledMenu>
@@ -114,6 +119,7 @@ const Editor = ({
             keyValue="valueViewers"
             data={formData.valueViewers}
             fontSize={formData.valueViewers?.fontSize}
+            fontFamily={formData.valueViewers?.fontFamily}
             hovered={hoveredItem==="valueViewers"}
           >
             {showExamples ?
@@ -163,6 +169,7 @@ const Editor = ({
             keyValue="valueCategory"
             data={formData.valueCategory}
             fontSize={formData.valueCategory?.fontSize}
+            fontFamily={formData.valueCategory?.fontFamily}
             hovered={hoveredItem==="valueCategory"}
           >
             {showExamples ?
@@ -176,6 +183,7 @@ const Editor = ({
             keyValue="valueUsername"
             data={formData.valueUsername}
             fontSize={formData.valueUsername?.fontSize}
+            fontFamily={formData.valueUsername?.fontFamily}
             hovered={hoveredItem==="valueUsername"}
           >
             {formData.streamer ? <div>{formData.streamer}</div> : 'Username'}
@@ -185,6 +193,7 @@ const Editor = ({
             keyValue="valueTimeOnline"
             data={formData.valueTimeOnline}
             fontSize={formData.valueTimeOnline?.fontSize}
+            fontFamily={formData.valueTimeOnline?.fontFamily}
             hovered={hoveredItem==="valueTimeOnline"}
           >
             {showExamples ?
@@ -198,6 +207,7 @@ const Editor = ({
             keyValue="valueStreamTitle"
             data={formData.valueStreamTitle}
             fontSize={formData.valueStreamTitle?.fontSize}
+            fontFamily={formData.valueStreamTitle?.fontFamily}
             hovered={hoveredItem==="valueStreamTitle"}
           >
             {showExamples ?

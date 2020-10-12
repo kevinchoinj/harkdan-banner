@@ -3,7 +3,15 @@ import {connect} from 'react-redux';
 import {updateAdvancedField} from 'actions/form';
 import {formSectionHovered} from 'actions/mouse';
 import Toggle from 'react-toggle';
-import {StyledWrapper, StyledHeader, StyledContent, StyledRow, StyledHiddenWrapper, StyledHidden} from 'components/editor/styling';
+import {
+  StyledWrapper,
+  StyledHeader,
+  StyledContent,
+  StyledRow,
+  StyledHiddenWrapper,
+  StyledHidden,
+} from 'components/editor/styling';
+import InputFont from 'components/editor/InputFont';
 
 const SectionEditor = ({
   draggableHovered,
@@ -85,6 +93,9 @@ const SectionEditor = ({
             </StyledRow>
           ) : null
         }
+        {formData[value.keyValue]?.fontFamily ? (
+          <InputFont value={value}/>
+        ) : null}
         </StyledContent>
       }
     </StyledWrapper>
