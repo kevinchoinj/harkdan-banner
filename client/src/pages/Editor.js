@@ -8,6 +8,7 @@ import SectionEditor from 'components/editor/SectionEditor';
 import xqc from 'data/xqc.jpeg';
 import SaveButton from 'components/editor/SaveButton';
 import LoadFont from 'components/editor/LoadFont';
+import History from 'components/editor/History';
 
 const StyledCanvasWrapper = styled.div`
   display: flex;
@@ -219,6 +220,7 @@ const Editor = ({
         </StyledCanvas>
         <SaveButton/>
       </StyledCanvasWrapper>
+      <History/>
     </StyledWrapper>
   )
 }

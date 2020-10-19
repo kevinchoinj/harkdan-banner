@@ -2,8 +2,9 @@ import React, {useState} from 'react';
 import {connect} from 'react-redux';
 import {updateAdvancedField} from 'actions/form';
 import {StyledWrapper, StyledHeader, StyledContent, StyledRow} from 'components/editor/styling';
+import {actionTaken} from 'actions/history';
 
-const FontSizeEditor = ({formData, keyValues, updateField}) => {
+const FontSizeEditor = ({formData, keyValues, saveHistory, updateField}) => {
   const [expanded, setExpanded] = useState(true);
   return (
     <StyledWrapper>
@@ -25,7 +26,10 @@ const FontSizeEditor = ({formData, keyValues, updateField}) => {
                 </label>
                 <select
                   value={formData[value.keyValue]?.fontSize}
-                  onChange={(e) => updateField(value.keyValue, {fontSize: e.target.value})}
+                  onChange={(e) => {
+                    updateField(value.keyValue, {fontSize: e.target.value});
+                    saveHistory(`Font Size of ${value.keyValue} to ${e.target.value}`);
+                  }}
                 >
                   <option value="10px">10px</option>
                   <option value="12px">12px</option>
@@ -57,6 +61,7 @@ const mapStateToProps = (state) => {
 };
 const mapDispatchToProps = (dispatch) => {
   return {
+    saveHistory: (actionName) => dispatch(actionTaken(actionName)),
     updateField: (keyValue, obj) => dispatch(updateAdvancedField(keyValue, obj)),
   };
 };

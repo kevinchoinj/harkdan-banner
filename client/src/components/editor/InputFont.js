@@ -3,14 +3,16 @@ import {connect} from 'react-redux';
 import {fontOptions} from 'data/fontOptions';
 import WebFont from 'webfontloader';
 import {updateAdvancedField} from 'actions/form';
+import {actionTaken} from 'actions/history';
 import {
   StyledRow,
 } from 'components/editor/styling';
 
-const InputFont = ({formData, value, updateField}) => {
+const InputFont = ({formData, value, saveHistory, updateField}) => {
 
   const handleFontChange = (val) => {
-    updateField(value.keyValue, {fontFamily: val})
+    updateField(value.keyValue, {fontFamily: val});
+    saveHistory(`Font ${val} for ${value.keyValue}`)
     WebFont.load({
       google: {
         families: [val],
@@ -48,6 +50,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
+    saveHistory: (actionName) => dispatch(actionTaken(actionName)),
     updateField: (keyValue, obj) => dispatch(updateAdvancedField(keyValue, obj)),
   };
 };

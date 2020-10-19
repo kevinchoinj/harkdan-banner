@@ -2,8 +2,11 @@ import {
   SET_STREAMER,
   SET_PLATFORM,
   RESET_FORM,
-  UPDATE_ADVANCED_FIELD
+  UPDATE_ADVANCED_FIELD,
 } from 'actions/form';
+import {
+  RESTORE_HISTORY
+} from 'actions/history';
 
 const DEFAULT_STATE={
   streamer: '',
@@ -72,6 +75,8 @@ const DEFAULT_STATE={
 export default(state=DEFAULT_STATE, payload)=>
 {
   switch(payload.type){
+  case RESTORE_HISTORY:
+    return state = payload.form;
   case SET_STREAMER:
     return state = {
       ...state,

@@ -4,6 +4,7 @@ import {Rnd} from 'react-rnd';
 import {updateAdvancedField} from 'actions/form';
 import styled from 'styled-components';
 import {draggableItemHovered} from 'actions/mouse';
+import {actionTaken} from 'actions/history';
 
 const StyledContent = styled.div`
   height: 100%;
@@ -31,6 +32,7 @@ const DraggableRnd = ({
   hovered,
   hoverItem,
   keyValue,
+  saveHistory,
   showBorders,
   updateField,
 }) => {
@@ -40,12 +42,16 @@ const DraggableRnd = ({
       position={{ x: data.x, y: data.y }}
       onDragStop={(e, d) => {
         updateField(keyValue, { x: d.x, y: d.y });
+        saveHistory(`Moved ${keyValue}`);
       }}
       onResize={(e, direction, ref, delta, position) => {
         updateField(keyValue, {
           width: ref.style.width,
           height: ref.style.height,
-        })
+        });
+      }}
+      onResizeStop={() => {
+        saveHistory(`Resized ${keyValue}`);
       }}
       resizeHandleStyles = {
         showBorders ?
@@ -79,6 +85,7 @@ const mapStateToProps = (state) => {
 };
 const mapDispatchToProps = (dispatch) => {
   return {
+    saveHistory: (actionName) => dispatch(actionTaken(actionName)),
     hoverItem: (keyValue) => dispatch(draggableItemHovered(keyValue)),
     updateField: (keyValue, obj) => dispatch(updateAdvancedField(keyValue, obj)),
   };
