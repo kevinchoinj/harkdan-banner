@@ -16,14 +16,15 @@ export const actionTaken = (actionName) => {
   }
 };
 
-const setForm = (type, form) => {
+const setForm = (type, form, index) => {
   return {
     type,
     form,
+    index,
   }
 }
 export const restoreHistory = (index) => {
   return (dispatch, getState) => {
-    dispatch(setForm(RESTORE_HISTORY, getState().history.history[index].form))
+    dispatch(setForm(RESTORE_HISTORY, getState().history.history[index].form, index))
   }
 }

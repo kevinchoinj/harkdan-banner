@@ -10,6 +10,7 @@ import Faq from 'pages/Faq';
 import Navbar from 'components/general/Navbar';
 import {routes} from 'data/routes';
 import Editor from 'pages/Editor';
+import InitialLoad from 'components/editor/InitialLoad';
 import "react-toggle/style.css"
 
 const GlobalStyle = createGlobalStyle`
@@ -55,6 +56,7 @@ const GlobalStyle = createGlobalStyle`
 function App() {
   return (
     <ThemeProvider theme={themeData}>
+      <InitialLoad/>
       <GlobalStyle/>
         <Navbar/>
         <Switch>
