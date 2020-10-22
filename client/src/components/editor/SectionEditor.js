@@ -119,6 +119,26 @@ const SectionEditor = ({
             </StyledRow>
           ) : null
         }
+          {formData[value.keyValue]?.fontWeight ? (
+            <StyledRow>
+              <label>
+                Font Weight
+              </label>
+              <select
+                value={formData[value.keyValue]?.fontWeight}
+                onChange={(e) => {
+                  updateField(value.keyValue, {fontWeight: e.target.value});
+                  saveHistory(`Font Weight ${value.label} to ${e.target.value}`);
+                }}
+              >
+                <option value="400">400</option>
+                <option value="500">500</option>
+                <option value="600">600</option>
+                <option value="700">700</option>
+              </select>
+            </StyledRow>
+          ) : null
+        }
         {formData[value.keyValue]?.color ? (
           <StyledRow>
             <label>Color</label>

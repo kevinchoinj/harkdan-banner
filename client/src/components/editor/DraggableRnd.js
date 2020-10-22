@@ -30,6 +30,7 @@ const DraggableRnd = ({
   data,
   fontFamily,
   fontSize,
+  fontWeight,
   hovered,
   hoverItem,
   keyValue,
@@ -72,6 +73,7 @@ const DraggableRnd = ({
         style={{
           fontFamily: fontFamily,
           fontSize: fontSize,
+          fontWeight: fontWeight,
           color: color,
         }}
         hovered={hovered}

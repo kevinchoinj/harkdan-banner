@@ -19,6 +19,7 @@ const DEFAULT_STATE={
     height: 50,
     fontSize: '12px',
     fontFamily: 'Open Sans',
+    fontWeight: '400',
     color: '#fff',
   },
   valueAvatar: {
@@ -43,16 +44,18 @@ const DEFAULT_STATE={
     height: 50,
     fontSize: '12px',
     fontFamily: 'Open Sans',
+    fontWeight: '400',
     color: '#fff',
   },
   valueUsername: {
     visible: true,
     x: 0,
     y: 0,
-    width: 100,
+    width: 200,
     height: 50,
-    fontSize: '12px',
+    fontSize: '36px',
     fontFamily: 'Open Sans',
+    fontWeight: '700',
     color: '#fff',
   },
   valueTimeOnline: {
@@ -63,6 +66,7 @@ const DEFAULT_STATE={
     height: 50,
     fontSize: '12px',
     fontFamily: 'Open Sans',
+    fontWeight: '400',
     color: '#fff',
   },
   valueStreamTitle: {
@@ -73,6 +77,7 @@ const DEFAULT_STATE={
     height: 50,
     fontSize: '16px',
     fontFamily: 'Open Sans',
+    fontWeight: '400',
     color: '#fff',
   },
 };

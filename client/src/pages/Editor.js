@@ -124,6 +124,7 @@ const Editor = ({
             color={formData.valueViewers?.color}
             fontSize={formData.valueViewers?.fontSize}
             fontFamily={formData.valueViewers?.fontFamily}
+            fontWeight={formData.valueViewers?.fontWeight}
             hovered={hoveredItem==="valueViewers"}
           >
             {showExamples ?
@@ -178,6 +179,7 @@ const Editor = ({
             color={formData.valueCategory?.color}
             fontSize={formData.valueCategory?.fontSize}
             fontFamily={formData.valueCategory?.fontFamily}
+            fontWeight={formData.valueCategory?.fontWeight}
             hovered={hoveredItem==="valueCategory"}
           >
             {showExamples ?
@@ -194,6 +196,7 @@ const Editor = ({
             color={formData.valueUsername?.color}
             fontSize={formData.valueUsername?.fontSize}
             fontFamily={formData.valueUsername?.fontFamily}
+            fontWeight={formData.valueUsername?.fontWeight}
             hovered={hoveredItem==="valueUsername"}
           >
             {formData.streamer ? <div>{formData.streamer}</div> : 'Username'}
@@ -206,6 +209,7 @@ const Editor = ({
             color={formData.valueTimeOnline?.color}
             fontSize={formData.valueTimeOnline?.fontSize}
             fontFamily={formData.valueTimeOnline?.fontFamily}
+            fontWeight={formData.valueTimeOnline?.fontWeight}
             hovered={hoveredItem==="valueTimeOnline"}
           >
             {showExamples ?
@@ -222,6 +226,7 @@ const Editor = ({
             color={formData.valueStreamTitle?.color}
             fontSize={formData.valueStreamTitle?.fontSize}
             fontFamily={formData.valueStreamTitle?.fontFamily}
+            fontWeight={formData.valueStreamTitle?.fontWeight}
             hovered={hoveredItem==="valueStreamTitle"}
           >
             {showExamples ?
