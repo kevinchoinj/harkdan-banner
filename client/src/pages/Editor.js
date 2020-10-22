@@ -16,6 +16,7 @@ const StyledCanvasWrapper = styled.div`
   flex: 1;
   align-items: center;
   background-color: #262626;
+  overflow: hidden;
 `;
 const StyledCanvas = styled.div`
   position: relative;
@@ -120,6 +121,7 @@ const Editor = ({
             label="Current View Count"
             keyValue="valueViewers"
             data={formData.valueViewers}
+            color={formData.valueViewers?.color}
             fontSize={formData.valueViewers?.fontSize}
             fontFamily={formData.valueViewers?.fontFamily}
             hovered={hoveredItem==="valueViewers"}
@@ -173,6 +175,7 @@ const Editor = ({
             label="Category"
             keyValue="valueCategory"
             data={formData.valueCategory}
+            color={formData.valueCategory?.color}
             fontSize={formData.valueCategory?.fontSize}
             fontFamily={formData.valueCategory?.fontFamily}
             hovered={hoveredItem==="valueCategory"}
@@ -188,6 +191,7 @@ const Editor = ({
             label="Username"
             keyValue="valueUsername"
             data={formData.valueUsername}
+            color={formData.valueUsername?.color}
             fontSize={formData.valueUsername?.fontSize}
             fontFamily={formData.valueUsername?.fontFamily}
             hovered={hoveredItem==="valueUsername"}
@@ -199,6 +203,7 @@ const Editor = ({
             label="Time Live"
             keyValue="valueTimeOnline"
             data={formData.valueTimeOnline}
+            color={formData.valueTimeOnline?.color}
             fontSize={formData.valueTimeOnline?.fontSize}
             fontFamily={formData.valueTimeOnline?.fontFamily}
             hovered={hoveredItem==="valueTimeOnline"}
@@ -214,6 +219,7 @@ const Editor = ({
             label="Stream Title"
             keyValue="valueStreamTitle"
             data={formData.valueStreamTitle}
+            color={formData.valueStreamTitle?.color}
             fontSize={formData.valueStreamTitle?.fontSize}
             fontFamily={formData.valueStreamTitle?.fontFamily}
             hovered={hoveredItem==="valueStreamTitle"}

@@ -19,6 +19,7 @@ const DEFAULT_STATE={
     height: 50,
     fontSize: '12px',
     fontFamily: 'Open Sans',
+    color: '#fff',
   },
   valueAvatar: {
     visible: true,
@@ -42,6 +43,7 @@ const DEFAULT_STATE={
     height: 50,
     fontSize: '12px',
     fontFamily: 'Open Sans',
+    color: '#fff',
   },
   valueUsername: {
     visible: true,
@@ -51,6 +53,7 @@ const DEFAULT_STATE={
     height: 50,
     fontSize: '12px',
     fontFamily: 'Open Sans',
+    color: '#fff',
   },
   valueTimeOnline: {
     visible: false,
@@ -60,6 +63,7 @@ const DEFAULT_STATE={
     height: 50,
     fontSize: '12px',
     fontFamily: 'Open Sans',
+    color: '#fff',
   },
   valueStreamTitle: {
     visible: false,
@@ -69,6 +73,7 @@ const DEFAULT_STATE={
     height: 50,
     fontSize: '16px',
     fontFamily: 'Open Sans',
+    color: '#fff',
   },
 };
 

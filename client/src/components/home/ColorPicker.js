@@ -17,7 +17,7 @@ const StyledButton = styled.div`
 const StyledContainer = styled.div`
   position: absolute;
   top: 50%;
-  left: 50%;
+  right: 50%;
   z-index: 2;
 `;
 

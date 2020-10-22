@@ -26,6 +26,7 @@ const genericHandleStyling = {
 
 const DraggableRnd = ({
   children,
+  color,
   data,
   fontFamily,
   fontSize,
@@ -71,6 +72,7 @@ const DraggableRnd = ({
         style={{
           fontFamily: fontFamily,
           fontSize: fontSize,
+          color: color,
         }}
         hovered={hovered}
       >

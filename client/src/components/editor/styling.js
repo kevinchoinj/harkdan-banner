@@ -5,7 +5,7 @@ export const StyledWrapper = styled.div`
   margin-left: 3px;
   margin-right: 3px;
   border-radius: 12px;
-  overflow: hidden;
+  overflow: visible;
 `;
 export const StyledHeader = styled.div`
   height: 40px;
