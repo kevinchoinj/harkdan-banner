@@ -12,11 +12,13 @@ import {
   StyledHidden,
 } from 'components/editor/styling';
 import InputFont from 'components/editor/InputFont';
+import {actionTaken} from 'actions/history';
 
 const SectionEditor = ({
   draggableHovered,
   formData,
   hoverItem,
+  saveHistory,
   updateField,
   value,
 }) => {
@@ -24,9 +26,11 @@ const SectionEditor = ({
   const handleChange = (e, keyValue) => {
     if (e.target.checked) {
       updateField(keyValue, {x: 0, y: 0, visible: e.target.checked});
+      saveHistory(`Show ${keyValue}`);
     }
     else {
       updateField(keyValue, {visible: e.target.checked});
+      saveHistory(`Hide ${keyValue}`);
     }
   }
   return (
@@ -110,6 +114,7 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
   return {
     hoverItem: (keyValue) => dispatch(formSectionHovered(keyValue)),
+    saveHistory: (actionName) => dispatch(actionTaken(actionName)),
     updateField: (keyValue, obj) => dispatch(updateAdvancedField(keyValue, obj)),
   };
 };

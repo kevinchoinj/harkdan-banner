@@ -4,7 +4,11 @@ import Toggle from 'react-toggle';
 import {updateAdvancedField} from 'actions/form';
 import {StyledWrapper, StyledHeader, StyledContent, StyledRow} from 'components/editor/styling';
 
-const AdvancedEditor = ({formData, keyValues, updateField}) => {
+const AdvancedEditor = ({
+  formData,
+  keyValues,
+  updateField,
+}) => {
   const [expanded, setExpanded] = useState(true);
   const handleChange = (e, keyValue) => {
     if (e.target.checked) {
