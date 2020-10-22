@@ -23,14 +23,14 @@ const SectionEditor = ({
   value,
 }) => {
   const [expanded, setExpanded] = useState(false);
-  const handleChange = (e, keyValue) => {
+  const handleChange = (e, keyValue, label) => {
     if (e.target.checked) {
       updateField(keyValue, {x: 0, y: 0, visible: e.target.checked});
-      saveHistory(`Show ${keyValue}`);
+      saveHistory(`Show ${label}`);
     }
     else {
       updateField(keyValue, {visible: e.target.checked});
-      saveHistory(`Hide ${keyValue}`);
+      saveHistory(`Hide ${label}`);
     }
   }
   return (
@@ -67,7 +67,7 @@ const SectionEditor = ({
           </label>
           <Toggle
             defaultChecked={formData[value.keyValue]?.visible}
-            onChange={(e) => handleChange(e, value.keyValue)}
+            onChange={(e) => handleChange(e, value.keyValue, value.label)}
           />
         </StyledRow>
           {formData[value.keyValue]?.fontSize ? (
@@ -77,7 +77,10 @@ const SectionEditor = ({
               </label>
               <select
                 value={formData[value.keyValue]?.fontSize}
-                onChange={(e) => updateField(value.keyValue, {fontSize: e.target.value})}
+                onChange={(e) => {
+                  updateField(value.keyValue, {fontSize: e.target.value});
+                  saveHistory(`Font Size ${value.label} to ${e.target.value}`);
+                }}
               >
                 <option value="10px">10px</option>
                 <option value="12px">12px</option>

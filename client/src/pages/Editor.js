@@ -117,6 +117,7 @@ const Editor = ({
           }
 
           <DraggableRnd
+            label="Current View Count"
             keyValue="valueViewers"
             data={formData.valueViewers}
             fontSize={formData.valueViewers?.fontSize}
@@ -140,6 +141,7 @@ const Editor = ({
           </DraggableRnd>
 
           <DraggableRnd
+            label="Profile Picture"
             keyValue="valueAvatar"
             data={formData.valueAvatar}
             hovered={hoveredItem==="valueAvatar"}
@@ -152,6 +154,7 @@ const Editor = ({
           </DraggableRnd>
 
           <DraggableRnd
+            label="Current Screencap"
             keyValue="valueSnapshot"
             data={formData.valueSnapshot}
             hovered={hoveredItem==="valueSnapshot"}
@@ -167,6 +170,7 @@ const Editor = ({
           </DraggableRnd>
 
           <DraggableRnd
+            label="Category"
             keyValue="valueCategory"
             data={formData.valueCategory}
             fontSize={formData.valueCategory?.fontSize}
@@ -181,6 +185,7 @@ const Editor = ({
           </DraggableRnd>
 
           <DraggableRnd
+            label="Username"
             keyValue="valueUsername"
             data={formData.valueUsername}
             fontSize={formData.valueUsername?.fontSize}
@@ -191,6 +196,7 @@ const Editor = ({
           </DraggableRnd>
 
           <DraggableRnd
+            label="Time Live"
             keyValue="valueTimeOnline"
             data={formData.valueTimeOnline}
             fontSize={formData.valueTimeOnline?.fontSize}
@@ -205,6 +211,7 @@ const Editor = ({
           </DraggableRnd>
 
           <DraggableRnd
+            label="Stream Title"
             keyValue="valueStreamTitle"
             data={formData.valueStreamTitle}
             fontSize={formData.valueStreamTitle?.fontSize}

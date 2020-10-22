@@ -7,7 +7,7 @@ const StyledWrapper = styled.div`
   position: fixed;
   top: 80px;
   right: 200px;
-  width: 200px;
+  width: 225px;
   font-size: 12px;
   color: #ddd;
   min-height: 300px;
@@ -29,7 +29,7 @@ const StyledOption = styled.div`
 `;
 const StyledTitle = styled.div`
   font-weight: 500;
-  cursor: default;
+  cursor: move;
   font-size: 13px;
   border: 1px
   margin-bottom: 6px;

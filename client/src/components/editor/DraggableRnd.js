@@ -32,6 +32,7 @@ const DraggableRnd = ({
   hovered,
   hoverItem,
   keyValue,
+  label,
   saveHistory,
   showBorders,
   updateField,
@@ -42,16 +43,16 @@ const DraggableRnd = ({
       position={{ x: data.x, y: data.y }}
       onDragStop={(e, d) => {
         updateField(keyValue, { x: d.x, y: d.y });
-        saveHistory(`Moved ${keyValue}`);
+        saveHistory(`Moved ${label}`);
       }}
-      onResize={(e, direction, ref, delta, position) => {
+      onResize={(e, direction, ref) => {
         updateField(keyValue, {
           width: ref.style.width,
           height: ref.style.height,
         });
       }}
       onResizeStop={() => {
-        saveHistory(`Resized ${keyValue}`);
+        saveHistory(`Resized ${label}`);
       }}
       resizeHandleStyles = {
         showBorders ?
