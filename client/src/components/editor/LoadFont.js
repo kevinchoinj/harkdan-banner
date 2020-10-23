@@ -10,10 +10,15 @@ const LoadFont = ({formData}) => {
         google: {
           families: uniq([
             formData.valueViewers.fontFamily,
+            `${formData.valueViewers.fontFamily}:bold`,
             formData.valueCategory.fontFamily,
+            `${formData.valueCategory.fontFamily}:bold`,
             formData.valueUsername.fontFamily,
+            `${formData.valueUsername.fontFamily}:bold`,
             formData.valueTimeOnline.fontFamily,
+            `${formData.valueTimeOnline.fontFamily}:bold`,
             formData.valueStreamTitle.fontFamily,
+            `${formData.valueStreamTitle.fontFamily}:bold`,
           ]).filter(val => val)
         }
       });
