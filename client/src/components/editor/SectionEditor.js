@@ -89,74 +89,125 @@ const SectionEditor = ({
             onChange={(e) => handleChange(e, value.keyValue, value.label)}
           />
         </StyledRow>
-          {formData[value.keyValue]?.fontSize ? (
-            <StyledRow>
-              <label>
-                Font Size
-              </label>
-              <select
-                value={formData[value.keyValue]?.fontSize}
-                onChange={(e) => {
-                  updateField(value.keyValue, {fontSize: e.target.value});
-                  saveHistory(`Font Size ${value.label} to ${e.target.value}`);
-                }}
-              >
-                <option value="10px">10px</option>
-                <option value="12px">12px</option>
-                <option value="13px">13px</option>
-                <option value="14px">14px</option>
-                <option value="16px">16px</option>
-                <option value="18px">18px</option>
-                <option value="20px">20px</option>
-                <option value="24px">24px</option>
-                <option value="28px">28px</option>
-                <option value="32px">32px</option>
-                <option value="36px">36px</option>
-                <option value="42px">42px</option>
-                <option value="48px">48px</option>
-                <option value="54px">54px</option>
-                <option value="64px">64px</option>
-                <option value="84px">84px</option>
-              </select>
-            </StyledRow>
-          ) : null
+        {formData[value.keyValue]?.fontSize ? (
+          <StyledRow>
+            <label>
+              Font Size
+            </label>
+            <select
+              value={formData[value.keyValue]?.fontSize}
+              onChange={(e) => {
+                updateField(value.keyValue, {fontSize: e.target.value});
+                saveHistory(`Font Size ${value.label} to ${e.target.value}`);
+              }}
+            >
+              <option value="10px">10px</option>
+              <option value="12px">12px</option>
+              <option value="13px">13px</option>
+              <option value="14px">14px</option>
+              <option value="16px">16px</option>
+              <option value="18px">18px</option>
+              <option value="20px">20px</option>
+              <option value="24px">24px</option>
+              <option value="28px">28px</option>
+              <option value="32px">32px</option>
+              <option value="36px">36px</option>
+              <option value="42px">42px</option>
+              <option value="48px">48px</option>
+              <option value="54px">54px</option>
+              <option value="64px">64px</option>
+              <option value="84px">84px</option>
+            </select>
+          </StyledRow>
+        ) : null
+      }
+      {formData[value.keyValue]?.fontWeight ? (
+        <StyledRow>
+          <label>
+            Font Weight
+          </label>
+          <select
+            value={formData[value.keyValue]?.fontWeight}
+            onChange={(e) => {
+              updateField(value.keyValue, {fontWeight: e.target.value});
+              saveHistory(`Font Weight ${value.label} to ${e.target.value}`);
+            }}
+          >
+            <option value="400">400</option>
+            <option value="500">500</option>
+            <option value="600">600</option>
+            <option value="700">700</option>
+          </select>
+        </StyledRow>) : null
+      }
+      {formData[value.keyValue]?.color ? (
+        <StyledRow>
+          <label>Color</label>
+          <ColorPicker
+            color={formData[value.keyValue]?.color}
+            onChangeComplete={(e) => {
+              updateField(value.keyValue, {color: e.hex})
+              saveHistory(`Color of ${value.label} to ${e.hex}`);
+            }}
+          />
+        </StyledRow>
+      ) : null}
+
+      {formData[value.keyValue]?.fontFamily ? (
+        <InputFont value={value}/>
+      ) : null}
+
+      {formData[value.keyValue]?.showTextShadow !== null &&
+        <StyledRow>
+          <label>
+            Text Shadow
+          </label>
+          <Toggle
+            checked={formData[value.keyValue]?.showTextShadow}
+            onChange={(e) => {
+              updateField(value.keyValue, {showTextShadow: e.target.checked})
+              saveHistory(`Toggled Text Shadow of ${value.label}`);
+            }}
+          />
+        </StyledRow>
         }
-          {formData[value.keyValue]?.fontWeight ? (
-            <StyledRow>
-              <label>
-                Font Weight
-              </label>
-              <select
-                value={formData[value.keyValue]?.fontWeight}
-                onChange={(e) => {
-                  updateField(value.keyValue, {fontWeight: e.target.value});
-                  saveHistory(`Font Weight ${value.label} to ${e.target.value}`);
-                }}
-              >
-                <option value="400">400</option>
-                <option value="500">500</option>
-                <option value="600">600</option>
-                <option value="700">700</option>
-              </select>
-            </StyledRow>
-          ) : null
-        }
-        {formData[value.keyValue]?.color ? (
+
+        {formData[value.keyValue]?.showTextShadow &&
+          <StyledRow>
+            <label>
+              Text Shadow Blur
+            </label>
+            <select
+              value={formData[value.keyValue]?.fontWeight}
+              onChange={(e) => {
+                updateField(value.keyValue, {textShadowWeight: e.target.value});
+                saveHistory(`Text Shadow Blur ${value.label} to ${e.target.value}`);
+              }}
+            >
+              <option value="4px">4px</option>
+              <option value="8px">8px</option>
+              <option value="12px">12px</option>
+              <option value="16px">16px</option>
+              <option value="20px">20px</option>
+              <option value="24px">24px</option>
+              <option value="28px">28px</option>
+              <option value="32px">32px</option>
+            </select>
+          </StyledRow>
+          }
+        {formData[value.keyValue]?.showTextShadow && (
           <StyledRow>
             <label>Color</label>
             <ColorPicker
-              color={formData[value.keyValue]?.color}
+              color={formData[value.keyValue]?.textShadowColor}
               onChangeComplete={(e) => {
-                updateField(value.keyValue, {color: e.hex})
-                saveHistory(`Color of ${value.label} to ${e.hex}`);
+                updateField(value.keyValue, {textShadowColor: e.hex})
+                saveHistory(`Text Shadow Color of ${value.label} to ${e.hex}`);
               }}
             />
           </StyledRow>
-        ) : null}
+        )}
 
-        {formData[value.keyValue]?.fontFamily ? (
-          <InputFont value={value}/>
-        ) : null}
         </StyledContent>
       }
     </StyledWrapper>

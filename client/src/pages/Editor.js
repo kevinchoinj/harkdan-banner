@@ -50,7 +50,7 @@ const StyledMenu = styled.div`
   user-select: none;
   overflow-y: auto;
   font-size: 14px;
-  padding-bottom: 6rem;
+  padding-bottom: 20rem;
 `;
 const StyledGrid = styled.div`
   position: absolute;
@@ -128,10 +128,6 @@ const Editor = ({
             label="Current View Count"
             keyValue="valueViewers"
             data={formData.valueViewers}
-            color={formData.valueViewers?.color}
-            fontSize={formData.valueViewers?.fontSize}
-            fontFamily={formData.valueViewers?.fontFamily}
-            fontWeight={formData.valueViewers?.fontWeight}
             hovered={hoveredItem==="valueViewers"}
           >
             {showExamples ?
@@ -183,10 +179,6 @@ const Editor = ({
             label="Category"
             keyValue="valueCategory"
             data={formData.valueCategory}
-            color={formData.valueCategory?.color}
-            fontSize={formData.valueCategory?.fontSize}
-            fontFamily={formData.valueCategory?.fontFamily}
-            fontWeight={formData.valueCategory?.fontWeight}
             hovered={hoveredItem==="valueCategory"}
           >
             {showExamples ?
@@ -200,10 +192,6 @@ const Editor = ({
             label="Username"
             keyValue="valueUsername"
             data={formData.valueUsername}
-            color={formData.valueUsername?.color}
-            fontSize={formData.valueUsername?.fontSize}
-            fontFamily={formData.valueUsername?.fontFamily}
-            fontWeight={formData.valueUsername?.fontWeight}
             hovered={hoveredItem==="valueUsername"}
           >
             {formData.streamer ? <div>{formData.streamer}</div> : 'Username'}
@@ -213,10 +201,6 @@ const Editor = ({
             label="Time Live"
             keyValue="valueTimeOnline"
             data={formData.valueTimeOnline}
-            color={formData.valueTimeOnline?.color}
-            fontSize={formData.valueTimeOnline?.fontSize}
-            fontFamily={formData.valueTimeOnline?.fontFamily}
-            fontWeight={formData.valueTimeOnline?.fontWeight}
             hovered={hoveredItem==="valueTimeOnline"}
           >
             {showExamples ?
@@ -230,10 +214,6 @@ const Editor = ({
             label="Stream Title"
             keyValue="valueStreamTitle"
             data={formData.valueStreamTitle}
-            color={formData.valueStreamTitle?.color}
-            fontSize={formData.valueStreamTitle?.fontSize}
-            fontFamily={formData.valueStreamTitle?.fontFamily}
-            fontWeight={formData.valueStreamTitle?.fontWeight}
             hovered={hoveredItem==="valueStreamTitle"}
           >
             {showExamples ?

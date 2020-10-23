@@ -4,6 +4,7 @@ import styled from 'styled-components';
 import {showBackgroundChooser} from 'actions/formSettings';
 import {setBackground} from 'actions/form';
 import {templatesList} from 'data/templatesList';
+import {actionTaken} from 'actions/history';
 
 const StyledWrapper = styled.div`
   position: fixed;
@@ -73,7 +74,7 @@ const paginate = (array, page_size, page_number) => {
   return array.slice(page_number * page_size, (page_number + 1) * page_size);
 };
 
-const ImageChooserWindow = ({backgroundChooserVisible, setBackground, toggleWindow}) => {
+const ImageChooserWindow = ({backgroundChooserVisible, saveHistory, setBackground, toggleWindow}) => {
   const [position, setPosition] = useState({
     x: 50,
     y: 50,
@@ -151,7 +152,13 @@ const ImageChooserWindow = ({backgroundChooserVisible, setBackground, toggleWind
       </StyledPagination>
       {paginatedTemplatesList.map((value) => {
         return (
-          <StyledOption onClick={() => setBackground(value.keyValue)} key={value.keyValue}>
+          <StyledOption
+            onClick={() => {
+              setBackground(value.keyValue);
+              saveHistory(`Background changed`);
+            }}
+            key={value.keyValue}
+          >
             <img src={value.image}/>
           </StyledOption>
         )
@@ -167,6 +174,7 @@ const mapStateToProps = (state) => {
 };
 const mapDispatchToProps = (dispatch) => {
   return {
+    saveHistory: (actionName) => dispatch(actionTaken(actionName)),
     setBackground: (background) => dispatch(setBackground(background)),
     toggleWindow: (index) => dispatch(showBackgroundChooser(index)),
   };

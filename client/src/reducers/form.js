@@ -23,6 +23,9 @@ const DEFAULT_STATE={
     fontFamily: 'Open Sans',
     fontWeight: '400',
     color: '#fff',
+    showTextShadow: false,
+    textShadowWeight: '8px',
+    textShadowColor: '#dddddd',
   },
   valueAvatar: {
     visible: true,
@@ -48,6 +51,9 @@ const DEFAULT_STATE={
     fontFamily: 'Open Sans',
     fontWeight: '400',
     color: '#fff',
+    showTextShadow: false,
+    textShadowWeight: '8px',
+    textShadowColor: '#dddddd',
   },
   valueUsername: {
     visible: true,
@@ -59,6 +65,9 @@ const DEFAULT_STATE={
     fontFamily: 'Open Sans',
     fontWeight: '700',
     color: '#fff',
+    showTextShadow: false,
+    textShadowWeight: '8px',
+    textShadowColor: '#dddddd',
   },
   valueTimeOnline: {
     visible: false,
@@ -70,6 +79,9 @@ const DEFAULT_STATE={
     fontFamily: 'Open Sans',
     fontWeight: '400',
     color: '#fff',
+    showTextShadow: false,
+    textShadowWeight: '8px',
+    textShadowColor: '#dddddd',
   },
   valueStreamTitle: {
     visible: false,
@@ -81,6 +93,9 @@ const DEFAULT_STATE={
     fontFamily: 'Open Sans',
     fontWeight: '400',
     color: '#fff',
+    showTextShadow: false,
+    textShadowWeight: '8px',
+    textShadowColor: '#dddddd',
   },
 };
 
