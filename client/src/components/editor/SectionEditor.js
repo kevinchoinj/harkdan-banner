@@ -115,6 +115,8 @@ const SectionEditor = ({
                 <option value="42px">42px</option>
                 <option value="48px">48px</option>
                 <option value="54px">54px</option>
+                <option value="64px">64px</option>
+                <option value="84px">84px</option>
               </select>
             </StyledRow>
           ) : null

@@ -2,6 +2,7 @@ import React, {useState} from 'react';
 import {connect} from 'react-redux';
 import {setStreamer, setPlatform} from 'actions/form';
 import {StyledWrapper, StyledHeader, StyledContent, StyledRow} from 'components/editor/styling';
+import ImageChooser from 'components/editor/ImageChooser';
 
 const TextEditor = ({platform, streamer, updateStreamer, updatePlatform}) => {
   const [expanded, setExpanded] = useState(true);
@@ -28,6 +29,10 @@ const TextEditor = ({platform, streamer, updateStreamer, updatePlatform}) => {
               <option value="twitch">Twitch</option>
               <option value="youtube">Youtube</option>
             </select>
+          </StyledRow>
+          <StyledRow>
+            <label>Background</label>
+            <ImageChooser/>
           </StyledRow>
         </StyledContent>
       }

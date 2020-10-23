@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useMemo} from 'react';
 import styled from 'styled-components';
 import DraggableRnd from 'components/editor/DraggableRnd';
 import {connect} from 'react-redux';
@@ -9,6 +9,9 @@ import xqc from 'data/xqc.jpeg';
 import SaveButton from 'components/editor/SaveButton';
 import LoadFont from 'components/editor/LoadFont';
 import History from 'components/editor/History';
+import {templatesList} from 'data/templatesList';
+import {find, propEq} from 'ramda';
+import ImageChooserWindow from 'components/editor/ImageChooserWindow';
 
 const StyledCanvasWrapper = styled.div`
   display: flex;
@@ -20,9 +23,9 @@ const StyledCanvasWrapper = styled.div`
 `;
 const StyledCanvas = styled.div`
   position: relative;
-  width: 500px;
-  height: 300px;
-  background-color: #111;
+  width: 480px;
+  height: 270px;
+  background-size: cover;
   > div {
     border: ${props => props.showBorders ? '1px solid rgba(255, 255, 255, .2)' : '1px solid transparent'};
   }
@@ -82,6 +85,10 @@ const Editor = ({
   showExamples,
   showGrid,
 }) => {
+  const backgroundImage = useMemo(() => {
+    const imageObject = find(propEq('keyValue', formData.background))(templatesList);
+    return imageObject.image;
+  }, [formData]);
   return (
     <StyledWrapper>
       <LoadFont/>
@@ -98,7 +105,7 @@ const Editor = ({
         })}
       </StyledMenu>
       <StyledCanvasWrapper>
-        <StyledCanvas showBorders={showBorders}>
+        <StyledCanvas showBorders={showBorders} style={{backgroundImage: `url(${backgroundImage})`}}>
 
           {showGrid &&
             <StyledGrid>
@@ -239,6 +246,7 @@ const Editor = ({
         <SaveButton/>
       </StyledCanvasWrapper>
       <History/>
+      <ImageChooserWindow/>
     </StyledWrapper>
   )
 }

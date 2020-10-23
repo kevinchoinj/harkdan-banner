@@ -1,4 +1,5 @@
 import {
+  SET_BACKGROUND,
   SET_STREAMER,
   SET_PLATFORM,
   RESET_FORM,
@@ -11,6 +12,7 @@ import {
 const DEFAULT_STATE={
   streamer: '',
   platform: 'twitch',
+  background: 1,
   valueViewers: {
     visible: true,
     x: 0,
@@ -87,6 +89,11 @@ export default(state=DEFAULT_STATE, payload)=>
   switch(payload.type){
   case RESTORE_HISTORY:
     return state = payload.form;
+  case SET_BACKGROUND:
+    return state = {
+      ...state,
+      background: payload.background,
+    }
   case SET_STREAMER:
     return state = {
       ...state,

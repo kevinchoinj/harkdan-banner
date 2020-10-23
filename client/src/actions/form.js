@@ -1,6 +1,7 @@
 export const RESET_FORM = Symbol('RESET_FORM');
 export const SET_STREAMER = Symbol('SET_STREAMER');
 export const SET_PLATFORM = Symbol('SET_PLATFORM');
+export const SET_BACKGROUND = Symbol('SET_BACKGROUND');
 
 export const UPDATE_ADVANCED_FIELD = Symbol('UPDATE_ADVANCED_FIELD');
 
@@ -19,6 +20,12 @@ export const setPlatform = (platform) => {
   return{
     type: SET_PLATFORM,
     platform,
+  };
+};
+export const setBackground = (background) => {
+  return{
+    type: SET_BACKGROUND,
+    background,
   };
 };
 export const updateAdvancedField = (keyValue, obj) => {
