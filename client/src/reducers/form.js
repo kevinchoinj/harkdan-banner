@@ -1,5 +1,6 @@
 import {
   SET_BACKGROUND,
+  SET_BORDER_RADIUS,
   SET_STREAMER,
   SET_PLATFORM,
   RESET_FORM,
@@ -13,6 +14,7 @@ const DEFAULT_STATE={
   streamer: '',
   platform: 'twitch',
   background: 1,
+  borderRadius: '0px',
   valueViewers: {
     visible: true,
     x: 0,
@@ -59,15 +61,15 @@ const DEFAULT_STATE={
     visible: true,
     x: 0,
     y: 0,
-    width: 200,
-    height: 50,
-    fontSize: '36px',
-    fontFamily: 'Open Sans',
+    width: 480,
+    height: 100,
+    fontSize: '64px',
+    fontFamily: 'Poppins',
     fontWeight: '700',
     color: '#fff',
-    showTextShadow: false,
-    textShadowWeight: '8px',
-    textShadowColor: '#dddddd',
+    showTextShadow: true,
+    textShadowWeight: '16px',
+    textShadowColor: '#666666',
   },
   valueTimeOnline: {
     visible: false,
@@ -108,6 +110,11 @@ export default(state=DEFAULT_STATE, payload)=>
     return state = {
       ...state,
       background: payload.background,
+    }
+  case SET_BORDER_RADIUS:
+    return state = {
+      ...state,
+      borderRadius: payload.borderRadius,
     }
   case SET_STREAMER:
     return state = {

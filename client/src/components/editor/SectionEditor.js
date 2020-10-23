@@ -157,7 +157,7 @@ const SectionEditor = ({
         <InputFont value={value}/>
       ) : null}
 
-      {formData[value.keyValue]?.showTextShadow !== null &&
+      {formData[value.keyValue]?.showTextShadow !== undefined && formData[value.keyValue]?.showTextShadow !== null &&
         <StyledRow>
           <label>
             Text Shadow
@@ -178,7 +178,7 @@ const SectionEditor = ({
               Text Shadow Blur
             </label>
             <select
-              value={formData[value.keyValue]?.fontWeight}
+              value={formData[value.keyValue]?.textShadowWeight}
               onChange={(e) => {
                 updateField(value.keyValue, {textShadowWeight: e.target.value});
                 saveHistory(`Text Shadow Blur ${value.label} to ${e.target.value}`);

@@ -1,10 +1,17 @@
 import React, {useState} from 'react';
 import {connect} from 'react-redux';
-import {setStreamer, setPlatform} from 'actions/form';
+import {setBorderRadius, setStreamer, setPlatform} from 'actions/form';
 import {StyledWrapper, StyledHeader, StyledContent, StyledRow} from 'components/editor/styling';
 import ImageChooser from 'components/editor/ImageChooser';
 
-const TextEditor = ({platform, streamer, updateStreamer, updatePlatform}) => {
+const TextEditor = ({
+  borderRadius,
+  platform,
+  streamer,
+  updateBorderRadius,
+  updatePlatform,
+  updateStreamer,
+}) => {
   const [expanded, setExpanded] = useState(true);
   return (
     <StyledWrapper>
@@ -34,6 +41,18 @@ const TextEditor = ({platform, streamer, updateStreamer, updatePlatform}) => {
             <label>Background</label>
             <ImageChooser/>
           </StyledRow>
+          <StyledRow>
+            <label>Border Radius</label>
+            <select value={borderRadius} onChange={(e) => updateBorderRadius(e.target.value)}>
+              <option value="0px">0px</option>
+              <option value="4px">4px</option>
+              <option value="8px">8px</option>
+              <option value="12px">12px</option>
+              <option value="16px">16px</option>
+              <option value="20px">20px</option>
+              <option value="24px">24px</option>
+            </select>
+          </StyledRow>
         </StyledContent>
       }
     </StyledWrapper>
@@ -41,12 +60,14 @@ const TextEditor = ({platform, streamer, updateStreamer, updatePlatform}) => {
 }
 const mapStateToProps = (state) => {
   return {
+    borderRadius: state.form.borderRadius,
     platform: state.form.platform,
     streamer: state.form.streamer,
   };
 };
 const mapDispatchToProps = (dispatch) => {
   return {
+    updateBorderRadius: (value) => dispatch(setBorderRadius(value)),
     updateStreamer: (value) => dispatch(setStreamer(value)),
     updatePlatform: (platform) => dispatch(setPlatform(platform)),
   };

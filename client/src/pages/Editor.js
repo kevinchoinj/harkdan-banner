@@ -105,7 +105,13 @@ const Editor = ({
         })}
       </StyledMenu>
       <StyledCanvasWrapper>
-        <StyledCanvas showBorders={showBorders} style={{backgroundImage: `url(${backgroundImage})`}}>
+        <StyledCanvas
+          showBorders={showBorders}
+          style={{
+            backgroundImage: `url(${backgroundImage})`,
+            borderRadius: formData.borderRadius,
+          }}
+        >
 
           {showGrid &&
             <StyledGrid>
