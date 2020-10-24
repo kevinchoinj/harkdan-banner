@@ -2,11 +2,9 @@ import React, {useMemo} from 'react';
 import styled from 'styled-components';
 import DraggableRnd from 'components/editor/DraggableRnd';
 import {connect} from 'react-redux';
-import FormSettings from 'components/editor/FormSettings';
 import TextEditor from 'components/editor/TextEditor';
 import SectionEditor from 'components/editor/SectionEditor';
 import xqc from 'data/xqc.jpeg';
-import SaveButton from 'components/editor/SaveButton';
 import LoadFont from 'components/editor/LoadFont';
 import History from 'components/editor/History';
 import {templatesList} from 'data/templatesList';
@@ -240,7 +238,6 @@ const Editor = ({
             }
           </DraggableRnd>
         </StyledCanvas>
-        <SaveButton/>
       <FormSettingsOverlay/>
       </StyledCanvasWrapper>
       <History/>

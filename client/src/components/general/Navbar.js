@@ -97,6 +97,12 @@ const Navbar = () => {
         <StyledLink to={routes.privacy}>
           Privacy
         </StyledLink>
+        <StyledLink to={routes.login}>
+          Login
+        </StyledLink>
+        <StyledLink to={routes.register}>
+          Register
+        </StyledLink>
       </StyledContainer>
     </StyledWrapper>
   )

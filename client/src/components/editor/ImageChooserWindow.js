@@ -13,7 +13,6 @@ const StyledWrapper = styled.div`
   width: 225px;
   font-size: 12px;
   color: #ddd;
-  min-height: 300px;
   border: 1px solid #aaa;
   border-radius: 6px 6px 0 0;
   background-color: #222;
@@ -126,7 +125,7 @@ const ImageChooserWindow = ({
 
   const [currentPage, setCurrentPage] = useState(1);
   const paginatedTemplatesList = useMemo(() => paginate(templatesList, currentPage), [currentPage]);
-
+  console.log({paginatedTemplatesList})
   return backgroundChooserVisible ? (
     <StyledWrapper
       style={{transform: `translateX(${position.x}px) translateY(${position.y}px)`}}
@@ -150,7 +149,7 @@ const ImageChooserWindow = ({
             {`<`}
           </StyledPaginationButtonsButton>
           <StyledPaginationButtonsButton
-            disabled={templatesList.length/(currentPage*4) < 1}
+            disabled={templatesList.length/(currentPage*4) <= 1}
             onClick={() => setCurrentPage(prev => templatesList.length/(currentPage*4) >= 1 && prev + 1)}
           >
             {`>`}

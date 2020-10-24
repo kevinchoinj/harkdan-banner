@@ -5,5 +5,7 @@ export const routes = {
   copyright: '/copyright',
   privacy: '/privacy',
   tos: '/terms',
-  editor: '/editor'
+  editor: '/editor',
+  login: '/login',
+  register: '/register'
 }

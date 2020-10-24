@@ -10,6 +10,7 @@ import templateNine from 'data/templates/9.jpg';
 import templateTen from 'data/templates/10.jpg';
 import templateEleven from 'data/templates/11.jpg';
 import templateTwelve from 'data/templates/12.jpg';
+import templateThirteen from 'data/templates/13.jpg';
 
 export const templatesList = [
   {keyValue: 1, image: templateOne},
@@ -24,4 +25,5 @@ export const templatesList = [
   {keyValue: 10, image: templateTen},
   {keyValue: 11, image: templateEleven},
   {keyValue: 12, image: templateTwelve},
+  {keyValue: 13, image: templateThirteen},
 ]

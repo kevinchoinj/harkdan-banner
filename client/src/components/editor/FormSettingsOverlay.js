@@ -2,6 +2,7 @@ import React from 'react';
 import {connect} from 'react-redux';
 import {showHistory, toggleBorders, toggleExamples, toggleGrid} from 'actions/formSettings';
 import styled from 'styled-components';
+import SaveButton from 'components/editor/SaveButton';
 
 const StyledWrapper = styled.div`
   position: absolute;
@@ -96,6 +97,7 @@ const FormSettingsOverlay = ({
 
             <label>Show History</label>
           </StyledRow>
+          <SaveButton/>
         </StyledContent>
     </StyledWrapper>
   )
