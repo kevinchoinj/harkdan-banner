@@ -2,6 +2,7 @@ import React, {useRef, useState} from 'react';
 import {connect} from 'react-redux';
 import styled from 'styled-components';
 import {restoreHistory} from 'actions/history';
+import {showHistory} from 'actions/formSettings';
 
 const StyledWrapper = styled.div`
   position: fixed;
@@ -35,9 +36,20 @@ const StyledTitle = styled.div`
   margin-bottom: 6px;
   padding: 6px;
   border-bottom: 1px solid #aaa;
+  display: flex;
+  justify-content: space-between;
+  >div {
+    cursor: pointer;
+  }
 `;
 
-const History = ({history, historyIndex, reset}) => {
+const History = ({
+  history,
+  historyIndex,
+  historyVisible,
+  reset,
+  toggleWindow,
+}) => {
   const [position, setPosition] = useState({
     x: 50,
     y: 50,
@@ -80,7 +92,7 @@ const History = ({history, historyIndex, reset}) => {
     );
   };
 
-  return (
+  return historyVisible ? (
     <StyledWrapper
       style={{transform: `translateX(${position.x}px) translateY(${position.y}px)`}}
     >
@@ -89,11 +101,14 @@ const History = ({history, historyIndex, reset}) => {
         onMouseUp={() => handleMouseUp()}
       >
         History
+        <div onClick={() => toggleWindow(false)}>
+          X
+        </div>
       </StyledTitle>
       {history.map((value, index) => {
         return (
           <StyledOption
-            key={value.timestamp}
+            key={value.timestamp || index}
             onClick={() => reset(index)}
             inactive={historyIndex < index}
             active={historyIndex === index}
@@ -103,18 +118,20 @@ const History = ({history, historyIndex, reset}) => {
         )
       })}
     </StyledWrapper>
-  )
+  ) : null;
 }
 
 const mapStateToProps = (state) => {
   return {
     history: state.history.history,
+    historyVisible: state.formSettings.historyVisible,
     historyIndex: state.history.historyIndex,
   };
 };
 const mapDispatchToProps = (dispatch) => {
   return {
     reset: (index) => dispatch(restoreHistory(index)),
+    toggleWindow: (index) => dispatch(showHistory(index)),
   };
 };
 

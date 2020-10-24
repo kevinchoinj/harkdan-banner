@@ -1,18 +1,20 @@
 import React, {useState} from 'react';
 import {connect} from 'react-redux';
 import Toggle from 'react-toggle';
-import {toggleBorders, toggleExamples, toggleGrid} from 'actions/formSettings';
+import {showHistory, toggleBorders, toggleExamples, toggleGrid} from 'actions/formSettings';
 import {StyledWrapper, StyledHeader, StyledContent, StyledRow} from 'components/editor/styling';
 
 const FormSettings = ({
   showBorders,
   showExamples,
   showGrid,
+  historyVisible,
   toggleBorders,
   toggleExamples,
   toggleGrid,
+  toggleHistory,
 }) => {
-  const [expanded, setExpanded] = useState(true);
+  const [expanded, setExpanded] = useState(false);
   return (
     <StyledWrapper>
       <StyledHeader onClick={() => setExpanded(prev => !prev)}>
@@ -28,22 +30,29 @@ const FormSettings = ({
           <StyledRow>
             <label>Show Borders</label>
             <Toggle
-              defaultChecked={showBorders}
+              checked={showBorders}
               onChange={(e) => toggleBorders(e.target.checked)}
             />
           </StyledRow>
           <StyledRow>
             <label>Show Grid</label>
             <Toggle
-              defaultChecked={showGrid}
+              checked={showGrid}
               onChange={(e) => toggleGrid(e.target.checked)}
             />
           </StyledRow>
           <StyledRow>
             <label>Show Examples</label>
             <Toggle
-              defaultChecked={showExamples}
+              checked={showExamples}
               onChange={(e) => toggleExamples(e.target.checked)}
+            />
+          </StyledRow>
+          <StyledRow>
+            <label>Show History</label>
+            <Toggle
+              checked={historyVisible}
+              onChange={(e) => toggleHistory(e.target.checked)}
             />
           </StyledRow>
         </StyledContent>
@@ -53,6 +62,7 @@ const FormSettings = ({
 }
 const mapStateToProps = (state) => {
   return {
+    historyVisible: state.formSettings.historyVisible,
     showBorders: state.formSettings.showBorders,
     showGrid: state.formSettings.showGrid,
     showExamples: state.formSettings.showExamples
@@ -63,6 +73,7 @@ const mapDispatchToProps = (dispatch) => {
     toggleBorders: (bool) => dispatch(toggleBorders(bool)),
     toggleExamples: (bool) => dispatch(toggleExamples(bool)),
     toggleGrid: (bool) => dispatch(toggleGrid(bool)),
+    toggleHistory: (bool) => dispatch(showHistory(bool)),
   };
 };
 

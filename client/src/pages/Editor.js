@@ -12,6 +12,7 @@ import History from 'components/editor/History';
 import {templatesList} from 'data/templatesList';
 import {find, propEq} from 'ramda';
 import ImageChooserWindow from 'components/editor/ImageChooserWindow';
+import FormSettingsOverlay from 'components/editor/FormSettingsOverlay';
 
 const StyledCanvasWrapper = styled.div`
   display: flex;
@@ -20,6 +21,7 @@ const StyledCanvasWrapper = styled.div`
   align-items: center;
   background-color: #262626;
   overflow: hidden;
+  position: relative;
 `;
 const StyledCanvas = styled.div`
   position: relative;
@@ -99,7 +101,6 @@ const Editor = ({
       <LoadFont/>
       <StyledMenu>
         <TextEditor/>
-        <FormSettings/>
         {keyValues.map((value) => {
           return (
             <SectionEditor
@@ -156,7 +157,7 @@ const Editor = ({
             hovered={hoveredItem==="valueViewers"}
           >
             {showExamples ?
-                '3.7k viewers'
+              '3.7k viewers'
               :
               'Viewer Count'
             }
@@ -240,6 +241,7 @@ const Editor = ({
           </DraggableRnd>
         </StyledCanvas>
         <SaveButton/>
+      <FormSettingsOverlay/>
       </StyledCanvasWrapper>
       <History/>
       <ImageChooserWindow/>

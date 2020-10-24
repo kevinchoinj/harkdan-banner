@@ -3,6 +3,7 @@ import {
   TOGGLE_GRID,
   TOGGLE_EXAMPLES,
   SHOW_BACKGROUND_CHOOSER,
+  SHOW_HISTORY,
 } from 'actions/formSettings';
 
 const DEFAULT_STATE={
@@ -10,6 +11,7 @@ const DEFAULT_STATE={
   showGrid: false,
   showExamples: true,
   backgroundChooserVisible: false,
+  historyVisible: true,
 };
 
 export default(state=DEFAULT_STATE, payload)=>
@@ -34,6 +36,11 @@ export default(state=DEFAULT_STATE, payload)=>
       return state = {
         ...state,
         backgroundChooserVisible: payload.value,
+      };
+    case SHOW_HISTORY:
+      return state = {
+        ...state,
+        historyVisible: payload.value,
       };
     default:
       return state;

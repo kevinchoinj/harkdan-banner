@@ -167,7 +167,7 @@ const ImageChooserWindow = ({
             }}
             key={value.keyValue}
           >
-            <img src={value.image}/>
+            <img src={value.image} alt={value.keyValue}/>
           </StyledOption>
         )
       })}
