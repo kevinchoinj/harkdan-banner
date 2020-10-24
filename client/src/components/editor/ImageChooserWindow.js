@@ -69,12 +69,19 @@ const StyledPaginationButtonsButton = styled.div`
   }
 `;
 
-const paginate = (array, page_size, page_number) => {
+const PAGE_SIZE = 4;
+const paginate = (array, page_number) => {
   --page_number;
-  return array.slice(page_number * page_size, (page_number + 1) * page_size);
+  return array.slice(page_number * PAGE_SIZE, (page_number + 1) * PAGE_SIZE);
 };
 
-const ImageChooserWindow = ({backgroundChooserVisible, saveHistory, setBackground, toggleWindow}) => {
+const ImageChooserWindow = ({
+  background,
+  backgroundChooserVisible,
+  saveHistory,
+  setBackground,
+  toggleWindow,
+}) => {
   const [position, setPosition] = useState({
     x: 50,
     y: 50,
@@ -118,7 +125,7 @@ const ImageChooserWindow = ({backgroundChooserVisible, saveHistory, setBackgroun
   };
 
   const [currentPage, setCurrentPage] = useState(1);
-  const paginatedTemplatesList = useMemo(() => paginate(templatesList, 4, currentPage), [currentPage]);
+  const paginatedTemplatesList = useMemo(() => paginate(templatesList, currentPage), [currentPage]);
 
   return backgroundChooserVisible ? (
     <StyledWrapper
@@ -153,6 +160,7 @@ const ImageChooserWindow = ({backgroundChooserVisible, saveHistory, setBackgroun
       {paginatedTemplatesList.map((value) => {
         return (
           <StyledOption
+            active={background === value.keyValue}
             onClick={() => {
               setBackground(value.keyValue);
               saveHistory(`Background changed`);
@@ -169,6 +177,7 @@ const ImageChooserWindow = ({backgroundChooserVisible, saveHistory, setBackgroun
 
 const mapStateToProps = (state) => {
   return {
+    background: state.form.background,
     backgroundChooserVisible: state.formSettings.backgroundChooserVisible,
   };
 };

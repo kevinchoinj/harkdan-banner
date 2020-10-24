@@ -53,7 +53,7 @@ const DraggableRnd = ({
         saveHistory(`Resized ${label}`);
       }}
       resizeHandleStyles = {
-        showBorders ?
+        showBorders && !data.locked ?
         {
           bottomLeft: genericHandleStyling,
           bottomRight: genericHandleStyling,
@@ -64,6 +64,9 @@ const DraggableRnd = ({
       }
       onMouseEnter={() => hoverItem(keyValue)}
       onMouseLeave={() => hoverItem(null)}
+      style={{
+        pointerEvents: data.locked && 'none',
+      }}
     >
       <StyledContent
         style={{

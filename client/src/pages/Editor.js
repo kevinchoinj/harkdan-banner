@@ -67,6 +67,10 @@ const StyledGrid = styled.div`
     border: 1px solid #222;
   }
 `;
+const StyledBackdrop = styled.div`
+  height: 100%;
+  width: 100%;
+`;
 
 const keyValues = [
   {keyValue: 'valueViewers', label: 'Current View Count'},
@@ -76,6 +80,7 @@ const keyValues = [
   {keyValue: 'valueUsername', label: 'Username'},
   {keyValue: 'valueTimeOnline', label: 'Time Live'},
   {keyValue: 'valueStreamTitle', label: 'Stream Title'},
+  {keyValue: 'valueBackgroundShape', label: 'Backdrop Shape'},
 ];
 
 const Editor = ({
@@ -131,22 +136,27 @@ const Editor = ({
           }
 
           <DraggableRnd
+            label="Backdrop Shape"
+            keyValue="valueBackgroundShape"
+            data={formData.valueBackgroundShape}
+            hovered={hoveredItem==="valueBackgroundShape"}
+          >
+            <StyledBackdrop
+              style={{
+                backgroundColor: formData.valueBackgroundShape?.color,
+                opacity: formData.valueBackgroundShape?.opacity,
+              }}
+            />
+          </DraggableRnd>
+
+          <DraggableRnd
             label="Current View Count"
             keyValue="valueViewers"
             data={formData.valueViewers}
             hovered={hoveredItem==="valueViewers"}
           >
             {showExamples ?
-              <>
-              <svg xmlns="http://www.w3.org/2000/svg" className="icon icon-tabler icon-tabler-user"
-                width="44" height="44"
-                viewBox="0 0 24 24" strokeWidth="1.5" stroke="#ddd"
-                fill="none" strokeLinecap="round" strokeLinejoin="round">
-                  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
-                  <circle cx="12" cy="7" r="4" />
-                  <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
-                </svg> 3.7k viewers
-              </>
+                '3.7k viewers'
               :
               'Viewer Count'
             }
