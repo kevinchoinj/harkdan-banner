@@ -32,7 +32,6 @@ export const StyledForm = styled(Form)`
   padding: 45px;
   text-align: left;
   background-color: ${props => props.theme.colorBackgroundElevated};
-  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
   border-radius: 12px;
   label {
     font-size: 14px;
@@ -51,7 +50,7 @@ export const StyledForm = styled(Form)`
   button {
     text-transform: uppercase;
     outline: 0;
-    background: #4CAF50;
+    background: ${props => props.theme.colorConfirm};
     width: 100%;
     border: 0;
     margin-top: 1rem;

@@ -13,3 +13,64 @@ export const StyledButton = styled.button`
   cursor: pointer;
   padding: 0 1rem;
 `;
+
+export const StyledWrapper = styled.section`
+  position: relative;
+  display: flex;
+  justify-content: center;
+  padding: 2rem 0 6rem 0;
+  background-color: ${props => props.theme.colorBackground};
+  @media screen and (max-width: 768px) {
+    padding: 0;
+  }
+`;
+export const StyledWrapperBg = styled(StyledWrapper)`
+  :before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 140%;
+    top: -20%;
+    -webkit-transform: skewY(-12deg);
+    transform: skewY(-12deg);
+    background: ${props => props.theme.colorPrimaryLight};
+    @media screen and (max-width: 768px) {
+      display: none;
+    }
+  }
+`;
+export const StyledContainer = styled.div`
+  display: flex;
+  width: 100%;
+  max-width: calc(1090px + 8rem);
+  position: relative;
+  padding: 0 4rem;
+  @media screen and (max-width: 768px) {
+    flex-direction: column;
+    padding: 0 0;
+  }
+`;
+export const StyledHalf = styled.div`
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  flex: 1;
+  padding: 2rem;
+  img {
+    object-fit: contain;
+  }
+  &:first-child {
+    padding-left: 4rem;
+  }
+  &:last-child {
+    padding-right: 4rem;
+  }
+  @media screen and (max-width: 768px) {
+    &:first-child {
+      padding-left: 2rem;
+    }
+    &:last-child {
+      padding-right: 2rem;
+    }
+  }
+`;

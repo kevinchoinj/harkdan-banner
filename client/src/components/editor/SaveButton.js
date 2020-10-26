@@ -5,7 +5,7 @@ import styled from 'styled-components';
 const StyledButton = styled.div`
   right: 1rem;
   bottom: 1rem;
-  background-color: #19ab27;
+  background-color: ${props => props.theme.colorConfirm};
   border-radius: 8px;
   padding: 8px 16px;
   cursor: pointer;
@@ -13,7 +13,7 @@ const StyledButton = styled.div`
   align-items: center;
   margin: 3px;
   &:hover {
-    background-color: #0f6818;
+    background-color: ${props => props.theme.colorConfirmHover};
   }
 `;
 const SaveButton = ({formData}) => {

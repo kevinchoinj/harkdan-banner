@@ -2,21 +2,17 @@ import React from 'react';
 import styled from 'styled-components';
 import Hero from 'components/home/Hero';
 import Footer from 'components/general/Footer';
+import Pricing from 'components/home/Pricing';
 
 const StyledWrapper = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
 `;
-const StyledSeparater = styled.div`
-  background-color: ${props => props.theme.colorText};
-  width: 6.666666666666667%;
-  height: 5px;
-  margin: 40px auto;
-`;
 const StyledDescription = styled.div`
   margin-bottom: 8rem;
   max-width: 800px;
+  margin-top: 8rem;
   padding: 1rem 2rem 2rem 2rem;
   h1 {
     text-align: center;
@@ -30,7 +26,6 @@ const Home = () => {
   return (
     <StyledWrapper>
       <Hero/>
-      <StyledSeparater/>
       <StyledDescription>
         <h1>Twitch Banners</h1>
         {lipsum}
@@ -39,6 +34,7 @@ const Home = () => {
         <br/><br/>
         {lipsum}
       </StyledDescription>
+      <Pricing/>
       <Footer/>
     </StyledWrapper>
   )

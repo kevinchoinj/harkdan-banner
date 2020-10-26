@@ -9,6 +9,11 @@ export const themeData = {
   colorInputBorder: '#243961',
   fontSizeNav: '14px',
   heightNavbar: '50px',
+  sizeMedium: '14px',
+  colorConfirm: '#4CAF50',
+  colorPrimary: '#5588a3',
+  colorConfirmHover: '#0f6818',
+  colorPrimaryHover: '#446c81',
 };
 
 export const lightData = {
@@ -22,4 +27,9 @@ export const lightData = {
   colorInputBorder: '#243961',
   fontSizeNav: '14px',
   heightNavbar: '50px',
+  sizeMedium: '14px',
+  colorConfirm: '#4CAF50',
+  colorPrimary: '#5588a3',
+  colorConfirmHover: '#0f6818',
+  colorPrimaryHover: '#446c81',
 };

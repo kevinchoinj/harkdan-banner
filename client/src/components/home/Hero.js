@@ -66,7 +66,6 @@ const StyledContent = styled.div`
   pointer-events: none;
   h1 {
     margin: 0;
-    font-weight: 400;
     font-size: 6rem;
     @media screen and (max-width: 992px) {
       font-size: 2rem;
