@@ -22,7 +22,7 @@ const GlobalStyle = createGlobalStyle`
     margin: 0;
     background-color: ${props => props.theme.colorBackground};
     color: ${props => props.theme.colorText};
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Inter', sans-serif;
   }
   * {
     box-sizing: border-box;

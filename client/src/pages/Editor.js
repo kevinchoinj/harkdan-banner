@@ -64,7 +64,8 @@ const StyledGrid = styled.div`
   pointer-events: none;
   z-index: 0;
   >div {
-    border: 1px solid #222;
+    border-top: 1px solid #222;
+    border-left: 1px solid #222;
   }
 `;
 const StyledBackdrop = styled.div`

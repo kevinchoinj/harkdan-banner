@@ -12,7 +12,7 @@ const StyledWrapper = styled.div`
   }
 `;
 const StyledLeft = styled.div`
-  width: 38.2%;
+  flex: 1;
   background-color: #000;
   @media screen and (max-width: 992px) {
     display: none;

@@ -20,46 +20,47 @@ const Video = ({className}) => (
     />
   </video>
 );
-const StyledVideo = styled(Video)`
-  position: absolute;
-  top: 0;
-  right: 0;
-  min-height: 100%;
-
-  width: auto;
-  height: auto;
-  background-size: cover;
-  background-position: center center;
-`;
-
 const StyledWrapper = styled.div`
   position: relative;
   height: 100vh;
   width: 100%;
   overflow: hidden;
+  display: flex;
 `;
 const StyledContentContainer = styled.div`
-  position: absolute;
-  left: 0;
-  top: 0;
-  width: 38.2%;
-  height: 100%;
-  color: ${props => props.theme.colorText};
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  flex: 1;
   background-color: ${props => props.theme.colorBackground};
-  @media screen and (max-width: 992px) {
-    width: 100%;
+`;
+const StyledGrid = styled.div`
+  flex: 1;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(10%, 1fr));
+  border-bottom: 1px solid #555;
+  margin-top: ${props => props.theme.heightNavbar};
+  pointer-events: none;
+  z-index: 0;
+  > div {
+    position: relative;
+    padding-top: 100%;
+    border-top: 1px solid #555;
+    border-left: 1px solid #555;
   }
 `;
 const StyledContent = styled.div`
   display: flex;
   flex-direction: column;
+  position: absolute;
+  width: 100%;
+  padding: 4rem;
   font-size: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100%;
   h1 {
+    margin: 0;
     font-weight: 400;
-    font-size: 4rem;
+    font-size: 6rem;
   }
   input {
     background-color: transparent;
@@ -90,11 +91,37 @@ const StyledContent = styled.div`
 const Hero = ({streamer, updateStreamer}) => {
   return (
     <StyledWrapper>
-      <StyledVideo/>
       <StyledContentContainer>
-        <StyledContent>
+      </StyledContentContainer>
+      <StyledGrid>
+        <div/><div/><div/><div/><div/>
+        <div/><div/><div/><div/><div/>
+        <div/><div/><div/><div/><div/>
+        <div/><div/><div/><div/><div/>
+        <div/><div/><div/><div/><div/>
+        <div/><div/><div/><div/><div/>
+        <div/><div/><div/><div/><div/>
+        <div/><div/><div/><div/><div/>
+        <div/><div/><div/><div/><div/>
+        <div/><div/><div/><div/><div/>
+        <div/><div/><div/><div/><div/>
+        <div/><div/><div/><div/><div/>
+        <div/><div/><div/><div/><div/>
+        <div/><div/><div/><div/><div/>
+        <div/><div/><div/><div/><div/>
+        <div/><div/><div/><div/><div/>
+        <div/><div/><div/><div/><div/>
+        <div/><div/><div/><div/><div/>
+        <div/><div/><div/><div/><div/>
+        <div/><div/><div/><div/><div/>
+        <div/><div/><div/><div/><div/>
+        <div/><div/><div/><div/><div/>
+        <div/><div/><div/><div/><div/>
+        <div/><div/><div/><div/><div/>
+      </StyledGrid>
+      <StyledContent>
           <h1>
-            Micro Dan's<br/> Sweatshop
+            Create dynamic<br/> banners with realtime data
           </h1>
           <p>Enter a streamer's name to get started</p>
           <Formik
@@ -120,7 +147,6 @@ const Hero = ({streamer, updateStreamer}) => {
             )}
           />
         </StyledContent>
-      </StyledContentContainer>
     </StyledWrapper>
   )
 }

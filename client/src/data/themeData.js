@@ -2,13 +2,13 @@ export const themeData = {
   widthContent: '600px',
   colorText: '#dae2f2',
   colorTextElevated: '#bdc2cb',
-  colorBackground: '#0c1627',
-  colorBackgroundElevated: '#162541',
+  colorBackground: '#262626',
+  colorBackgroundElevated: '#131313',
   colorBackgroundEmphasized: '#243961',
   colorButton: '#0087cf',
   colorInputBorder: '#243961',
   fontSizeNav: '14px',
-  heightNavbar: '60px',
+  heightNavbar: '40px',
 };
 
 export const lightData = {
@@ -21,5 +21,5 @@ export const lightData = {
   colorButton: '#0087cf',
   colorInputBorder: '#243961',
   fontSizeNav: '14px',
-  heightNavbar: '60px',
+  heightNavbar: '40px',
 };
