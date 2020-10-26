@@ -7,6 +7,7 @@ const StyledWrapper = styled.div`
 `;
 const StyledContainer = styled.div`
   flex: 1;
+  margin-top: calc(${props => props.theme.heightNavbar} + 2rem);
   max-width: ${props => props.theme.widthContent};
   position: relative;
   margin-bottom: 8rem;

@@ -3,10 +3,12 @@ import {connect} from 'react-redux';
 import {setBorderRadius, setStreamer, setPlatform} from 'actions/form';
 import {StyledWrapper, StyledHeader, StyledContent, StyledRow} from 'components/editor/styling';
 import ImageChooser from 'components/editor/ImageChooser';
+import {actionTaken} from 'actions/history';
 
 const TextEditor = ({
   borderRadius,
   platform,
+  saveHistory,
   streamer,
   updateBorderRadius,
   updatePlatform,
@@ -27,11 +29,23 @@ const TextEditor = ({
         <StyledContent>
           <StyledRow>
             <label>Username</label>
-            <input onChange={(e) => updateStreamer(e.target.value)} value={streamer}/>
+            <input
+              onChange={(e) => {
+                updateStreamer(e.target.value);
+                saveHistory(`Streamer text to ${e.target.value}`);
+              }}
+              value={streamer}
+            />
           </StyledRow>
           <StyledRow>
             <label>Platform</label>
-            <select value={platform} onChange={(e) => updatePlatform( e.target.value)}>
+            <select
+              value={platform}
+              onChange={(e) => {
+                updatePlatform(e.target.value);
+                saveHistory(`Platform to ${e.target.value}`);
+              }}
+            >
               <option value=""></option>
               <option value="twitch">Twitch</option>
               <option value="youtube">Youtube</option>
@@ -43,7 +57,13 @@ const TextEditor = ({
           </StyledRow>
           <StyledRow>
             <label>Border Radius</label>
-            <select value={borderRadius} onChange={(e) => updateBorderRadius(e.target.value)}>
+            <select
+              value={borderRadius}
+              onChange={(e) => {
+                updateBorderRadius(e.target.value);
+                saveHistory(`Border Radius to ${e.target.value}`);
+              }}
+            >
               <option value="0px">0px</option>
               <option value="4px">4px</option>
               <option value="8px">8px</option>
@@ -67,6 +87,7 @@ const mapStateToProps = (state) => {
 };
 const mapDispatchToProps = (dispatch) => {
   return {
+    saveHistory: (actionName) => dispatch(actionTaken(actionName)),
     updateBorderRadius: (value) => dispatch(setBorderRadius(value)),
     updateStreamer: (value) => dispatch(setStreamer(value)),
     updatePlatform: (platform) => dispatch(setPlatform(platform)),

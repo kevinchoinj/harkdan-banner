@@ -1,25 +1,12 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {connect} from 'react-redux';
 import styled from 'styled-components';
-import video from 'data/somegarbo.mp4';
 import {Formik, Form, Field} from 'formik';
 import {setStreamer} from 'actions/form';
 import {history} from 'store';
+import {Rnd} from 'react-rnd';
+import microImage from 'data/micro.jpg';
 
-const Video = ({className}) => (
-  <video
-    playsInline
-    autoPlay
-    muted
-    loop
-    className={className}
-  >
-    <source
-      src={video}
-      type="video/mp4"
-    />
-  </video>
-);
 const StyledWrapper = styled.div`
   position: relative;
   height: 100vh;
@@ -29,16 +16,34 @@ const StyledWrapper = styled.div`
 `;
 const StyledContentContainer = styled.div`
   flex: 1;
+  position: relative;
+  z-index: 2;
   background-color: ${props => props.theme.colorBackground};
 `;
-const StyledGrid = styled.div`
+const StyledGridWrapper = styled.div`
   flex: 1;
+  overflow: hidden;
+  border-bottom: 1px solid #555;
+  img {
+    height: 100%;
+    width: 100%;
+    pointer-events: none;
+    object-fit: cover;
+  }
+  @media screen and (max-width: 992px) {
+    display: none;
+  }
+`;
+const StyledGrid = styled.div`
+  height: 100%;
+  width: 100%;
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(10%, 1fr));
-  border-bottom: 1px solid #555;
   margin-top: ${props => props.theme.heightNavbar};
   pointer-events: none;
+  position: relative;
   z-index: 0;
+  pointer-events: none;
   > div {
     position: relative;
     padding-top: 100%;
@@ -50,6 +55,7 @@ const StyledContent = styled.div`
   display: flex;
   flex-direction: column;
   position: absolute;
+  z-index: 3;
   width: 100%;
   padding: 4rem;
   font-size: 20px;
@@ -57,12 +63,17 @@ const StyledContent = styled.div`
   flex-direction: column;
   justify-content: center;
   height: 100%;
+  pointer-events: none;
   h1 {
     margin: 0;
     font-weight: 400;
     font-size: 6rem;
+    @media screen and (max-width: 992px) {
+      font-size: 2rem;
+    }
   }
   input {
+    pointer-events: auto;
     background-color: transparent;
     outline: none;
     height: 32px;
@@ -88,37 +99,81 @@ const StyledContent = styled.div`
     margin-top: 2rem;
   }
 `;
+const genericHandleStyling = {
+  height: '10px',
+  width: '10px',
+  border: '1px solid rgba(255, 255, 255, .2)',
+}
+
 const Hero = ({streamer, updateStreamer}) => {
+  const [x, setX] = useState(50);
+  const [y, setY] = useState(80);
+  const [width, setWidth] = useState(225);
+  const [height, setHeight] = useState(300);
   return (
     <StyledWrapper>
       <StyledContentContainer>
       </StyledContentContainer>
-      <StyledGrid>
-        <div/><div/><div/><div/><div/>
-        <div/><div/><div/><div/><div/>
-        <div/><div/><div/><div/><div/>
-        <div/><div/><div/><div/><div/>
-        <div/><div/><div/><div/><div/>
-        <div/><div/><div/><div/><div/>
-        <div/><div/><div/><div/><div/>
-        <div/><div/><div/><div/><div/>
-        <div/><div/><div/><div/><div/>
-        <div/><div/><div/><div/><div/>
-        <div/><div/><div/><div/><div/>
-        <div/><div/><div/><div/><div/>
-        <div/><div/><div/><div/><div/>
-        <div/><div/><div/><div/><div/>
-        <div/><div/><div/><div/><div/>
-        <div/><div/><div/><div/><div/>
-        <div/><div/><div/><div/><div/>
-        <div/><div/><div/><div/><div/>
-        <div/><div/><div/><div/><div/>
-        <div/><div/><div/><div/><div/>
-        <div/><div/><div/><div/><div/>
-        <div/><div/><div/><div/><div/>
-        <div/><div/><div/><div/><div/>
-        <div/><div/><div/><div/><div/>
-      </StyledGrid>
+
+      <StyledGridWrapper>
+        <StyledGrid>
+          <div/><div/><div/><div/><div/>
+          <div/><div/><div/><div/><div/>
+          <div/><div/><div/><div/><div/>
+          <div/><div/><div/><div/><div/>
+          <div/><div/><div/><div/><div/>
+          <div/><div/><div/><div/><div/>
+          <div/><div/><div/><div/><div/>
+          <div/><div/><div/><div/><div/>
+          <div/><div/><div/><div/><div/>
+          <div/><div/><div/><div/><div/>
+          <div/><div/><div/><div/><div/>
+          <div/><div/><div/><div/><div/>
+          <div/><div/><div/><div/><div/>
+          <div/><div/><div/><div/><div/>
+          <div/><div/><div/><div/><div/>
+          <div/><div/><div/><div/><div/>
+          <div/><div/><div/><div/><div/>
+          <div/><div/><div/><div/><div/>
+          <div/><div/><div/><div/><div/>
+          <div/><div/><div/><div/><div/>
+          <div/><div/><div/><div/><div/>
+          <div/><div/><div/><div/><div/>
+          <div/><div/><div/><div/><div/>
+          <div/><div/><div/><div/><div/>
+          <div/><div/><div/><div/><div/>
+          <div/><div/><div/><div/><div/>
+          <div/><div/><div/><div/><div/>
+          <div/><div/><div/><div/><div/>
+          <div/><div/><div/><div/><div/>
+          <div/><div/><div/><div/><div/>
+          <div/><div/><div/><div/><div/>
+          <div/><div/><div/><div/><div/>
+          <div/><div/><div/><div/><div/>
+          <div/><div/><div/><div/><div/>
+        </StyledGrid>
+        <Rnd
+          size={{ width: width,  height: height }}
+          position={{ x: x, y: y }}
+          onDragStop={(e, d) => {
+            setX(d.x);
+            setY(d.y);
+          }}
+          onResize={(e, direction, ref) => {
+            setWidth(ref.style.width);
+            setHeight(ref.style.height);
+          }}
+          resizeHandleStyles = {
+            {
+              bottomLeft: genericHandleStyling,
+              bottomRight: genericHandleStyling,
+              topLeft: genericHandleStyling,
+              topRight: genericHandleStyling,
+          }}
+        >
+          <img src={microImage} alt="micro dan"/>
+        </Rnd>
+      </StyledGridWrapper>
       <StyledContent>
           <h1>
             Create dynamic<br/> banners with realtime data

@@ -9,7 +9,7 @@ const StyledWrapper = styled.div`
   align-items: center;
 `;
 const StyledSeparater = styled.div`
-  background-color: ${props => props.theme.colorBackgroundElevated};
+  background-color: ${props => props.theme.colorText};
   width: 6.666666666666667%;
   height: 5px;
   margin: 40px auto;
@@ -31,14 +31,14 @@ const Home = () => {
     <StyledWrapper>
       <Hero/>
       <StyledSeparater/>
-        <StyledDescription>
-          <h1>Twitch Banners</h1>
-          {lipsum}
-          <br/><br/>
-          {lipsum}
-          <br/><br/>
-          {lipsum}
-        </StyledDescription>
+      <StyledDescription>
+        <h1>Twitch Banners</h1>
+        {lipsum}
+        <br/><br/>
+        {lipsum}
+        <br/><br/>
+        {lipsum}
+      </StyledDescription>
       <Footer/>
     </StyledWrapper>
   )

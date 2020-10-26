@@ -25,10 +25,10 @@ const StyledWrapper = styled.div`
   position: fixed;
   top: 0;
   left: 0;
+  z-index: 4;
   justify-content: space-between;
   padding: 0 2rem;
   background-color: ${props => props.theme.colorBackgroundElevated};
-  z-index: 2;
   width: 100%;
   font-size: ${props => props.theme.fontSizeNav};
   height: ${props => props.theme.heightNavbar};
@@ -91,11 +91,11 @@ const Navbar = () => {
         <StyledLink to={routes.faq}>
           FAQ
         </StyledLink>
+        <StyledLink to={routes.editorBasic}>
+          BasicEditor
+        </StyledLink>
         <StyledLink to={routes.editor}>
           AdvEditor
-        </StyledLink>
-        <StyledLink to={routes.privacy}>
-          Privacy
         </StyledLink>
         <StyledLink to={routes.login}>
           Login
