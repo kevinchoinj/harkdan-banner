@@ -3,6 +3,7 @@ import Column from 'components/home/Column';
 import {pricingColumnData} from 'data/pricing';
 import {StyledWrapper, StyledContainer} from 'components/general/styling';
 import styled from 'styled-components';
+import {StyledHeader} from 'components/general/styling';
 
 const StyledTable = styled.div`
   width: 100%;
@@ -12,12 +13,16 @@ const StyledTable = styled.div`
   margin-bottom: 3rem;
 `;
 const StyledWrapperPricing = styled(StyledWrapper)`
-  margin-bottom: -1rem;
+  display: flex;
+  flex-direction: column;
 `;
 
 const Pricing = () => {
   return (
     <StyledWrapperPricing>
+      <StyledHeader>
+        Advanced Features
+      </StyledHeader>
       <StyledContainer>
         <StyledTable>
           {pricingColumnData.map(value => {

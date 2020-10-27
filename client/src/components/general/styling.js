@@ -4,7 +4,7 @@ export const StyledButton = styled.button`
   color: #ffffff;
   background-color: ${props => props.inactive ? '#333' : props.theme.colorButton};
   font-size: 15px;
-  font-family: 'Roboto', sans-serif;
+  font-family: 'Inter', sans-serif;
   font-weight: 500;
   height: 36px;
   border: none;
@@ -72,5 +72,13 @@ export const StyledHalf = styled.div`
     &:last-child {
       padding-right: 2rem;
     }
+  }
+`;
+
+export const StyledHeader = styled.h2`
+  font-size: 3rem;
+  text-align: center;
+  @media screen and (max-width: 992px) {
+    font-size: 2rem;
   }
 `;

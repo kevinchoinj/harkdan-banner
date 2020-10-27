@@ -11,7 +11,7 @@ import {templatesList} from 'data/templatesList';
 import {find, propEq} from 'ramda';
 import ImageChooserWindow from 'components/editor/ImageChooserWindow';
 import FormSettingsOverlay from 'components/editor/FormSettingsOverlay';
-
+import screencap from 'data/preview.jpg';
 const StyledCanvasWrapper = styled.div`
   display: flex;
   justify-content: center;
@@ -183,7 +183,7 @@ const Editor = ({
           >
             {showExamples ?
               <img
-                src="https://static-cdn.jtvnw.net/cf_vods/d2nvs31859zcd8/65b9b6ad277fb42af75e_novaruu_39778524174_1600559337//thumb/thumb0-640x360.jpg"
+                src={screencap}
                 alt="screencap"
               />
               :

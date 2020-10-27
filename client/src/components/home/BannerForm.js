@@ -31,7 +31,7 @@ const StyledRow = styled.div`
     background-color: transparent;
     border: none;
     color: ${props => props.theme.colorTextElevated};
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Inter', sans-serif;
     font-size: 14px;
     &:active, &:focus {
       outline: none;
@@ -54,7 +54,7 @@ const BannerForm = ({streamer, updateStreamer}) => {
                 Please insert a streamer's name
               </StyledLabel>
               <StyledRow>
-                <Field name={`streamer`} autocomplete="off" />
+                <Field name={`streamer`} autoComplete="off" />
                 <StyledButton type="submit" inactive={streamer}>
                   Submit
                 </StyledButton>
