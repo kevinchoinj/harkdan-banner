@@ -9,7 +9,7 @@ const StyledWrapper = styled.div`
   margin-top: -6rem;
 `;
 const StyledContainer = styled.div`
-  perspective: 1000;
+  perspective: 1000px;
   position: sticky;
   top: 80px;
   @media screen and (max-width: 992px) and (orientation: portrait) {
