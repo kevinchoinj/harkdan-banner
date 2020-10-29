@@ -19,6 +19,10 @@ const LoadFont = ({formData}) => {
             `${formData.valueTimeOnline.fontFamily}:bold`,
             formData.valueStreamTitle.fontFamily,
             `${formData.valueStreamTitle.fontFamily}:bold`,
+            formData.valueOfflineMessage.fontFamily,
+            `${formData.valueOfflineMessage.fontFamily}:bold`,
+            formData.valueOfflineLastOnline.fontFamily,
+            `${formData.valueOfflineLastOnline.fontFamily}:bold`,
           ]).filter(val => val)
         }
       });

@@ -82,6 +82,9 @@ const keyValues = [
   {keyValue: 'valueTimeOnline', label: 'Time Live'},
   {keyValue: 'valueStreamTitle', label: 'Stream Title'},
   {keyValue: 'valueBackgroundShape', label: 'Backdrop Shape'},
+  {keyValue: 'valueOfflineMessage', label: 'Offline - Message'},
+  {keyValue: 'valueOfflineLastOnline', label: 'Offline - Last Online'},
+  {keyValue: 'valueOfflineBackgroundShape', label: 'Offline - Backdrop Shape'},
 ];
 
 const Editor = ({
@@ -135,7 +138,47 @@ const Editor = ({
             </StyledGrid>
           }
 
-          {offlineMode ? <div/> :
+          {offlineMode ?
+          <>
+            <DraggableRnd
+              label="Offline - Backdrop Shape"
+              keyValue="valueOfflineBackgroundShape"
+              data={formData.valueOfflineBackgroundShape}
+              hovered={hoveredItem==="valueOfflineBackgroundShape"}
+            >
+              <StyledBackdrop
+                style={{
+                  backgroundColor: formData.valueOfflineBackgroundShape?.color,
+                  opacity: formData.valueOfflineBackgroundShape?.opacity,
+                }}
+              />
+            </DraggableRnd>
+            <DraggableRnd
+              label="Offline - Message"
+              keyValue="valueOfflineMessage"
+              data={formData.valueOfflineMessage}
+              hovered={hoveredItem==="valueOfflineMessage"}
+            >
+              {showExamples ?
+                'Offline'
+                :
+                'Offline'
+              }
+            </DraggableRnd>
+            <DraggableRnd
+              label="Offline - Last Stream"
+              keyValue="valueOfflineLastOnline"
+              data={formData.valueOfflineLastOnline}
+              hovered={hoveredItem==="valueOfflineLastOnline"}
+            >
+              {showExamples ?
+                'Last Online: 23h 6m'
+                :
+                'Last Online Time'
+              }
+            </DraggableRnd>
+          </>
+          :
           <>
             <DraggableRnd
               label="Backdrop Shape"
