@@ -1,11 +1,11 @@
-import React, {useState} from 'react';
+import React from 'react';
 import {connect} from 'react-redux';
 import styled from 'styled-components';
 import {Formik, Form, Field} from 'formik';
 import {setStreamer} from 'actions/form';
 import {history} from 'store';
-import {Rnd} from 'react-rnd';
-import microImage from 'data/micro.jpg';
+import exampleImage from 'data/example.jpg';
+import exampleMenu from 'data/menu.png';
 
 const StyledWrapper = styled.div`
   position: relative;
@@ -13,43 +13,6 @@ const StyledWrapper = styled.div`
   width: 100%;
   overflow: hidden;
   display: flex;
-`;
-const StyledContentContainer = styled.div`
-  flex: 1;
-  position: relative;
-  z-index: 2;
-  background-color: ${props => props.theme.colorBackground};
-`;
-const StyledGridWrapper = styled.div`
-  flex: 1;
-  overflow: hidden;
-  border-bottom: 1px solid #555;
-  img {
-    height: 100%;
-    width: 100%;
-    pointer-events: none;
-    object-fit: cover;
-  }
-  @media screen and (max-width: 992px) {
-    display: none;
-  }
-`;
-const StyledGrid = styled.div`
-  height: 100%;
-  width: 100%;
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(10%, 1fr));
-  margin-top: ${props => props.theme.heightNavbar};
-  pointer-events: none;
-  position: relative;
-  z-index: 0;
-  pointer-events: none;
-  > div {
-    position: relative;
-    padding-top: 100%;
-    border-top: 1px solid #555;
-    border-left: 1px solid #555;
-  }
 `;
 const StyledContent = styled.div`
   display: flex;
@@ -63,144 +26,129 @@ const StyledContent = styled.div`
   flex-direction: column;
   justify-content: center;
   height: 100%;
-  pointer-events: none;
   h1 {
     margin: 0;
+    margin-bottom: 6rem;
     font-size: 6rem;
     @media screen and (max-width: 992px) {
       font-size: 2rem;
     }
   }
   input {
-    pointer-events: auto;
     background-color: transparent;
     outline: none;
-    height: 32px;
     border: none;
-    border-bottom: 1px solid ${props => props.theme.colorText};
+    background-color: ${props => props.theme.colorBackgroundElevated};
+    padding: 12px;
+    border-radius: 12px;
     color: ${props => props.theme.colorText};
     font-size: 20px;
+    @media screen and (max-width: 992px) {
+      background-color: ${props => props.theme.colorBackground};
+      margin-bottom: .5rem;
+    }
   }
   button {
-    background-color: transparent;
-    border: none;
-    outline: none;
+    right: 1rem;
+    bottom: 1rem;
+    background-color: ${props => props.theme.colorConfirm};
+    border-radius: 8px;
+    padding: 12px 16px;
     cursor: pointer;
-    stroke: ${props => props.theme.colorText};
-    height: 32px;
-    svg {
-      height: 100%;
+    display: flex;
+    align-items: center;
+    margin: 3px;
+    color: #fff;
+    border: none;
+    font-size: 16px;
+    transition: .2s ease;
+    &:hover {
+      background-color: ${props => props.theme.colorConfirmHover};
     }
   }
   form {
     display: flex;
     align-items: center;
-    margin-top: 2rem;
+    margin-top: 1rem;
+    @media screen and (max-width: 992px) {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  }
+  @media screen and (max-width: 992px) {
+    padding: 0 2rem;
   }
 `;
-const genericHandleStyling = {
-  height: '10px',
-  width: '10px',
-  border: '1px solid rgba(255, 255, 255, .2)',
-}
+const StyledImage = styled.div`
+  position: relative;
+  right: 0;
+  top: 0;
+  margin-left: 60%;
+  height: 100%;
+  padding-right: 4rem;
+  display: flex;
+  align-items: center;
+  > img {
+    width: 100%;
+    border-radius: 10px;
+  }
+  @media screen and (max-width: 992px) {
+    display: none;
+  }
+`;
+const StyledMenuImage = styled.div`
+  position: absolute;
+  left: -5vw;
+  bottom: 20%;
+  height: 15vw;
+  img {
+    object-fit: contain;
+    height: 100%;
+  }
+`;
+const StyledCircle = styled.div`
+  height: 200vh;
+  width: 200vh;
+  border-radius: 50%;
+  position: absolute;
+  right: -75vh;
+  top: -100vh;
+  background-color: #191919;
+`;
+
 
 const Hero = ({streamer, updateStreamer}) => {
-  const [x, setX] = useState(50);
-  const [y, setY] = useState(80);
-  const [width, setWidth] = useState(225);
-  const [height, setHeight] = useState(300);
   return (
     <StyledWrapper>
-      <StyledContentContainer>
-      </StyledContentContainer>
-
-      <StyledGridWrapper>
-        <StyledGrid>
-          <div/><div/><div/><div/><div/>
-          <div/><div/><div/><div/><div/>
-          <div/><div/><div/><div/><div/>
-          <div/><div/><div/><div/><div/>
-          <div/><div/><div/><div/><div/>
-          <div/><div/><div/><div/><div/>
-          <div/><div/><div/><div/><div/>
-          <div/><div/><div/><div/><div/>
-          <div/><div/><div/><div/><div/>
-          <div/><div/><div/><div/><div/>
-          <div/><div/><div/><div/><div/>
-          <div/><div/><div/><div/><div/>
-          <div/><div/><div/><div/><div/>
-          <div/><div/><div/><div/><div/>
-          <div/><div/><div/><div/><div/>
-          <div/><div/><div/><div/><div/>
-          <div/><div/><div/><div/><div/>
-          <div/><div/><div/><div/><div/>
-          <div/><div/><div/><div/><div/>
-          <div/><div/><div/><div/><div/>
-          <div/><div/><div/><div/><div/>
-          <div/><div/><div/><div/><div/>
-          <div/><div/><div/><div/><div/>
-          <div/><div/><div/><div/><div/>
-          <div/><div/><div/><div/><div/>
-          <div/><div/><div/><div/><div/>
-          <div/><div/><div/><div/><div/>
-          <div/><div/><div/><div/><div/>
-          <div/><div/><div/><div/><div/>
-          <div/><div/><div/><div/><div/>
-          <div/><div/><div/><div/><div/>
-          <div/><div/><div/><div/><div/>
-          <div/><div/><div/><div/><div/>
-          <div/><div/><div/><div/><div/>
-        </StyledGrid>
-        <Rnd
-          size={{ width: width,  height: height }}
-          position={{ x: x, y: y }}
-          onDragStop={(e, d) => {
-            setX(d.x);
-            setY(d.y);
-          }}
-          onResize={(e, direction, ref) => {
-            setWidth(ref.style.width);
-            setHeight(ref.style.height);
-          }}
-          resizeHandleStyles = {
-            {
-              bottomLeft: genericHandleStyling,
-              bottomRight: genericHandleStyling,
-              topLeft: genericHandleStyling,
-              topRight: genericHandleStyling,
-          }}
-        >
-          <img src={microImage} alt="micro dan"/>
-        </Rnd>
-      </StyledGridWrapper>
+      <StyledCircle/>
+      <StyledImage>
+        <img src={exampleImage} alt="example" />
+        <StyledMenuImage>
+          <img src={exampleMenu} alt="example menu"/>
+        </StyledMenuImage>
+      </StyledImage>
       <StyledContent>
-          <h1>
-            Create dynamic<br/> banners with realtime data
-          </h1>
-          <p>Enter a streamer's name to get started</p>
-          <Formik
-            initialValues={{
-              'streamer': 'xqcow'
-            }}
-            onSubmit={values => {
-              updateStreamer(values.streamer);
-              history.push('/editor')
-            }}
-            render={() => (
-              <Form>
-                <Field name={`streamer`} autoComplete="off" />
-                <button type="submit" inactive={streamer}>
-                  <svg xmlns="http://www.w3.org/2000/svg" className="icon icon-tabler icon-tabler-arrow-narrow-right" width="44" height="44" viewBox="0 0 24 24" strokeWidth="1.5" fill="none" strokeLinecap="round" strokeLinejoin="round">
-                    <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
-                    <line x1="5" y1="12" x2="19" y2="12" />
-                    <line x1="15" y1="16" x2="19" y2="12" />
-                    <line x1="15" y1="8" x2="19" y2="12" />
-                  </svg>
-                </button>
-              </Form>
-            )}
-          />
-        </StyledContent>
+        <h1>
+          Create dynamic<br/> banners with<br/> live data
+        </h1>
+        <Formik
+          initialValues={{
+            'streamer': 'xqcow'
+          }}
+          onSubmit={values => {
+            updateStreamer(values.streamer);
+            history.push('/editor')
+          }}
+          render={() => (
+            <Form>
+              <Field name={`streamer`} autoComplete="off" />
+              <button type="submit" inactive={streamer}>
+                Get Started
+              </button>
+            </Form>
+          )}
+        />
+      </StyledContent>
     </StyledWrapper>
   )
 }

@@ -6,7 +6,8 @@ import preview from 'data/preview.jpg';
 const StyledWrapper = styled.div`
   height: 300vh;
   position: relative;
-  margin-top: -6rem;
+  margin-top: -10%;
+  margin-bottom: 4rem;
 `;
 const StyledContainer = styled.div`
   perspective: 1000px;
@@ -40,6 +41,11 @@ const StyledInner = styled.div`
   background-size: 100%;
   padding: 5vw;
   background-image: url(${templateOne});
+  display: flex;
+  align-items: center;
+`;
+const StyledList = styled.div`
+  flex: 1;
 `;
 const StyledOverlay = styled.div`
   position: absolute;
@@ -53,10 +59,7 @@ const StyledOverlay = styled.div`
   background-image: url(${templateOne});
 `;
 const StyledImage = styled.div`
-  position: absolute;
-  right: 5vw;
-  top: 5vw;
-  width: 25vw;
+  flex: 1;
   img {
     width: 100%;
   }
@@ -68,7 +71,15 @@ const Scroller = () => {
     const viewportHeight = window.innerHeight;
     const scrolledFromTop = window.pageYOffset;
     const percentageScrolled = 90 - (scrolledFromTop/(viewportHeight * 3) * 90);
-    setRotation(percentageScrolled > 1 ? percentageScrolled : 1);
+    if (percentageScrolled < 1) {
+      setRotation(1);
+    }
+    else if (percentageScrolled > 110) {
+      setRotation(110);
+    }
+    else {
+      setRotation(percentageScrolled);
+    }
   };
   useEffect(() => {
     setScroll();
@@ -85,6 +96,7 @@ const Scroller = () => {
           }}
         >
           <StyledInner>
+            <StyledList>
             • Live Viewer Count<br/>
             • Live Category<br/>
             • Live Stream Uptime<br/>
@@ -92,6 +104,7 @@ const Scroller = () => {
             • Username<br/>
             • Profile Picture<br/>
             • Unique Designs<br/>
+            </StyledList>
             <StyledImage>
               <img src={preview} alt="preview"/>
             </StyledImage>

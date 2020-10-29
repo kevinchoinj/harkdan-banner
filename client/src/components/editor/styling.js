@@ -1,9 +1,9 @@
 import styled from 'styled-components';
 
 export const StyledWrapper = styled.div`
-  margin-top: 3px;
-  margin-left: 3px;
-  margin-right: 3px;
+  margin-top: 6px;
+  margin-left: 6px;
+  margin-right: 6px;
   border-radius: 12px;
   overflow: visible;
 `;
@@ -13,6 +13,7 @@ export const StyledHeader = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
+  border-radius: 6px;
   padding: 5px 10px;
   cursor: pointer;
   background-color: #262626;
@@ -28,7 +29,13 @@ export const StyledHeader = styled.div`
   }
 `;
 export const StyledContent = styled.div`
-  background-color: #393939;
+  border-radius: 6px;
+  background-color: #333;
+  select {
+    padding: 6px;
+    cursor: pointer;
+    border-radius: 6px;
+  }
 `;
 export const StyledRow = styled.div`
   display: flex;
@@ -42,6 +49,7 @@ export const StyledRow = styled.div`
     outline: none;
     color: #ddd;
     font-size: 14px;
+    padding: 6px;
   }
 `;
 export const StyledHiddenWrapper = styled.div`

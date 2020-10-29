@@ -23,7 +23,7 @@ const InputFont = ({formData, value, saveHistory, updateField}) => {
   return (
     <StyledRow>
       <label>
-        {value.label}
+        Font
       </label>
       <select
         onChange={(e) => handleFontChange(e.target.value)}

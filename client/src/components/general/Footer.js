@@ -7,6 +7,7 @@ const StyledWrapper = styled.div`
   display: flex;
   justify-content: center;
   padding: 8px 0;
+  margin-top: 6rem;
   background-color: ${props => props.theme.colorBackgroundElevated};
   position: relative;
   z-index: 2;

@@ -18,8 +18,7 @@ export const StyledWrapper = styled.section`
   position: relative;
   display: flex;
   justify-content: center;
-  padding: 2rem 0 6rem 0;
-  background-color: ${props => props.theme.colorBackground};
+  padding: 4rem 0 4rem 0;
   @media screen and (max-width: 768px) {
     padding: 0;
   }
@@ -33,7 +32,6 @@ export const StyledWrapperBg = styled(StyledWrapper)`
     top: -20%;
     -webkit-transform: skewY(-12deg);
     transform: skewY(-12deg);
-    background: ${props => props.theme.colorPrimaryLight};
     @media screen and (max-width: 768px) {
       display: none;
     }

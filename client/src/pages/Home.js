@@ -12,10 +12,12 @@ const StyledWrapper = styled.div`
   align-items: center;
 `;
 const StyledDescription = styled.div`
-  margin-bottom: 8rem;
   max-width: 800px;
-  margin-top: 8rem;
-  padding: 1rem 2rem 2rem 2rem;
+  margin: 2rem 0;
+  padding: 0 1rem;
+  @media screen and (max-width: 992px) {
+    padding: 0 2rem;
+  }
 `;
 
 const lipsum = `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.`;
@@ -24,7 +26,8 @@ const Home = () => {
   return (
     <StyledWrapper>
       <Hero/>
-        <Scroller/>
+      <Scroller/>
+      <Pricing/>
       <StyledDescription>
         <StyledHeader>Twitch Banners</StyledHeader>
         {lipsum}
@@ -33,7 +36,6 @@ const Home = () => {
         <br/><br/>
         {lipsum}
       </StyledDescription>
-      <Pricing/>
       <Footer/>
     </StyledWrapper>
   )
