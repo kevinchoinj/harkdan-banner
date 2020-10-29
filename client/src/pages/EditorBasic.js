@@ -1,4 +1,4 @@
-import React, {useMemo} from 'react';
+import React, {useMemo, useState} from 'react';
 import styled from 'styled-components';
 import DraggableRnd from 'components/editor/DraggableRnd';
 import {connect} from 'react-redux';
@@ -11,7 +11,7 @@ import {templatesList} from 'data/templatesList';
 import {find, propEq} from 'ramda';
 import ImageChooserWindow from 'components/editor/ImageChooserWindow';
 import FormSettingsOverlay from 'components/editor/FormSettingsOverlay';
-
+import screencap from 'data/preview.jpg';
 const StyledCanvasWrapper = styled.div`
   display: flex;
   justify-content: center;
@@ -82,6 +82,9 @@ const keyValues = [
   {keyValue: 'valueTimeOnline', label: 'Time Live'},
   {keyValue: 'valueStreamTitle', label: 'Stream Title'},
   {keyValue: 'valueBackgroundShape', label: 'Backdrop Shape'},
+  {keyValue: 'valueOfflineMessage', label: 'Offline - Message'},
+  {keyValue: 'valueOfflineLastOnline', label: 'Offline - Last Online'},
+  {keyValue: 'valueOfflineBackgroundShape', label: 'Offline - Backdrop Shape'},
 ];
 
 const EditorBasic = ({
@@ -95,6 +98,7 @@ const EditorBasic = ({
     const imageObject = find(propEq('keyValue', formData.background))(templatesList);
     return imageObject.image;
   }, [formData]);
+  const [offlineMode, setOfflineMode] = useState(false);
   return (
     <StyledWrapper>
       <LoadFont/>
@@ -117,7 +121,6 @@ const EditorBasic = ({
             borderRadius: formData.borderRadius,
           }}
         >
-
           {showGrid &&
             <StyledGrid>
               <div/><div/><div/><div/><div/>
@@ -135,111 +138,168 @@ const EditorBasic = ({
             </StyledGrid>
           }
 
-          <DraggableRnd
-            label="Backdrop Shape"
-            keyValue="valueBackgroundShape"
-            data={formData.valueBackgroundShape}
-            hovered={hoveredItem==="valueBackgroundShape"}
-          >
-            <StyledBackdrop
-              style={{
-                backgroundColor: formData.valueBackgroundShape?.color,
-                opacity: formData.valueBackgroundShape?.opacity,
-              }}
-            />
-          </DraggableRnd>
-
-          <DraggableRnd
-            label="Current View Count"
-            keyValue="valueViewers"
-            data={formData.valueViewers}
-            hovered={hoveredItem==="valueViewers"}
-          >
-            {showExamples ?
-              '3.7k viewers'
-              :
-              'Viewer Count'
-            }
-          </DraggableRnd>
-
-          <DraggableRnd
-            label="Profile Picture"
-            keyValue="valueAvatar"
-            data={formData.valueAvatar}
-            hovered={hoveredItem==="valueAvatar"}
-          >
-            {showExamples ?
-              <img src={xqc} alt="avatar"/>
-              :
-              'Avatar'
-            }
-          </DraggableRnd>
-
-          <DraggableRnd
-            label="Current Screencap"
-            keyValue="valueSnapshot"
-            data={formData.valueSnapshot}
-            hovered={hoveredItem==="valueSnapshot"}
-          >
-            {showExamples ?
-              <img
-                src="https://static-cdn.jtvnw.net/cf_vods/d2nvs31859zcd8/65b9b6ad277fb42af75e_novaruu_39778524174_1600559337//thumb/thumb0-640x360.jpg"
-                alt="screencap"
+          {offlineMode ?
+          <>
+            <DraggableRnd
+              label="Offline - Backdrop Shape"
+              keyValue="valueOfflineBackgroundShape"
+              data={formData.valueOfflineBackgroundShape}
+              key="valueOfflineBackgroundShape"
+              hovered={hoveredItem==="valueOfflineBackgroundShape"}
+            >
+              <StyledBackdrop
+                style={{
+                  backgroundColor: formData.valueOfflineBackgroundShape?.color,
+                  opacity: formData.valueOfflineBackgroundShape?.opacity,
+                }}
               />
-              :
-              'screenshot'
-            }
-          </DraggableRnd>
+            </DraggableRnd>
+            <DraggableRnd
+              label="Offline - Message"
+              keyValue="valueOfflineMessage"
+              data={formData.valueOfflineMessage}
+              key="valueOfflineMessage"
+              hovered={hoveredItem==="valueOfflineMessage"}
+            >
+              {showExamples ?
+                'Offline'
+                :
+                'Offline'
+              }
+            </DraggableRnd>
+            <DraggableRnd
+              label="Offline - Last Stream"
+              keyValue="valueOfflineLastOnline"
+              data={formData.valueOfflineLastOnline}
+              hovered={hoveredItem==="valueOfflineLastOnline"}
+            >
+              {showExamples ?
+                'Last Online: 23h 6m'
+                :
+                'Last Online Time'
+              }
+            </DraggableRnd>
+          </>
+          :
+          <>
+            <DraggableRnd
+              label="Backdrop Shape"
+              keyValue="valueBackgroundShape"
+              data={formData.valueBackgroundShape}
+              key="valueBackgroundShape"
+              hovered={hoveredItem==="valueBackgroundShape"}
+            >
+              <StyledBackdrop
+                style={{
+                  backgroundColor: formData.valueBackgroundShape?.color,
+                  opacity: formData.valueBackgroundShape?.opacity,
+                }}
+              />
+            </DraggableRnd>
 
-          <DraggableRnd
-            label="Category"
-            keyValue="valueCategory"
-            data={formData.valueCategory}
-            hovered={hoveredItem==="valueCategory"}
-          >
-            {showExamples ?
-              'Category: Just Chatting'
-              :
-              'Category'
-            }
-          </DraggableRnd>
+            <DraggableRnd
+              label="Current View Count"
+              keyValue="valueViewers"
+              data={formData.valueViewers}
+              key="valueViewers"
+              hovered={hoveredItem==="valueViewers"}
+            >
+              {showExamples ?
+                '3.7k viewers'
+                :
+                'Viewer Count'
+              }
+            </DraggableRnd>
 
-          <DraggableRnd
-            label="Username"
-            keyValue="valueUsername"
-            data={formData.valueUsername}
-            hovered={hoveredItem==="valueUsername"}
-          >
-            {formData.streamer ? <div>{formData.streamer}</div> : 'Username'}
-          </DraggableRnd>
+            <DraggableRnd
+              label="Profile Picture"
+              keyValue="valueAvatar"
+              data={formData.valueAvatar}
+              key="valueAvatar"
+              hovered={hoveredItem==="valueAvatar"}
+            >
+              {showExamples ?
+                <img src={xqc} alt="avatar"/>
+                :
+                'Avatar'
+              }
+            </DraggableRnd>
 
-          <DraggableRnd
-            label="Time Live"
-            keyValue="valueTimeOnline"
-            data={formData.valueTimeOnline}
-            hovered={hoveredItem==="valueTimeOnline"}
-          >
-            {showExamples ?
-              'Online: 4h 20m'
-              :
-              'Time Online'
-            }
-          </DraggableRnd>
+            <DraggableRnd
+              label="Current Screencap"
+              keyValue="valueSnapshot"
+              data={formData.valueSnapshot}
+              key="valueSnapshot"
+              hovered={hoveredItem==="valueSnapshot"}
+            >
+              {showExamples ?
+                <img
+                  src={screencap}
+                  alt="screencap"
+                />
+                :
+                'screenshot'
+              }
+            </DraggableRnd>
 
-          <DraggableRnd
-            label="Stream Title"
-            keyValue="valueStreamTitle"
-            data={formData.valueStreamTitle}
-            hovered={hoveredItem==="valueStreamTitle"}
-          >
-            {showExamples ?
-              'Trying to get 10 wins in this game'
-              :
-              'Stream Title'
-            }
-          </DraggableRnd>
+            <DraggableRnd
+              label="Category"
+              keyValue="valueCategory"
+              data={formData.valueCategory}
+              key="valueCategory"
+              hovered={hoveredItem==="valueCategory"}
+            >
+              {showExamples ?
+                'Category: Just Chatting'
+                :
+                'Category'
+              }
+            </DraggableRnd>
+
+            <DraggableRnd
+              label="Username"
+              keyValue="valueUsername"
+              data={formData.valueUsername}
+              key="valueUsername"
+              hovered={hoveredItem==="valueUsername"}
+            >
+              {formData.streamer ? <div>{formData.streamer}</div> : 'Username'}
+            </DraggableRnd>
+
+            <DraggableRnd
+              label="Time Live"
+              keyValue="valueTimeOnline"
+              data={formData.valueTimeOnline}
+              key="valueTimeOnline"
+              hovered={hoveredItem==="valueTimeOnline"}
+            >
+              {showExamples ?
+                'Online: 4h 20m'
+                :
+                'Time Online'
+              }
+            </DraggableRnd>
+
+            <DraggableRnd
+              label="Stream Title"
+              keyValue="valueStreamTitle"
+              data={formData.valueStreamTitle}
+              key="valueStreamTitle"
+              hovered={hoveredItem==="valueStreamTitle"}
+            >
+              {showExamples ?
+                'Trying to get 10 wins in this game'
+                :
+                'Stream Title'
+              }
+            </DraggableRnd>
+          </>
+        }
         </StyledCanvas>
-      <FormSettingsOverlay/>
+      <FormSettingsOverlay
+        offlineMode={offlineMode}
+        setOfflineMode={setOfflineMode}
+      />
       </StyledCanvasWrapper>
       <History/>
       <ImageChooserWindow/>

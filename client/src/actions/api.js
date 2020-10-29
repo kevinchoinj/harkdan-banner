@@ -1,37 +1,37 @@
 import {history} from 'store';
 import Cookies from 'js-cookie';
 
-export const FETCH_NOTIFICATIONS_STARTED = Symbol('FETCH_NOTIFICATIONS_STARTED');
-export const FETCH_NOTIFICATIONS_SUCCEEDED = Symbol('FETCH_NOTIFICATIONS_SUCCEEDED');
-export const FETCH_NOTIFICATIONS_FAILURE = Symbol('FETCH_NOTIFICATIONS_FAILURE');
+export const FETCH_BRANDING_STARTED = Symbol('FETCH_BRANDING_STARTED');
+export const FETCH_BRANDING_SUCCEEDED = Symbol('FETCH_BRANDING_SUCCEEDED');
+export const FETCH_BRANDING_FAILURE = Symbol('FETCH_BRANDING_FAILURE');
 
-export const ADD_NOTIFICATIONS_STARTED = Symbol('ADD_NOTIFICATIONS_STARTED');
-export const ADD_NOTIFICATIONS_SUCCEEDED = Symbol('ADD_NOTIFICATIONS_SUCCEEDED');
-export const ADD_NOTIFICATIONS_FAILURE = Symbol('ADD_NOTIFICATIONS_FAILURE');
+export const ADD_BRANDING_STARTED = Symbol('ADD_BRANDING_STARTED');
+export const ADD_BRANDING_SUCCEEDED = Symbol('ADD_BRANDING_SUCCEEDED');
+export const ADD_BRANDING_FAILURE = Symbol('ADD_BRANDING_FAILURE');
 
-export const EDIT_NOTIFICATIONS_STARTED = Symbol('EDIT_NOTIFICATIONS_STARTED');
-export const EDIT_NOTIFICATIONS_SUCCEEDED = Symbol('EDIT_NOTIFICATIONS_SUCCEEDED');
-export const EDIT_NOTIFICATIONS_FAILURE = Symbol('EDIT_NOTIFICATIONS_FAILURE');
+export const EDIT_BRANDING_STARTED = Symbol('EDIT_BRANDING_STARTED');
+export const EDIT_BRANDING_SUCCEEDED = Symbol('EDIT_BRANDING_SUCCEEDED');
+export const EDIT_BRANDING_FAILURE = Symbol('EDIT_BRANDING_FAILURE');
 
-export const REMOVE_NOTIFICATIONS_STARTED = Symbol('REMOVE_NOTIFICATIONS_STARTED');
-export const REMOVE_NOTIFICATIONS_SUCCEEDED = Symbol('REMOVE_NOTIFICATIONS_SUCCEEDED');
-export const REMOVE_NOTIFICATIONS_FAILURE = Symbol('REMOVE_NOTIFICATIONS_FAILURE');
+export const REMOVE_BRANDING_STARTED = Symbol('REMOVE_BRANDING_STARTED');
+export const REMOVE_BRANDING_SUCCEEDED = Symbol('REMOVE_BRANDING_SUCCEEDED');
+export const REMOVE_BRANDING_FAILURE = Symbol('REMOVE_BRANDING_FAILURE');
 
-const fetchNotificationsStarted = request => ({type: FETCH_NOTIFICATIONS_STARTED, request});
-const fetchNotificationsSucceeded = data => ({type: FETCH_NOTIFICATIONS_SUCCEEDED, data});
-const fetchNotificationsFailure = (data, error) => ({type: FETCH_NOTIFICATIONS_FAILURE, data, error});
+const fetchBrandingStarted = request => ({type: FETCH_BRANDING_STARTED, request});
+const fetchBrandingSucceeded = data => ({type: FETCH_BRANDING_SUCCEEDED, data});
+const fetchBrandingFailure = (data, error) => ({type: FETCH_BRANDING_FAILURE, data, error});
 
-const addNotificationsStarted = request => ({type: ADD_NOTIFICATIONS_STARTED, request});
-const addNotificationsSucceeded = data => ({type: ADD_NOTIFICATIONS_SUCCEEDED, data});
-const addNotificationsFailure = (data, error) => ({type: ADD_NOTIFICATIONS_FAILURE, data, error});
+const addBrandingStarted = request => ({type: ADD_BRANDING_STARTED, request});
+const addBrandingSucceeded = data => ({type: ADD_BRANDING_SUCCEEDED, data});
+const addBrandingFailure = (data, error) => ({type: ADD_BRANDING_FAILURE, data, error});
 
-const editNotificationsStarted = request => ({type: EDIT_NOTIFICATIONS_STARTED, request});
-const editNotificationsSucceeded = data => ({type: EDIT_NOTIFICATIONS_SUCCEEDED, data});
-const editNotificationsFailure = (data, error) => ({type: EDIT_NOTIFICATIONS_FAILURE, data, error});
+const editBrandingStarted = request => ({type: EDIT_BRANDING_STARTED, request});
+const editBrandingSucceeded = data => ({type: EDIT_BRANDING_SUCCEEDED, data});
+const editBrandingFailure = (data, error) => ({type: EDIT_BRANDING_FAILURE, data, error});
 
-const removeNotificationsStarted = request => ({type: REMOVE_NOTIFICATIONS_STARTED, request});
-const removeNotificationsSucceeded = data => ({type: REMOVE_NOTIFICATIONS_SUCCEEDED, data});
-const removeNotificationsFailure = (data, error) => ({type: REMOVE_NOTIFICATIONS_FAILURE, data, error});
+const removeBrandingStarted = request => ({type: REMOVE_BRANDING_STARTED, request});
+const removeBrandingSucceeded = data => ({type: REMOVE_BRANDING_SUCCEEDED, data});
+const removeBrandingFailure = (data, error) => ({type: REMOVE_BRANDING_FAILURE, data, error});
 
 function handleErrors(response) {
   if (!response.ok) {
@@ -41,25 +41,25 @@ function handleErrors(response) {
 }
 
 
-function getNotifications() {
+function getBranding() {
   return () => {
     return fetch('/api/v1/notifications');
   };
 }
-export function fetchNotifications() {
+export function fetchBranding() {
   return (dispatch) => {
-    dispatch(fetchNotificationsStarted());
-    return dispatch(getNotifications())
+    dispatch(fetchBrandingStarted());
+    return dispatch(getBranding())
       .then(handleErrors)
       .then(res => res.json())
       .then(json => {
-        dispatch(fetchNotificationsSucceeded(json));
+        dispatch(fetchBrandingSucceeded(json));
       })
-      .catch(error => dispatch(fetchNotificationsFailure(error)));
+      .catch(error => dispatch(fetchBrandingFailure(error)));
   };
 }
 
-function postNotifications(values) {
+function postBranding(values) {
   return () => {
     return fetch('/api/v1/notifications',
       {
@@ -72,29 +72,29 @@ function postNotifications(values) {
       });
   };
 }
-export function addNotifications(values) {
+export function addBranding(values) {
   return (dispatch) => {
-    dispatch(addNotificationsStarted());
-    return dispatch(postNotifications(values))
+    dispatch(addBrandingStarted());
+    return dispatch(postBranding(values))
       .then(handleErrors)
       .then(res => res.json())
       .then(json => {
-        dispatch(addNotificationsSucceeded(json));
+        dispatch(addBrandingSucceeded(json));
       })
-      .catch(error => dispatch(addNotificationsFailure(error)));
+      .catch(error => dispatch(addBrandingFailure(error)));
   };
 }
 
-export function addNotificationsThenUpdate(values) {
+export function addBrandingThenUpdate(values) {
   return (dispatch) => {
-    dispatch(addNotifications(values))
-      .then(() => dispatch(fetchNotifications()));
+    dispatch(addBranding(values))
+      .then(() => dispatch(fetchBranding()));
   };
 }
 /*======================================
 =             EDIT IMAGE               =
 ======================================*/
-function putNotifications(values) {
+function putBranding(values) {
   return () => {
     return fetch('/api/v1/notifications',
       {
@@ -107,29 +107,29 @@ function putNotifications(values) {
       });
   };
 }
-export function editNotifications(values) {
+export function editBranding(values) {
   return (dispatch) => {
-    dispatch(editNotificationsStarted());
-    return dispatch(putNotifications(values))
+    dispatch(editBrandingStarted());
+    return dispatch(putBranding(values))
       .then(handleErrors)
       .then(res => res.json())
       .then(json => {
-        dispatch(editNotificationsSucceeded(json));
+        dispatch(editBrandingSucceeded(json));
       })
-      .catch(error => dispatch(editNotificationsFailure(error)));
+      .catch(error => dispatch(editBrandingFailure(error)));
   };
 }
 
-export function editNotificationsThenUpdate(values, path) {
+export function editBrandingThenUpdate(values, path) {
   return (dispatch) => {
-    dispatch(editNotifications(values))
+    dispatch(editBranding(values))
       .then(() => {
         history.push(path);
       });
   };
 }
 
-function deleteNotifications(id) {
+function deleteBranding(id) {
   return () => {
     return fetch('/api/v1/notifications',
       {
@@ -144,15 +144,15 @@ function deleteNotifications(id) {
       });
   };
 }
-export function removeNotifications(id, rev, awsKey) {
+export function removeBranding(id, rev, awsKey) {
   return (dispatch) => {
-    dispatch(removeNotificationsStarted());
-    return dispatch(deleteNotifications(id, rev))
+    dispatch(removeBrandingStarted());
+    return dispatch(deleteBranding(id, rev))
       .then(handleErrors)
       .then(res => res.json())
       .then(json => {
-        dispatch(removeNotificationsSucceeded(json));
+        dispatch(removeBrandingSucceeded(json));
       })
-      .catch(error => dispatch(removeNotificationsFailure(error)));
+      .catch(error => dispatch(removeBrandingFailure(error)));
   };
 }

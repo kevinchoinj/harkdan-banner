@@ -9,7 +9,7 @@ const DEFAULT_STATE = {
   historyIndex: -1,
 }
 
-export default (state = DEFAULT_STATE, action) =>
+const historyReducer = (state = DEFAULT_STATE, action) =>
   produce(state, draft => {
     switch(action.type){
       case ACTION_TAKEN:
@@ -35,3 +35,5 @@ export default (state = DEFAULT_STATE, action) =>
     }
   }
 );
+
+export default historyReducer;

@@ -8,7 +8,7 @@ const DEFAULT_STATE={
   loggedIn: false,
 };
 
-export default(state=DEFAULT_STATE, payload) => {
+const authReducer = (state=DEFAULT_STATE, payload) => {
   switch(payload.type){
   case FIND_PASSPORT_SUCCEEDED:
     return {
@@ -29,3 +29,5 @@ export default(state=DEFAULT_STATE, payload) => {
     return state;
   }
 };
+
+export default authReducer;

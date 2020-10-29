@@ -144,6 +144,7 @@ const Editor = ({
               label="Offline - Backdrop Shape"
               keyValue="valueOfflineBackgroundShape"
               data={formData.valueOfflineBackgroundShape}
+              key="valueOfflineBackgroundShape"
               hovered={hoveredItem==="valueOfflineBackgroundShape"}
             >
               <StyledBackdrop
@@ -157,6 +158,7 @@ const Editor = ({
               label="Offline - Message"
               keyValue="valueOfflineMessage"
               data={formData.valueOfflineMessage}
+              key="valueOfflineMessage"
               hovered={hoveredItem==="valueOfflineMessage"}
             >
               {showExamples ?
@@ -184,6 +186,7 @@ const Editor = ({
               label="Backdrop Shape"
               keyValue="valueBackgroundShape"
               data={formData.valueBackgroundShape}
+              key="valueBackgroundShape"
               hovered={hoveredItem==="valueBackgroundShape"}
             >
               <StyledBackdrop
@@ -198,6 +201,7 @@ const Editor = ({
               label="Current View Count"
               keyValue="valueViewers"
               data={formData.valueViewers}
+              key="valueViewers"
               hovered={hoveredItem==="valueViewers"}
             >
               {showExamples ?
@@ -211,6 +215,7 @@ const Editor = ({
               label="Profile Picture"
               keyValue="valueAvatar"
               data={formData.valueAvatar}
+              key="valueAvatar"
               hovered={hoveredItem==="valueAvatar"}
             >
               {showExamples ?
@@ -224,6 +229,7 @@ const Editor = ({
               label="Current Screencap"
               keyValue="valueSnapshot"
               data={formData.valueSnapshot}
+              key="valueSnapshot"
               hovered={hoveredItem==="valueSnapshot"}
             >
               {showExamples ?
@@ -240,6 +246,7 @@ const Editor = ({
               label="Category"
               keyValue="valueCategory"
               data={formData.valueCategory}
+              key="valueCategory"
               hovered={hoveredItem==="valueCategory"}
             >
               {showExamples ?
@@ -253,6 +260,7 @@ const Editor = ({
               label="Username"
               keyValue="valueUsername"
               data={formData.valueUsername}
+              key="valueUsername"
               hovered={hoveredItem==="valueUsername"}
             >
               {formData.streamer ? <div>{formData.streamer}</div> : 'Username'}
@@ -262,6 +270,7 @@ const Editor = ({
               label="Time Live"
               keyValue="valueTimeOnline"
               data={formData.valueTimeOnline}
+              key="valueTimeOnline"
               hovered={hoveredItem==="valueTimeOnline"}
             >
               {showExamples ?
@@ -275,6 +284,7 @@ const Editor = ({
               label="Stream Title"
               keyValue="valueStreamTitle"
               data={formData.valueStreamTitle}
+              key="valueStreamTitle"
               hovered={hoveredItem==="valueStreamTitle"}
             >
               {showExamples ?

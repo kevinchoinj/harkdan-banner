@@ -14,8 +14,7 @@ const DEFAULT_STATE={
   historyVisible: true,
 };
 
-export default(state=DEFAULT_STATE, payload)=>
-{
+const formSettingsReducer = (state=DEFAULT_STATE, payload) => {
   switch(payload.type){
     case TOGGLE_BORDERS:
       return state = {
@@ -46,3 +45,5 @@ export default(state=DEFAULT_STATE, payload)=>
       return state;
     }
 };
+
+export default formSettingsReducer;

@@ -9,6 +9,9 @@ import {
 import {
   RESTORE_HISTORY
 } from 'actions/history';
+import {
+  FETCH_BRANDING_SUCCEEDED,
+} from 'actions/api';
 
 const DEFAULT_STATE={
   streamer: '',
@@ -161,6 +164,8 @@ const DEFAULT_STATE={
 export default(state=DEFAULT_STATE, payload)=>
 {
   switch(payload.type){
+  case FETCH_BRANDING_SUCCEEDED:
+    return state = payload.data;
   case RESTORE_HISTORY:
     return state = payload.form;
   case SET_BACKGROUND:

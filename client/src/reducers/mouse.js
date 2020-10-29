@@ -10,8 +10,7 @@ const DEFAULT_STATE={
   hoveredDraggable: null,
 };
 
-export default(state=DEFAULT_STATE, payload)=>
-{
+const mouseReducer = (state=DEFAULT_STATE, payload) => {
   switch(payload.type){
     case GET_MOUSE_POSITION:
       return state = {
@@ -35,3 +34,5 @@ export default(state=DEFAULT_STATE, payload)=>
       return state;
     }
 };
+
+export default mouseReducer;
