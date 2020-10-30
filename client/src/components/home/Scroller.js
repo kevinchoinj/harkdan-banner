@@ -18,7 +18,7 @@ const StyledContainer = styled.div`
 `;
 const StyledDiv = styled.div`
   background-color: #fff;
-  width: 80vw;
+  width: 63.8vw;
   padding-top: 56%;
   position: relative;
   @media screen and (max-width: 992px) {

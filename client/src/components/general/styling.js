@@ -19,6 +19,9 @@ export const StyledWrapper = styled.section`
   display: flex;
   justify-content: center;
   padding: 4rem 0 4rem 0;
+  width: 100%;
+  max-width: 1245px;
+  padding: 0 1rem;
   @media screen and (max-width: 768px) {
     padding: 0;
   }
