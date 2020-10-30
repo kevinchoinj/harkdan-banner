@@ -1,6 +1,6 @@
 export const themeData = {
   widthContent: '600px',
-  colorText: '#dae2f2',
+  colorText: '#fff',
   colorTextElevated: '#bdc2cb',
   colorBackground: '#262626',
   colorBackgroundElevated: '#191919',

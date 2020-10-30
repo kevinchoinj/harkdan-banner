@@ -6,7 +6,6 @@ import preview from 'data/preview.jpg';
 const StyledWrapper = styled.div`
   height: 300vh;
   position: relative;
-  margin-top: -10%;
   margin-bottom: 4rem;
 `;
 const StyledContainer = styled.div`
@@ -19,7 +18,7 @@ const StyledContainer = styled.div`
 `;
 const StyledDiv = styled.div`
   background-color: #fff;
-  width: 60vw;
+  width: 80vw;
   padding-top: 56%;
   position: relative;
   @media screen and (max-width: 992px) {
@@ -65,17 +64,19 @@ const StyledImage = styled.div`
   }
 `;
 const Scroller = () => {
+  const wrapperRef = useRef(null);
   const [rotation, setRotation] = useState(60);
   const stickyRef = useRef(null);
   const setScroll = () => {
     const viewportHeight = window.innerHeight;
-    const scrolledFromTop = window.pageYOffset;
-    const percentageScrolled = 90 - (scrolledFromTop/(viewportHeight * 3) * 90);
+    const heightOfStickyWrapper = viewportHeight * 3;
+    const scrolledFromTop = window.pageYOffset - (wrapperRef.current.offsetTop);
+    const percentageScrolled = 50 - (scrolledFromTop/heightOfStickyWrapper * 90);
     if (percentageScrolled < 1) {
       setRotation(1);
     }
-    else if (percentageScrolled > 110) {
-      setRotation(110);
+    else if (percentageScrolled > 90) {
+      setRotation(90);
     }
     else {
       setRotation(percentageScrolled);
@@ -85,10 +86,14 @@ const Scroller = () => {
     setScroll();
     window.addEventListener('scroll', setScroll);
     window.addEventListener('resize', setScroll);
+    return () => {
+      window.removeEventListener('scroll', setScroll);
+      window.removeEventListener('resize', setScroll);
+    }
   }, [setScroll]);
 
   return (
-    <StyledWrapper>
+    <StyledWrapper ref={wrapperRef}>
       <StyledContainer ref={stickyRef}>
         <StyledDiv
           style={{

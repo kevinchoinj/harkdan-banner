@@ -74,9 +74,11 @@ export const StyledHalf = styled.div`
 `;
 
 export const StyledHeader = styled.h2`
-  font-size: 3rem;
-  text-align: center;
+  font-size: 4rem;
+  text-align: left;
+  max-width: 80%;
   @media screen and (max-width: 992px) {
     font-size: 2rem;
+    max-width: 100%;
   }
 `;
