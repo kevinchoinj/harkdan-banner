@@ -38,7 +38,7 @@ const StyledContent = styled.div`
     background-color: transparent;
     outline: none;
     border: none;
-    background-color: ${props => props.theme.colorBackgroundElevated};
+    background-color: ${props => props.theme.colorBackgroundEmphasized};
     padding: 12px;
     border-radius: 12px;
     color: ${props => props.theme.colorText};
@@ -113,7 +113,7 @@ const StyledCircle = styled.div`
   position: absolute;
   right: -75vh;
   top: -100vh;
-  background-color: #191919;
+  background-color: ${props => props.theme.colorBackgroundElevated};
 `;
 
 
@@ -129,7 +129,7 @@ const Hero = ({streamer, updateStreamer}) => {
       </StyledImage>
       <StyledContent>
         <h1>
-          Create dynamic<br/> banners with<br/> live data
+          Create dynamic<br/> banners with<br/> <span style={{color:"#09f"}}>live data</span>
         </h1>
         <Formik
           initialValues={{

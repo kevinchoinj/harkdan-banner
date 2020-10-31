@@ -75,9 +75,12 @@ const SectionEditor = ({
       <StyledHeader
         onClick={() => setExpanded(prev => !prev)}
         draggableHovered={draggableHovered === value.keyValue}
+        active={expanded}
       >
         <StyledHiddenWrapper>
-          {value.label}&nbsp;&nbsp;{formData[value.keyValue]?.visible ?
+          {value.label}
+        </StyledHiddenWrapper>
+        <StyledHiddenWrapper>{formData[value.keyValue]?.visible ?
             <StyledHidden
               onClick={(e) => clickEye(e, value.keyValue, value.label, false)}
               visible={true}
@@ -106,7 +109,6 @@ const SectionEditor = ({
               <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M12 10v-4c0-3.313-2.687-6-6-6s-6 2.687-6 6v3h2v-3c0-2.206 1.794-4 4-4s4 1.794 4 4v4h-4v14h18v-14h-12z"/></svg>
             </StyledHidden>
           }
-        </StyledHiddenWrapper>
 
         {expanded ?
           <svg
@@ -115,6 +117,8 @@ const SectionEditor = ({
           <svg
             xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M5 3l3.057-3 11.943 12-11.943 12-3.057-3 9-9z"/></svg>
         }
+
+        </StyledHiddenWrapper>
       </StyledHeader>
       {expanded &&
         <StyledContent>

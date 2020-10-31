@@ -9,21 +9,22 @@ const StyledTable = styled.div`
   width: 100%;
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
   margin-bottom: 3rem;
 `;
 const StyledWrapperPricing = styled(StyledWrapper)`
   display: flex;
   flex-direction: column;
 `;
-
+const StyledPricingContainer = styled(StyledContainer)`
+  padding: 0;
+`;
 const Pricing = () => {
   return (
     <StyledWrapperPricing>
       <StyledHeader>
-        Advanced Features
+        Advanced <span style={{color: "#0cf"}}>Features</span>
       </StyledHeader>
-      <StyledContainer>
+      <StyledPricingContainer>
         <StyledTable>
           {pricingColumnData.map(value => {
             return (
@@ -38,7 +39,7 @@ const Pricing = () => {
             )
           })}
         </StyledTable>
-      </StyledContainer>
+      </StyledPricingContainer>
     </StyledWrapperPricing>
   )
 }

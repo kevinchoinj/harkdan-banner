@@ -6,7 +6,7 @@ import SvgIcon from 'components/general/SvgIcon';
 const StyledObject = styled.div`
   flex: 0 0 33%;
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   margin: 2rem 0;
   align-items: center;
   @media screen and (max-width: 992px) {
@@ -49,9 +49,9 @@ const StyledLabel = styled.div`
 `;
 
 const objectsArray = [
-  {label: 'Test', subLabel: 'Test', color: '#85f', icon: 'time'},
-  {label: 'Test2', subLabel: 'Test', color: '#09f', icon: 'check'},
-  {label: 'Test3', subLabel: 'Test', color: '#0cf', icon: 'checkbox'},
+  {label: 'Micro', subLabel: 'Dan', color: '#85f', icon: 'time'},
+  {label: 'No', subLabel: 'Japan', color: '#09f', icon: 'check'},
+  {label: 'Slumlord', subLabel: 'Man', color: '#0cf', icon: 'checkbox'},
   {label: 'Test4', subLabel: 'Test', color: '#0c8', icon: 'chat'},
   {label: 'Test5', subLabel: 'Test', color: '#fc0', icon: 'thumbsup'},
   {label: 'Test6', subLabel: 'Test', color: '#f36', icon: 'flag'},

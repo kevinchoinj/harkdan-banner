@@ -16,7 +16,7 @@ export const StyledHeader = styled.div`
   border-radius: 6px;
   padding: 5px 10px;
   cursor: pointer;
-  background-color: #262626;
+  background-color: ${props => props.active ? '#090909' : props.theme.colorBackground};
   fill: #ddd;
   font-weight: 500;
   transition: .2s ease;
@@ -30,7 +30,7 @@ export const StyledHeader = styled.div`
 `;
 export const StyledContent = styled.div`
   border-radius: 6px;
-  background-color: #333;
+  background-color: ${props => props.theme.colorBackground};
   select {
     padding: 6px;
     cursor: pointer;

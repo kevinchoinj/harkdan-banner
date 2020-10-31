@@ -5,6 +5,7 @@ import Footer from 'components/general/Footer';
 import {StyledHeader} from 'components/general/styling';
 import Scroller from 'components/home/Scroller';
 import Squares from 'components/home/Squares';
+import Pricing from 'components/home/Pricing';
 
 const StyledWrapper = styled.div`
   display: flex;
@@ -37,7 +38,7 @@ const Home = () => {
       <Hero/>
       <StyledDescriptionWrapper>
         <StyledDescriptionContainer>
-          <StyledHeader>Twitch Banners that update as you go live</StyledHeader>
+          <StyledHeader>Banners that <span style={{color: '#85f'}}>update live</span></StyledHeader>
           {lipsum}
         </StyledDescriptionContainer>
       </StyledDescriptionWrapper>
@@ -45,7 +46,14 @@ const Home = () => {
       <Scroller/>
       <StyledDescriptionWrapper>
         <StyledDescriptionContainer>
-          <StyledHeader>Twitch Banners that update as you go live</StyledHeader>
+          <StyledHeader>Banners that update as you go live</StyledHeader>
+          {lipsum}
+        </StyledDescriptionContainer>
+      </StyledDescriptionWrapper>
+      <Pricing/>
+      <StyledDescriptionWrapper>
+        <StyledDescriptionContainer>
+          <StyledHeader>Banners that <span style={{color: '#85f'}}>update live</span></StyledHeader>
           {lipsum}
         </StyledDescriptionContainer>
       </StyledDescriptionWrapper>
