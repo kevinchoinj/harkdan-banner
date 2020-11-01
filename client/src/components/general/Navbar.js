@@ -103,6 +103,9 @@ const Navbar = () => {
         <StyledLink to={routes.register}>
           Register
         </StyledLink>
+        <StyledLink to={routes.checkout}>
+          Checkout
+        </StyledLink>
       </StyledContainer>
     </StyledWrapper>
   )

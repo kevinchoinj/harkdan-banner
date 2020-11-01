@@ -13,6 +13,7 @@ import Editor from 'pages/Editor';
 import EditorBasic from 'pages/EditorBasic';
 import Login from 'pages/Login';
 import Register from 'pages/Register';
+import Checkout from 'pages/Checkout';
 import InitialLoad from 'components/editor/InitialLoad';
 import "react-toggle/style.css"
 
@@ -69,6 +70,7 @@ function App() {
           <Route exact path={routes.editorBasic} render={props => <EditorBasic {...props}/>}/>
           <Route exact path={routes.login} render={props => <Login {...props}/>}/>
           <Route exact path={routes.register} render={props => <Register {...props}/>}/>
+          <Route exact path={routes.checkout} render={props => <Checkout {...props}/>}/>
         </Switch>
     </ThemeProvider>
   );

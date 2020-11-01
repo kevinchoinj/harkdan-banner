@@ -8,5 +8,6 @@ export const routes = {
   editor: '/editor',
   editorBasic: '/editorBasic',
   login: '/login',
-  register: '/register'
+  register: '/register',
+  checkout: '/checkout'
 }
