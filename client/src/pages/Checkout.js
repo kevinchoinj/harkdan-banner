@@ -6,6 +6,7 @@ import styled from 'styled-components';
 
 const StyledWrapper = styled.div`
   min-height: 100vh;
+  padding-top: 6rem;
 `;
 const PUBLIC_KEY = 'pk_test_JJ1eMdKN0Hp4UFJ6kWXWO4ix00jtXzq5XG';
 
