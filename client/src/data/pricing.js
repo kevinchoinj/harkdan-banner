@@ -13,7 +13,7 @@ export const pricingColumnData = [
   },
   {
     buttonPrimary: true,
-    buttonLabel: "Get Medium Bundle",
+    buttonLabel: "Get Macro Bundle",
     details: [
       'Create up to 12 cards per month',
       'Secure merchant-locked & single-use cards',
@@ -22,6 +22,6 @@ export const pricingColumnData = [
       'Access your data through our API',
     ],
     price: "$10",
-    title: "Medium",
+    title: "Macro",
   },
 ]

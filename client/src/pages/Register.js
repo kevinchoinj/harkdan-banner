@@ -23,12 +23,8 @@ const Register = () => {
       >
         {() =>
           <StyledForm>
-            <label for="Email">Email</label>
-            <Field name="email"/>
-            <label for="Username">Username</label>
-            <Field name="username"/>
-            <label for="Password">Password</label>
-            <Field name="password" type="password"/>
+            <Field name="email" placeholder="Email"/>
+            <Field name="password" type="password" placeholder="Password"/>
             <button type="submit">Register</button>
           </StyledForm>
         }

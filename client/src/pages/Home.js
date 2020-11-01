@@ -46,7 +46,7 @@ const Home = () => {
       <Scroller/>
       <StyledDescriptionWrapper>
         <StyledDescriptionContainer>
-          <StyledHeader>Banners that update as you go live</StyledHeader>
+          <StyledHeader>Banners that <span style={{color: '#85f'}}>update live</span></StyledHeader>
           {lipsum}
         </StyledDescriptionContainer>
       </StyledDescriptionWrapper>

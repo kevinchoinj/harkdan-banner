@@ -23,6 +23,7 @@ const StyledSquaresContainer = styled(StyledContainer)`
   margin-top: 4rem;
   @media screen and (max-width: 992px) {
     margin-top: 0;
+    padding: 0 2rem;
   }
   @media screen and (max-width: 768px) {
     flex-direction: column;
@@ -46,6 +47,9 @@ const StyledIconContainer = styled.div`
 const StyledLabel = styled.div`
   font-weight: 700;
   font-size: 2rem;
+  @media screen and (max-width: 768px) {
+    font-size: 1.5rem;
+  }
 `;
 
 const objectsArray = [

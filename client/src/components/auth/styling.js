@@ -46,19 +46,22 @@ export const StyledForm = styled(Form)`
     box-sizing: border-box;
     font-size: 14px;
     color: #ddd;
+    border-radius: 12px;
   }
   button {
-    text-transform: uppercase;
     outline: 0;
     background: ${props => props.theme.colorConfirm};
     width: 100%;
+    border-radius: 8px;
     border: 0;
+    font-weight: 700;
     margin-top: 1rem;
     padding: 15px;
     color: #FFFFFF;
     font-size: 14px;
     transition: all 0.3s ease;
     cursor: pointer;
+    font-family: 'Inter', sans-serif;
     &:hover {
       background: #43A047;
     }

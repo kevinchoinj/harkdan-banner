@@ -22,10 +22,8 @@ const Login = () => {
       >
         {() =>
           <StyledForm>
-            <label for="Username">Username</label>
-            <Field name="username"/>
-            <label for="Password">Password</label>
-            <Field name="password" type="password"/>
+            <Field name="email" placeholder="Email"/>
+            <Field name="password" type="password" placeholder="Password"/>
             <button type="submit">Login</button>
           </StyledForm>
         }

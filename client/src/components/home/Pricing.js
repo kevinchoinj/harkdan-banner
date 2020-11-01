@@ -11,16 +11,20 @@ const StyledTable = styled.div`
   flex-wrap: wrap;
   margin-bottom: 3rem;
 `;
-const StyledWrapperPricing = styled(StyledWrapper)`
+const StyledPricingWrapper = styled(StyledWrapper)`
   display: flex;
-  flex-direction: column;
+  margin-top: 4rem;
+  @media screen and (max-width: 992px) {
+    flex-direction: column;
+    padding: 0 2rem;
+  }
 `;
 const StyledPricingContainer = styled(StyledContainer)`
-  padding: 0;
+  padding: 0 2rem;
 `;
 const Pricing = () => {
   return (
-    <StyledWrapperPricing>
+    <StyledPricingWrapper>
       <StyledHeader>
         Advanced <span style={{color: "#0cf"}}>Features</span>
       </StyledHeader>
@@ -40,7 +44,7 @@ const Pricing = () => {
           })}
         </StyledTable>
       </StyledPricingContainer>
-    </StyledWrapperPricing>
+    </StyledPricingWrapper>
   )
 }
 

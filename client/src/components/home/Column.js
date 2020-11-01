@@ -1,25 +1,25 @@
 import React from 'react';
 import styled from 'styled-components';
-import SvgIcon from 'components/general/SvgIcon';
 import Button from 'components/general/Button';
 
-const StyledObject = styled.div`
+const StyledWrapper = styled.div`
   width: 320px;
   margin: 0 1rem;
   max-width: 100%;
+  margin-bottom: 1rem;
   svg {
     fill: ${props => props.theme.colorText};
   }
 `;
 const StyledObjectHeader = styled.div`
-  padding: 1rem;
   display: flex;
-  justify-content: space-between;
   align-items: center;
   color: ${props => props.theme.colorText};
+  margin-bottom: 1rem;
 `;
 const StyledObjectDetails = styled.div`
   background-color: ${props => props.theme.colorBackgroundElevated};
+  border-radius: 12px;
   padding: 2rem;
   font-size: ${props => props.theme.sizeMedium};
   box-sizing: border-box;
@@ -36,6 +36,7 @@ const StyledObjectDetails = styled.div`
 const StyledHeader = styled.div`
   font-weight: 700;
   font-size: ${props => props.theme.sizeMedium};
+  font-size: 2rem;
 `;
 const StyledPrice = styled.div`
   font-size: ${props => props.theme.sizeMedium};
@@ -55,19 +56,18 @@ const Column = ({
   title,
 }) => {
   return (
-    <StyledObject>
+    <StyledWrapper>
+      <StyledObjectDetails>
       <StyledObjectHeader>
         <div>
-          <StyledHeader>
-            {title}
-          </StyledHeader>
           <StyledPrice>
             {price}
           </StyledPrice>
+          <StyledHeader>
+            {title}
+          </StyledHeader>
         </div>
-        <SvgIcon name="facebook"/>
       </StyledObjectHeader>
-      <StyledObjectDetails>
         <b>Everything you need…</b>
         <ul>
           {details?.map((value) => {
@@ -85,7 +85,7 @@ const Column = ({
         {buttonLabel}
       </StyledButton>
       </StyledObjectDetails>
-    </StyledObject>
+    </StyledWrapper>
   )
 }
 

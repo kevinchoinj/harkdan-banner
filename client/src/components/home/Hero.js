@@ -29,7 +29,7 @@ const StyledContent = styled.div`
   h1 {
     margin: 0;
     margin-bottom: 6rem;
-    font-size: 6rem;
+    font-size: 5rem;
     @media screen and (max-width: 992px) {
       font-size: 2rem;
     }
@@ -42,7 +42,7 @@ const StyledContent = styled.div`
     padding: 12px;
     border-radius: 12px;
     color: ${props => props.theme.colorText};
-    font-size: 20px;
+    font-size: 16px;
     @media screen and (max-width: 992px) {
       background-color: ${props => props.theme.colorBackground};
       margin-bottom: .5rem;
@@ -60,8 +60,10 @@ const StyledContent = styled.div`
     margin: 3px;
     color: #fff;
     border: none;
-    font-size: 16px;
+    font-size: 14px;
     transition: .2s ease;
+    font-weight: 700;
+    font-family: 'Inter', sans-serif;
     &:hover {
       background-color: ${props => props.theme.colorConfirmHover};
     }

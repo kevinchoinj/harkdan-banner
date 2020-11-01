@@ -102,13 +102,12 @@ const Scroller = () => {
         >
           <StyledInner>
             <StyledList>
-            • Live Viewer Count<br/>
-            • Live Category<br/>
-            • Live Stream Uptime<br/>
-            • Latest Screencap<br/>
-            • Username<br/>
-            • Profile Picture<br/>
-            • Unique Designs<br/>
+            • Live <span style={{color: '#85f'}}>Viewer Count</span><br/>
+            • Live <span style={{color: '#85f'}}>Category</span><br/>
+            • Stream <span style={{color: '#85f'}}>Uptime</span><br/>
+            • Latest <span style={{color: '#85f'}}>Screencap</span><br/>
+            • Your <span style={{color: '#85f'}}>Username</span><br/>
+            • Profile <span style={{color: '#85f'}}>Picture</span><br/>
             </StyledList>
             <StyledImage>
               <img src={preview} alt="preview"/>
