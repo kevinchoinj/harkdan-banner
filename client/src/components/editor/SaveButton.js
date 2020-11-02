@@ -18,7 +18,12 @@ const StyledButton = styled.div`
 `;
 const SaveButton = ({formData}) => {
   return (
-    <StyledButton onClick={() => {alert(JSON.stringify(formData)); console.log(formData)}}>
+    <StyledButton
+      onClick={() => {
+        alert(JSON.stringify(formData));
+        console.log(formData)
+      }}
+    >
       Save
     </StyledButton>
   )

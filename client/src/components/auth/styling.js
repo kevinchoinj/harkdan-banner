@@ -12,7 +12,6 @@ export const StyledWrapper = styled.div`
 `;
 export const StyledLeft = styled.div`
   flex: 1;
-  background-color: ${props => props.theme.colorBackgroundElevated};
   @media screen and (max-width: 992px) {
     display: none;
   }
@@ -29,7 +28,7 @@ export const StyledForm = styled(Form)`
   z-index: 1;
   max-width: 360px;
   margin: 0 auto 100px;
-  padding: 45px;
+  padding: 2rem;
   text-align: left;
   background-color: ${props => props.theme.colorBackgroundElevated};
   border-radius: 12px;
@@ -67,3 +66,13 @@ export const StyledForm = styled(Form)`
     }
   }
 `;
+export const StyledCircle = styled.div`
+  height: 200vh;
+  width: 200vh;
+  border-radius: 50%;
+  position: absolute;
+  left: -100vh;
+  top: -100vh;
+  background-color: ${props => props.theme.colorBackgroundElevated};
+`;
+

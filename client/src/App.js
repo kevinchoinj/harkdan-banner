@@ -9,11 +9,10 @@ import Home from 'pages/Home';
 import Faq from 'pages/Faq';
 import Navbar from 'components/general/Navbar';
 import {routes} from 'data/routes';
-import Editor from 'pages/Editor';
 import EditorBasic from 'pages/EditorBasic';
 import Login from 'pages/Login';
 import Register from 'pages/Register';
-import Checkout from 'pages/Checkout';
+import PassportCheck from 'routes/PassportCheck';
 import InitialLoad from 'components/editor/InitialLoad';
 import "react-toggle/style.css"
 
@@ -66,11 +65,10 @@ function App() {
         <Switch>
           <Route exact path={routes.home} render={props => <Home {...props}/>}/>
           <Route exact path={routes.faq} render={props => <Faq {...props}/>}/>
-          <Route exact path={routes.editor} render={props => <Editor {...props}/>}/>
           <Route exact path={routes.editorBasic} render={props => <EditorBasic {...props}/>}/>
           <Route exact path={routes.login} render={props => <Login {...props}/>}/>
           <Route exact path={routes.register} render={props => <Register {...props}/>}/>
-          <Route exact path={routes.checkout} render={props => <Checkout {...props}/>}/>
+          <Route path={"/"} render={props => <PassportCheck {...props}/>}/>
         </Switch>
     </ThemeProvider>
   );

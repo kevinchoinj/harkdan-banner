@@ -17,7 +17,7 @@ const StyledCanvasWrapper = styled.div`
   justify-content: center;
   flex: 1;
   align-items: center;
-  background-color: #262626;
+  background-color: ${props => props.theme.colorBackground};
   overflow: hidden;
   position: relative;
 `;
@@ -297,6 +297,7 @@ const EditorBasic = ({
         }
         </StyledCanvas>
       <FormSettingsOverlay
+        isBasic={true}
         offlineMode={offlineMode}
         setOfflineMode={setOfflineMode}
       />

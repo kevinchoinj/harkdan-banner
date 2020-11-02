@@ -4,6 +4,7 @@ import {showHistory, toggleBorders, toggleExamples, toggleGrid} from 'actions/fo
 import styled from 'styled-components';
 import SaveButton from 'components/editor/SaveButton';
 import Toggle from 'react-toggle';
+import ButtonAdvanced from 'components/editor/ButtonAdvanced';
 
 const StyledWrapper = styled.div`
   position: absolute;
@@ -64,6 +65,7 @@ const StyledToggle = styled.div`
 `;
 
 const FormSettingsOverlay = ({
+  isBasic,
   offlineMode,
   setOfflineMode,
   showBorders,
@@ -78,6 +80,7 @@ const FormSettingsOverlay = ({
   return (
     <StyledWrapper>
       <StyledContent>
+        {isBasic && <ButtonAdvanced/>}
         <StyledToggleRow>
           <StyledToggle>
             Offline Mode

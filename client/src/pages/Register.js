@@ -1,12 +1,14 @@
 import React from 'react';
+import {connect} from 'react-redux';
 import {Formik, Field} from 'formik';
-import {StyledWrapper, StyledLeft, StyledRight, StyledForm} from 'components/auth/styling';
+import {StyledWrapper, StyledCircle, StyledLeft, StyledRight, StyledForm} from 'components/auth/styling';
+import {registerPassport} from 'actions/auth';
 
-const Register = () => {
+const Register = ({register}) => {
   return (
     <StyledWrapper>
+      <StyledCircle/>
       <StyledLeft>
-        Left
       </StyledLeft>
       <StyledRight>
 
@@ -18,7 +20,8 @@ const Register = () => {
           password: '',
         }}
         onSubmit={values => {
-          console.log(values)
+          console.log(values);
+          // register(values);
         }}
       >
         {() =>
@@ -34,4 +37,10 @@ const Register = () => {
   )
 }
 
-export default Register;
+const mapDispatchToProps = (dispatch) => {
+  return {
+    register: (values) => dispatch(registerPassport(values)),
+  };
+};
+
+export default connect(null, mapDispatchToProps)(Register);
