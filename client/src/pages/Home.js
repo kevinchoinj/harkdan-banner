@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import styled from 'styled-components';
 import Hero from 'components/home/Hero';
 import Footer from 'components/general/Footer';
@@ -33,6 +33,9 @@ const StyledDescriptionContainer = styled.div`
 const lipsum = `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.`;
 
 const Home = () => {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   return (
     <StyledWrapper>
       <Hero/>

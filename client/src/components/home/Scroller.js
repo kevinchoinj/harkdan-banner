@@ -70,7 +70,7 @@ const Scroller = () => {
   const setScroll = () => {
     const viewportHeight = window.innerHeight;
     const heightOfStickyWrapper = viewportHeight * 3;
-    const scrolledFromTop = window.pageYOffset - (wrapperRef.current.offsetTop);
+    const scrolledFromTop = window.pageYOffset - (wrapperRef.current?.offsetTop);
     const percentageScrolled = 50 - (scrolledFromTop/heightOfStickyWrapper * 90);
     if (percentageScrolled < 1) {
       setRotation(1);

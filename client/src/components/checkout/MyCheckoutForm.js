@@ -4,18 +4,18 @@ import {CardElement, useStripe, useElements} from '@stripe/react-stripe-js';
 const CARD_OPTIONS = {
   iconStyle: 'solid',
   style: {
+    marginTop: '500px',
     base: {
-      iconColor: '#c4f0ff',
+      iconColor: '#5588a3',
       color: '#fff',
       fontWeight: 500,
-      fontFamily: 'Roboto, Open Sans, Segoe UI, sans-serif',
       fontSize: '16px',
       fontSmoothing: 'antialiased',
       ':-webkit-autofill': {
-        color: '#fce883',
+        color: '#666',
       },
       '::placeholder': {
-        color: '#87bbfd',
+        color: '#666',
       },
     },
     invalid: {
@@ -215,7 +215,7 @@ const MyCheckoutForm = () => {
       </fieldset>
       {error && <ErrorMessage>{error.message}</ErrorMessage>}
       <SubmitButton processing={processing} error={error} disabled={!stripe}>
-        Pay $25
+        Pay $10
       </SubmitButton>
     </form>
   );

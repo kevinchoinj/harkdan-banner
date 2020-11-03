@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import Button from 'components/general/Button';
+import {routes} from 'data/routes';
 
 const StyledWrapper = styled.div`
   width: 320px;
@@ -79,7 +80,7 @@ const Column = ({
           })}
         </ul>
         <StyledButton
-          to="/pricing"
+          to={routes.checkout}
           buttonPrimary={buttonPrimary}
         >
         {buttonLabel}
