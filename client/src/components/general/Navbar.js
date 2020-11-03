@@ -1,8 +1,10 @@
 import React from 'react';
+import {connect} from 'react-redux';
 import styled, {keyframes} from 'styled-components';
 import {Link} from 'react-router-dom';
 import {routes} from 'data/routes';
 import logo from 'data/edc.webp';
+import {logout} from 'actions/auth';
 
 const animationOpen = keyframes`
   0% {
@@ -94,6 +96,34 @@ const StyledOutLink = styled.a`
     }
   }
 `;
+const StyledLogout = styled.div`
+  overflow: hidden;
+  color: ${props => props.theme.colorTextElevated};
+  cursor: pointer;
+  margin: 0 1rem;
+  position: relative;
+  &:before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 1px;
+    bottom: 0;
+    left: 0;
+    transform: translateX(-100%);
+    background-color: ${props => props.theme.colorTextElevated};
+    visibility: hidden;
+    transition: .4s ease;
+    animation: ${animationClose} .4s ease;
+  }
+  &:hover {
+    &:before {
+      transform: translateX(0);
+      animation: ${animationOpen} .4 ease;
+      transition: .4s ease;
+      visibility: visible;
+    }
+  }
+`;
 const StyledLogo = styled.div`
   display: flex;
   align-items: center;
@@ -104,7 +134,7 @@ const StyledLogo = styled.div`
   }
 `;
 
-const Navbar = () => {
+const Navbar = ({loggedIn, logOut}) => {
   return (
     <StyledWrapper>
       <Link to={routes.home}>
@@ -125,11 +155,17 @@ const Navbar = () => {
         <StyledLink to={routes.editor}>
           AdvEditor
         </StyledLink>
-        <StyledOutLink
-          href={`https://id.twitch.tv/oauth2/authorize?client_id=cnk4vjji2uijj8g039i63m63iuqmwr&claims={"id_token":{"preferred_username":null}}&response_type=token+id_token&redirect_uri=${window.location.origin}/login&scope=openid`}
-        >
-          Login
-        </StyledOutLink>
+        {loggedIn ?
+          <StyledLogout onClick={() => logOut()}>
+            Log Out
+          </StyledLogout>
+          :
+          <StyledOutLink
+            href={`https://id.twitch.tv/oauth2/authorize?client_id=cnk4vjji2uijj8g039i63m63iuqmwr&claims={"id_token":{"preferred_username":null}}&response_type=token+id_token&redirect_uri=${window.location.origin}/login&scope=openid`}
+          >
+            Login
+          </StyledOutLink>
+        }
         <StyledLink to={routes.checkout}>
           Checkout
         </StyledLink>
@@ -137,5 +173,14 @@ const Navbar = () => {
     </StyledWrapper>
   )
 }
-
-export default Navbar;
+const mapStateToProps = (state) => {
+  return {
+    loggedIn: state.auth.loggedIn,
+  };
+};
+const mapDispatchToProps = (dispatch) => {
+  return {
+    logOut: (values) => dispatch(logout(values)),
+  };
+};
+export default connect(mapStateToProps, mapDispatchToProps)(Navbar);

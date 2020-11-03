@@ -11,9 +11,9 @@ import Navbar from 'components/general/Navbar';
 import {routes} from 'data/routes';
 import EditorBasic from 'pages/EditorBasic';
 import Login from 'pages/Login';
-import Register from 'pages/Register';
 import PassportCheck from 'routes/PassportCheck';
 import InitialLoad from 'components/editor/InitialLoad';
+import CheckLogin from 'components/auth/CheckLogin';
 import "react-toggle/style.css"
 
 const GlobalStyle = createGlobalStyle`
@@ -234,13 +234,13 @@ function App() {
     <ThemeProvider theme={themeData}>
       <InitialLoad/>
       <GlobalStyle/>
+        <CheckLogin/>
         <Navbar/>
         <Switch>
           <Route exact path={routes.home} render={props => <Home {...props}/>}/>
           <Route exact path={routes.faq} render={props => <Faq {...props}/>}/>
           <Route exact path={routes.editorBasic} render={props => <EditorBasic {...props}/>}/>
           <Route exact path={routes.login} render={props => <Login {...props}/>}/>
-          <Route exact path={routes.register} render={props => <Register {...props}/>}/>
           <Route path={"/"} render={props => <PassportCheck {...props}/>}/>
         </Switch>
     </ThemeProvider>

@@ -13,12 +13,12 @@ const authReducer = (state=DEFAULT_STATE, payload) => {
   case FIND_PASSPORT_SUCCEEDED:
     return {
       ...state,
-      loggedIn: payload.data.username === 'shodyra' ? true : false,
+      loggedIn: true,
     };
   case LOGIN_PASSPORT_SUCCEEDED:
     return {
       ...state,
-      loggedIn: payload.data.username === 'shodyra' ? true : false,
+      loggedIn: true,
     };
   case LOG_OUT:
     return {
