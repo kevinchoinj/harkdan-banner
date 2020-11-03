@@ -5,6 +5,7 @@ import {Link} from 'react-router-dom';
 import {routes} from 'data/routes';
 import logo from 'data/edc.webp';
 import {logout} from 'actions/auth';
+const config = require('config.json');
 
 const animationOpen = keyframes`
   0% {
@@ -149,26 +150,27 @@ const Navbar = ({loggedIn, logOut}) => {
         <StyledLink to={routes.faq}>
           FAQ
         </StyledLink>
-        <StyledLink to={routes.editorBasic}>
-          BasicEditor
-        </StyledLink>
+
         <StyledLink to={routes.editor}>
-          AdvEditor
+          Editor
         </StyledLink>
+
         {loggedIn ?
           <StyledLogout onClick={() => logOut()}>
             Log Out
           </StyledLogout>
           :
           <StyledOutLink
-            href={`https://id.twitch.tv/oauth2/authorize?client_id=cnk4vjji2uijj8g039i63m63iuqmwr&claims={"id_token":{"preferred_username":null}}&response_type=token+id_token&redirect_uri=${window.location.origin}/login&scope=openid`}
+            href={`https://id.twitch.tv/oauth2/authorize?client_id=${config.TWITCH_AUTH_CLIENT_ID}&claims={"id_token":{"preferred_username":null}}&response_type=token+id_token&redirect_uri=${window.location.origin}/login&scope=openid`}
           >
             Login
           </StyledOutLink>
         }
-        <StyledLink to={routes.checkout}>
-          Checkout
-        </StyledLink>
+        {loggedIn &&
+          <StyledLink to={routes.checkout}>
+            Checkout
+          </StyledLink>
+        }
       </StyledContainer>
     </StyledWrapper>
   )

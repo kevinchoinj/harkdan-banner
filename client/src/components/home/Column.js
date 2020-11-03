@@ -1,7 +1,10 @@
 import React from 'react';
+import {connect} from 'react-redux';
 import styled from 'styled-components';
 import Button from 'components/general/Button';
 import {routes} from 'data/routes';
+
+const config = require('config.json');
 
 const StyledWrapper = styled.div`
   width: 320px;
@@ -53,6 +56,7 @@ const Column = ({
   buttonLabel,
   buttonPrimary,
   details,
+  loggedIn,
   price,
   title,
 }) => {
@@ -79,15 +83,29 @@ const Column = ({
             )
           })}
         </ul>
-        <StyledButton
-          to={routes.checkout}
-          buttonPrimary={buttonPrimary}
-        >
-        {buttonLabel}
-      </StyledButton>
+        {loggedIn ?
+          <StyledButton
+            to={routes.checkout}
+            buttonPrimary={buttonPrimary}
+          >
+            {buttonLabel}
+          </StyledButton>
+          :
+          <StyledButton
+            href={`https://id.twitch.tv/oauth2/authorize?client_id=${config.TWITCH_AUTH_CLIENT_ID}&claims={"id_token":{"preferred_username":null}}&response_type=token+id_token&redirect_uri=${window.location.origin}/login&scope=openid`}
+            buttonPrimary={buttonPrimary}
+          >
+            {buttonLabel}
+          </StyledButton>
+        }
       </StyledObjectDetails>
     </StyledWrapper>
   )
 }
 
-export default Column;
+const mapStateToProps = (state) => {
+  return {
+    loggedIn: state.auth.loggedIn,
+  };
+};
+export default connect(mapStateToProps, null)(Column);

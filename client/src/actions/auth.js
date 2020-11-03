@@ -16,6 +16,7 @@ export const withRequest = ({request}) => request;
 
 export function findPassport() {
   const accessString = Cookies.get('JWT');
+  console.log(accessString);
   if (accessString) {
     return findPassportSucceeded(accessString);
   }
@@ -23,7 +24,7 @@ export function findPassport() {
 }
 
 export function loginPassport(values) {
-  //Cookies.set('JWT', values, {expires: 7});
+  Cookies.set('JWT', values, {expires: 7});
   return loginPassportSucceeded(values);
 };
 

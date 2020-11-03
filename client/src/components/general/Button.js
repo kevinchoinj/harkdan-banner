@@ -45,10 +45,27 @@ const StyledLink = styled(Link)`
     background-color: ${props => props['data-primary'] ? props.theme.colorConfirmHover : props.theme.colorPrimaryHover};
   }
 `;
+const StyledOutLink = styled.a`
+  display: inline-flex;
+  padding: 14px 30px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: ${props => props.theme.sizeMedium};
+  background-color: ${props => props['data-primary'] ? props.theme.colorConfirm : props.theme.colorPrimary};
+  text-decoration: none;
+  color: #fff;
+  font-weight: 700;
+  position:relative;
+  &:hover {
+    text-decoration: none;
+    background-color: ${props => props['data-primary'] ? props.theme.colorConfirmHover : props.theme.colorPrimaryHover};
+  }
+`;
 const Button = ({
   buttonPrimary,
   children,
   className,
+  href,
   onClick,
   to,
 }) => {
@@ -69,7 +86,7 @@ const Button = ({
   else if (to) {
     return (
       <StyledWrapper>
-      <StyledShadow/>
+        <StyledShadow/>
         <StyledLink
           to={to}
           data-primary={buttonPrimary}
@@ -79,6 +96,20 @@ const Button = ({
         </StyledLink>
       </StyledWrapper>
     );
+  }
+  else if (href) {
+    return (
+    <StyledWrapper>
+      <StyledShadow/>
+      <StyledOutLink
+        href={href}
+        data-primary={buttonPrimary}
+        className={className}
+      >
+        {children}
+      </StyledOutLink>
+    </StyledWrapper>
+    )
   }
   return (
     <StyledWrapper>

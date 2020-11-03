@@ -4,14 +4,14 @@ import PrivateRoutes from 'routes/PrivateRoutes';
 import Login from 'pages/Login';
 
 const PassportCheck = ({loggedIn}) => {
-  return loggedIn ? (
+  return loggedIn && (
     <PrivateRoutes/>
-  ) : <Login/>
+  );
 }
 
 const mapStateToProps = (state) => {
   return {
-    loggedIn: true,
+    loggedIn: state.auth.loggedIn,
   };
 };
 

@@ -239,8 +239,8 @@ function App() {
         <Switch>
           <Route exact path={routes.home} render={props => <Home {...props}/>}/>
           <Route exact path={routes.faq} render={props => <Faq {...props}/>}/>
-          <Route exact path={routes.editorBasic} render={props => <EditorBasic {...props}/>}/>
           <Route exact path={routes.login} render={props => <Login {...props}/>}/>
+          <Route exact path={routes.editor} render={props => <EditorBasic {...props}/>}/>
           <Route path={"/"} render={props => <PassportCheck {...props}/>}/>
         </Switch>
     </ThemeProvider>

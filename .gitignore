@@ -2,8 +2,6 @@ config.json
 package-lock.json
 node_modules
 
-client/src/config.json
-
 client/package-lock.json
 
 client/node_modules
