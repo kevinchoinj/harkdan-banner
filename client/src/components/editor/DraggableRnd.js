@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useMemo} from 'react';
 import {connect} from 'react-redux';
 import {Rnd} from 'react-rnd';
 import {updateAdvancedField} from 'actions/form';
@@ -28,15 +28,18 @@ const genericHandleStyling = {
 const DraggableRnd = ({
   children,
   data,
+  formKey,
   hovered,
   hoverItem,
   keyValue,
   label,
   saveHistory,
   setRightSide,
-  showBorders,
   updateField,
 }) => {
+  const isSelected = useMemo(() => {
+    return formKey.keyValue === keyValue;
+  }, [formKey, keyValue]);
   return data.visible ? (
     <Rnd
       size={{ width: data.width,  height: data.height }}
@@ -56,7 +59,7 @@ const DraggableRnd = ({
       }}
       onClick={() => setRightSide({keyValue: keyValue, label: label})}
       resizeHandleStyles = {
-        showBorders && !data.locked ?
+        isSelected ?
         {
           bottomLeft: genericHandleStyling,
           bottomRight: genericHandleStyling,
@@ -68,7 +71,7 @@ const DraggableRnd = ({
       onMouseEnter={() => hoverItem(keyValue)}
       onMouseLeave={() => hoverItem(null)}
       style={{
-        pointerEvents: data.locked && 'none',
+        pointerEvents: !isSelected && 'none',
       }}
     >
       <StyledContent
@@ -78,6 +81,7 @@ const DraggableRnd = ({
           fontSize: data.fontSize,
           fontWeight: data.fontWeight,
           textShadow: data.showTextShadow ? `2px 2px ${data.textShadowWeight} ${data.textShadowColor}` : 'none',
+          border: isSelected ? '1px solid rgba(255, 255, 255, .2)' : '1px solid transparent',
         }}
         hovered={hovered}
       >
@@ -88,7 +92,7 @@ const DraggableRnd = ({
 }
 const mapStateToProps = (state) => {
   return {
-    showBorders: state.formSettings.showBorders,
+    formKey: state.formSettings.formKey,
   };
 };
 const mapDispatchToProps = (dispatch) => {

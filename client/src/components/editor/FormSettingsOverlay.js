@@ -1,6 +1,6 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import {showHistory, toggleBorders, toggleExamples, toggleGrid} from 'actions/formSettings';
+import {showHistory, toggleExamples, toggleGrid} from 'actions/formSettings';
 import styled from 'styled-components';
 import SaveButton from 'components/editor/SaveButton';
 import Toggle from 'react-toggle';
@@ -91,14 +91,6 @@ const FormSettingsOverlay = ({
           />
         </StyledToggleRow>
         <StyledRow
-          active={showBorders}
-          onClick={() => toggleBorders(!showBorders)}
-        >
-          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M24 9h-2v-7h-7v-2h9v9zm-9 15v-2h7v-7h2v9h-9zm-15-9h2v7h7v2h-9v-9zm9-15v2h-7v7h-2v-9h9z"/></svg>
-
-          <label>Show Borders</label>
-        </StyledRow>
-        <StyledRow
           active={showGrid}
           onClick={() => toggleGrid(!showGrid)}
         >
@@ -130,14 +122,12 @@ const FormSettingsOverlay = ({
 const mapStateToProps = (state) => {
   return {
     historyVisible: state.formSettings.historyVisible,
-    showBorders: state.formSettings.showBorders,
     showGrid: state.formSettings.showGrid,
     showExamples: state.formSettings.showExamples
   };
 };
 const mapDispatchToProps = (dispatch) => {
   return {
-    toggleBorders: (bool) => dispatch(toggleBorders(bool)),
     toggleExamples: (bool) => dispatch(toggleExamples(bool)),
     toggleGrid: (bool) => dispatch(toggleGrid(bool)),
     toggleHistory: (bool) => dispatch(showHistory(bool)),

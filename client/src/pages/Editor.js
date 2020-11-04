@@ -28,9 +28,6 @@ const StyledCanvas = styled.div`
   width: 480px;
   height: 270px;
   background-size: cover;
-  > div {
-    border: ${props => props.showBorders ? '1px solid rgba(255, 255, 255, .2)' : '1px solid transparent'};
-  }
   img {
     height: 100%;
     width: 100%;
@@ -76,12 +73,12 @@ const StyledBackdrop = styled.div`
 
 const keyValues = [
   {keyValue: 'valueUsername', label: 'Username'},
-  {keyValue: 'valueViewers', label: 'Current View Count'},
   {keyValue: 'valueAvatar', label: 'Profile Picture'},
-  {keyValue: 'valueSnapshot', label: 'Current Screencap'},
+  {keyValue: 'valueStreamTitle', label: 'Stream Title'},
   {keyValue: 'valueCategory', label: 'Category'},
   {keyValue: 'valueTimeOnline', label: 'Time Live'},
-  {keyValue: 'valueStreamTitle', label: 'Stream Title'},
+  {keyValue: 'valueViewers', label: 'Current View Count'},
+  {keyValue: 'valueSnapshot', label: 'Current Screencap'},
   {keyValue: 'valueBackgroundShape', label: 'Backdrop Shape'},
   {keyValue: 'valueOfflineMessage', label: 'Offline - Message'},
   {keyValue: 'valueOfflineLastOnline', label: 'Offline - Last Online'},

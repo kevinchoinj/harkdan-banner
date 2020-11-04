@@ -125,7 +125,6 @@ const ImageChooserWindow = ({
 
   const [currentPage, setCurrentPage] = useState(1);
   const paginatedTemplatesList = useMemo(() => paginate(templatesList, currentPage), [currentPage]);
-  console.log({paginatedTemplatesList})
   return backgroundChooserVisible ? (
     <StyledWrapper
       style={{transform: `translateX(${position.x}px) translateY(${position.y}px)`}}
