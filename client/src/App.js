@@ -9,7 +9,7 @@ import Home from 'pages/Home';
 import Faq from 'pages/Faq';
 import Navbar from 'components/general/Navbar';
 import {routes} from 'data/routes';
-import EditorBasic from 'pages/EditorBasic';
+import Editor from 'pages/Editor';
 import Login from 'pages/Login';
 import PassportCheck from 'routes/PassportCheck';
 import InitialLoad from 'components/editor/InitialLoad';
@@ -240,7 +240,7 @@ function App() {
           <Route exact path={routes.home} render={props => <Home {...props}/>}/>
           <Route exact path={routes.faq} render={props => <Faq {...props}/>}/>
           <Route exact path={routes.login} render={props => <Login {...props}/>}/>
-          <Route exact path={routes.editor} render={props => <EditorBasic {...props}/>}/>
+          <Route exact path={routes.editor} render={props => <Editor {...props}/>}/>
           <Route path={"/"} render={props => <PassportCheck {...props}/>}/>
         </Switch>
     </ThemeProvider>

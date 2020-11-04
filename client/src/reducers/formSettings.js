@@ -4,6 +4,7 @@ import {
   TOGGLE_EXAMPLES,
   SHOW_BACKGROUND_CHOOSER,
   SHOW_HISTORY,
+  SET_FORM_KEY,
 } from 'actions/formSettings';
 
 const DEFAULT_STATE={
@@ -12,6 +13,7 @@ const DEFAULT_STATE={
   showExamples: true,
   backgroundChooserVisible: false,
   historyVisible: true,
+  formKey: null,
 };
 
 const formSettingsReducer = (state=DEFAULT_STATE, payload) => {
@@ -40,6 +42,11 @@ const formSettingsReducer = (state=DEFAULT_STATE, payload) => {
       return state = {
         ...state,
         historyVisible: payload.value,
+      };
+    case SET_FORM_KEY:
+      return state = {
+        ...state,
+        formKey: payload.value,
       };
     default:
       return state;

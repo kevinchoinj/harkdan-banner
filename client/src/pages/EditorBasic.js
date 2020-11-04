@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import DraggableRnd from 'components/editor/DraggableRnd';
 import {connect} from 'react-redux';
 import TextEditor from 'components/editor/TextEditor';
-import SectionEditor from 'components/editor/SectionEditor';
+import Selector from 'components/editor/Selector';
 import xqc from 'data/xqc.jpeg';
 import LoadFont from 'components/editor/LoadFont';
 import History from 'components/editor/History';
@@ -12,6 +12,8 @@ import {find, propEq} from 'ramda';
 import ImageChooserWindow from 'components/editor/ImageChooserWindow';
 import FormSettingsOverlay from 'components/editor/FormSettingsOverlay';
 import screencap from 'data/preview.jpg';
+import RightSide from 'components/editor/RightSide';
+
 const StyledCanvasWrapper = styled.div`
   display: flex;
   justify-content: center;
@@ -106,7 +108,7 @@ const EditorBasic = ({
         <TextEditor/>
         {keyValues.map((value) => {
           return (
-            <SectionEditor
+            <Selector
               value={value}
               key={value.keyValue}
             />
@@ -302,6 +304,7 @@ const EditorBasic = ({
         setOfflineMode={setOfflineMode}
       />
       </StyledCanvasWrapper>
+        <RightSide/>
       <History/>
       <ImageChooserWindow/>
     </StyledWrapper>
