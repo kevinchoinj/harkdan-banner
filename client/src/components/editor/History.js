@@ -7,7 +7,7 @@ import {showHistory} from 'actions/formSettings';
 const StyledWrapper = styled.div`
   position: fixed;
   top: 80px;
-  right: 200px;
+  left: 450px;
   width: 225px;
   font-size: 12px;
   color: #ddd;
@@ -21,7 +21,7 @@ const StyledOption = styled.div`
   pointer-events: ${props => props.active && 'none'};
   border-bottom: 1px solid #aaa;
   padding: 6px;
-  background-color: ${props => props.active && '#6d7d92'};
+  background-color: ${props => props.active && props.theme.colorPrimary};
   color: ${props => props.inactive && '#aaa'};
   font-style: ${props => props.inactive && 'italic'};
   &:hover {

@@ -11,9 +11,9 @@ export const themeData = {
   heightNavbar: '50px',
   sizeMedium: '14px',
   colorConfirm: '#4CAF50',
-  colorPrimary: '#5588a3',
+  colorPrimary: '#446c82',
   colorConfirmHover: '#0f6818',
-  colorPrimaryHover: '#446c81',
+  colorPrimaryHover: '#2a4250',
 };
 
 export const lightData = {
@@ -29,7 +29,7 @@ export const lightData = {
   heightNavbar: '50px',
   sizeMedium: '14px',
   colorConfirm: '#4CAF50',
-  colorPrimary: '#5588a3',
+  colorPrimary: '#446c82',
   colorConfirmHover: '#0f6818',
   colorPrimaryHover: '#446c81',
 };

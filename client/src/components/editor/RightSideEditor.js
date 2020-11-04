@@ -1,7 +1,6 @@
-import React, {useState} from 'react';
+import React from 'react';
 import {connect} from 'react-redux';
 import {updateAdvancedField} from 'actions/form';
-import {formSectionHovered} from 'actions/mouse';
 import Toggle from 'react-toggle';
 import {
   StyledWrapper,
@@ -128,7 +127,9 @@ const SectionEditor = ({
       ) : null}
 
       {formData[value.keyValue]?.fontFamily ? (
-        <InputFont value={value}/>
+        <StyledRow>
+          <InputFont value={value}/>
+        </StyledRow>
       ) : null}
 
       {formData[value.keyValue]?.showTextShadow !== undefined && formData[value.keyValue]?.showTextShadow !== null &&

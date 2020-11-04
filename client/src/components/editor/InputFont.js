@@ -4,10 +4,6 @@ import {fontOptions} from 'data/fontOptions';
 import WebFont from 'webfontloader';
 import {updateAdvancedField} from 'actions/form';
 import {actionTaken} from 'actions/history';
-import {
-  StyledRow,
-} from 'components/editor/styling';
-
 const InputFont = ({formData, value, saveHistory, updateField}) => {
 
   const handleFontChange = (val) => {
@@ -21,7 +17,7 @@ const InputFont = ({formData, value, saveHistory, updateField}) => {
   }
 
   return (
-    <StyledRow>
+    <>
       <label>
         Font
       </label>
@@ -38,7 +34,7 @@ const InputFont = ({formData, value, saveHistory, updateField}) => {
           </option>
         ))}
       </select>
-    </StyledRow>
+    </>
   )
 }
 

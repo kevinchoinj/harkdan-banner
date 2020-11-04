@@ -47,12 +47,11 @@ const StyledWrapper = styled.div`
 const StyledMenu = styled.div`
   flex: 0 0 325px;
   height: 100%;
-  border-right: 2px solid #111;
-  background-color: #464646;
+  border-right: 1px solid ${props => props.theme.colorBackgroundElevated};
+  background-color: ${props => props.theme.colorBackground};
   user-select: none;
   overflow-y: auto;
   font-size: 14px;
-  padding-bottom: 20rem;
 `;
 const StyledGrid = styled.div`
   position: absolute;
@@ -76,11 +75,11 @@ const StyledBackdrop = styled.div`
 `;
 
 const keyValues = [
+  {keyValue: 'valueUsername', label: 'Username'},
   {keyValue: 'valueViewers', label: 'Current View Count'},
   {keyValue: 'valueAvatar', label: 'Profile Picture'},
   {keyValue: 'valueSnapshot', label: 'Current Screencap'},
   {keyValue: 'valueCategory', label: 'Category'},
-  {keyValue: 'valueUsername', label: 'Username'},
   {keyValue: 'valueTimeOnline', label: 'Time Live'},
   {keyValue: 'valueStreamTitle', label: 'Stream Title'},
   {keyValue: 'valueBackgroundShape', label: 'Backdrop Shape'},

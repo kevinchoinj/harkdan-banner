@@ -7,7 +7,7 @@ import {
   StyledHeader,
   StyledHiddenWrapper,
   StyledHidden,
-} from 'components/editor/styling';
+} from 'components/editor/stylingRight';
 import {actionTaken} from 'actions/history';
 import {setFormKey} from 'actions/formSettings';
 
@@ -74,12 +74,12 @@ const SectionEditor = ({
           {formData[value.keyValue]?.locked ?
             <StyledHidden
               onClick={(e) => clickLock(e, value.keyValue, value.label, false)}
-              visible={true}
             >
               <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M18 10v-4c0-3.313-2.687-6-6-6s-6 2.687-6 6v4h-3v14h18v-14h-3zm-10 0v-4c0-2.206 1.794-4 4-4s4 1.794 4 4v4h-8z"/></svg>
             </StyledHidden>
             :
             <StyledHidden
+              visible={true}
               onClick={(e) => clickLock(e, value.keyValue, value.label, true)}
             >
               <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M12 10v-4c0-3.313-2.687-6-6-6s-6 2.687-6 6v3h2v-3c0-2.206 1.794-4 4-4s4 1.794 4 4v4h-4v14h18v-14h-12z"/></svg>

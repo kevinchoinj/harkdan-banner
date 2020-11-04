@@ -16,13 +16,12 @@ export const StyledHeader = styled.div`
   border-radius: 6px;
   padding: 5px 10px;
   cursor: pointer;
-  background-color: ${props => props.active ? '#090909' : props.theme.colorBackground};
+  background-color: ${props => props.active ? props.theme.colorPrimary : props.theme.colorBackgroundElevated};
   fill: #ddd;
   font-weight: 500;
-  transition: .2s ease;
-  background-color: ${props => props.draggableHovered && '#090909'};
+  background-color: ${props => props.draggableHovered && props.theme.colorPrimaryHover};
   &:hover {
-    background-color: #090909;
+    background-color: ${props => props.theme.colorPrimary};
   }
   svg {
     height: 16px;
@@ -41,6 +40,7 @@ export const StyledRow = styled.div`
   align-items: center;
   justify-content: space-between;
   padding: 10px;
+  border-bottom: 1px solid ${props => props.theme.colorBackgroundElevated};
   input {
     background-color: transparent;
     border: none;
@@ -59,5 +59,5 @@ export const StyledHidden = styled.span`
   font-weight: 400;
   font-size: 12px;
   display: flex;
-  fill: ${props => props.visible ? '#fff' : '#666'};
+  fill: ${props => props.visible ? '#fff' : '#bbb'};
 `;

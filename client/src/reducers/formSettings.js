@@ -13,7 +13,7 @@ const DEFAULT_STATE={
   showExamples: true,
   backgroundChooserVisible: false,
   historyVisible: true,
-  formKey: null,
+  formKey: {keyValue: 'valueUsername', label: 'Username'},
 };
 
 const formSettingsReducer = (state=DEFAULT_STATE, payload) => {

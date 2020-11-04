@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import {connect} from 'react-redux';
 import {setBorderRadius, setStreamer, setPlatform} from 'actions/form';
-import {StyledWrapper, StyledHeader, StyledContent, StyledRow} from 'components/editor/styling';
+import {StyledWrapper, StyledHeader, StyledContent, StyledRow} from 'components/editor/stylingRight';
 import ImageChooser from 'components/editor/ImageChooser';
 import {actionTaken} from 'actions/history';
 
