@@ -11,7 +11,7 @@ import Navbar from 'components/general/Navbar';
 import {routes} from 'data/routes';
 import Editor from 'pages/Editor';
 import Login from 'pages/Login';
-import PassportCheck from 'routes/PassportCheck';
+import PrivateRoutes from 'routes/PrivateRoutes';
 import InitialLoad from 'components/editor/InitialLoad';
 import CheckLogin from 'components/auth/CheckLogin';
 import "react-toggle/style.css"
@@ -240,8 +240,7 @@ function App() {
           <Route exact path={routes.home} render={props => <Home {...props}/>}/>
           <Route exact path={routes.faq} render={props => <Faq {...props}/>}/>
           <Route exact path={routes.login} render={props => <Login {...props}/>}/>
-          <Route exact path={routes.editor} render={props => <Editor {...props}/>}/>
-          <Route path={"/"} render={props => <PassportCheck {...props}/>}/>
+          <Route path={"/"} render={props => <PrivateRoutes {...props}/>}/>
         </Switch>
     </ThemeProvider>
   );

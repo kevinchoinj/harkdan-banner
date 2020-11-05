@@ -10,9 +10,8 @@ const PrivateRoutes = ({loggedIn}) => {
   return (
     <div>
       <Switch>
-        <Route exact path={routes.editor} render={props => loggedIn ?
-          <Editor {...props}/> : <EditorBasic {...props}/>}
-        />
+        <Route exact path={routes.editor} render={props =><Editor {...props}/>}/>
+        <Route exact path={routes.editorBasic} render={props => <EditorBasic {...props}/>}/>
         <Route exact path={routes.checkout} render={props => <Checkout {...props}/>}/>
       </Switch>
     </div>

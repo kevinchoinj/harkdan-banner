@@ -28,9 +28,6 @@ const StyledCanvas = styled.div`
   width: 480px;
   height: 270px;
   background-size: cover;
-  > div {
-    border: ${props => props.showBorders ? '1px solid rgba(255, 255, 255, .2)' : '1px solid transparent'};
-  }
   img {
     height: 100%;
     width: 100%;
@@ -47,12 +44,11 @@ const StyledWrapper = styled.div`
 const StyledMenu = styled.div`
   flex: 0 0 325px;
   height: 100%;
-  border-right: 2px solid #111;
-  background-color: #464646;
+  border-right: 1px solid ${props => props.theme.colorBackgroundElevated};
+  background-color: ${props => props.theme.colorBackground};
   user-select: none;
   overflow-y: auto;
   font-size: 14px;
-  padding-bottom: 20rem;
 `;
 const StyledGrid = styled.div`
   position: absolute;
@@ -76,20 +72,20 @@ const StyledBackdrop = styled.div`
 `;
 
 const keyValues = [
-  {keyValue: 'valueViewers', label: 'Current View Count'},
-  {keyValue: 'valueAvatar', label: 'Profile Picture'},
-  {keyValue: 'valueSnapshot', label: 'Current Screencap'},
-  {keyValue: 'valueCategory', label: 'Category'},
   {keyValue: 'valueUsername', label: 'Username'},
-  {keyValue: 'valueTimeOnline', label: 'Time Live'},
+  {keyValue: 'valueAvatar', label: 'Profile Picture'},
   {keyValue: 'valueStreamTitle', label: 'Stream Title'},
+  {keyValue: 'valueCategory', label: 'Category'},
+  {keyValue: 'valueTimeOnline', label: 'Time Live'},
+  {keyValue: 'valueViewers', label: 'Current View Count'},
+  {keyValue: 'valueSnapshot', label: 'Current Screencap'},
   {keyValue: 'valueBackgroundShape', label: 'Backdrop Shape'},
   {keyValue: 'valueOfflineMessage', label: 'Offline - Message'},
   {keyValue: 'valueOfflineLastOnline', label: 'Offline - Last Online'},
   {keyValue: 'valueOfflineBackgroundShape', label: 'Offline - Backdrop Shape'},
 ];
 
-const EditorBasic = ({
+const Editor = ({
   formData,
   hoveredItem,
   showBorders,
@@ -321,4 +317,4 @@ const mapStateToProps = (state) => {
   };
 };
 
-export default connect(mapStateToProps, null)(EditorBasic);
+export default connect(mapStateToProps, null)(Editor);

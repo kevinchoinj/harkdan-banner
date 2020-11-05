@@ -151,6 +151,11 @@ const Navbar = ({loggedIn, logOut}) => {
           FAQ
         </StyledLink>
 
+        {loggedIn &&
+          <StyledLink to={routes.editorBasic}>
+            basEditor
+          </StyledLink>
+        }
         <StyledLink to={routes.editor}>
           Editor
         </StyledLink>
