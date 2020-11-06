@@ -42,7 +42,7 @@ const Home = () => {
       <StyledDescriptionWrapper>
         <StyledDescriptionContainer>
           <StyledHeader>Banners that <span style={{color: '#85f'}}>update live</span></StyledHeader>
-          {lipsum}
+          A custom image that updates with your livestream's status, viewer count, latest screencap, and more!
         </StyledDescriptionContainer>
       </StyledDescriptionWrapper>
       <Squares/>

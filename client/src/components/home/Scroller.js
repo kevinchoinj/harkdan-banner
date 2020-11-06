@@ -46,22 +46,15 @@ const StyledInner = styled.div`
 const StyledList = styled.div`
   flex: 1;
 `;
-const StyledOverlay = styled.div`
-  position: absolute;
-  top: 0;
-  left: 0;
-  height: 100%;
-  width: 100%;
-  background-repeat: no-repeat;
-  background-position: top;
-  background-size: 100%;
-  background-image: url(${templateOne});
-`;
 const StyledImage = styled.div`
   flex: 1;
   img {
     width: 100%;
   }
+`;
+const StyledItem = styled.div`
+  opacity: ${props => props.display ? 1 : 0};
+  transition: .2s ease;
 `;
 const Scroller = () => {
   const wrapperRef = useRef(null);
@@ -102,21 +95,28 @@ const Scroller = () => {
         >
           <StyledInner>
             <StyledList>
-            • Live <span style={{color: '#85f'}}>Viewer Count</span><br/>
-            • Live <span style={{color: '#85f'}}>Category</span><br/>
-            • Stream <span style={{color: '#85f'}}>Uptime</span><br/>
-            • Latest <span style={{color: '#85f'}}>Screencap</span><br/>
-            • Your <span style={{color: '#85f'}}>Username</span><br/>
-            • Profile <span style={{color: '#85f'}}>Picture</span><br/>
+              <StyledItem display={rotation < 80}>
+                • Live <span style={{color: '#85f'}}>Viewer Count</span>
+              </StyledItem>
+              <StyledItem display={rotation < 70}>
+              • Live <span style={{color: '#85f'}}>Category</span>
+              </StyledItem>
+              <StyledItem display={rotation < 60}>
+              • Stream <span style={{color: '#85f'}}>Uptime</span>
+              </StyledItem>
+              <StyledItem display={rotation < 50}>
+              • Latest <span style={{color: '#85f'}}>Screencap</span>
+              </StyledItem>
+              <StyledItem display={rotation < 40}>
+              • Your <span style={{color: '#85f'}}>Username</span>
+              </StyledItem>
+              <StyledItem display={rotation < 30}>
+              • Profile <span style={{color: '#85f'}}>Picture</span>
+              </StyledItem>
             </StyledList>
             <StyledImage>
               <img src={preview} alt="preview"/>
             </StyledImage>
-            <StyledOverlay
-              style={{
-                transform: `translateY(${110 - rotation}%)`,
-              }}
-            />
           </StyledInner>
         </StyledDiv>
       </StyledContainer>

@@ -31,6 +31,9 @@ const StyledContent = styled.div`
     margin-bottom: 6rem;
     font-size: 5rem;
     @media screen and (max-width: 992px) {
+      font-size: 3.5rem;
+    }
+    @media screen and (max-width: 768px) {
       font-size: 2rem;
     }
   }

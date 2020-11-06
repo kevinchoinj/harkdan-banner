@@ -39,7 +39,7 @@ export const StyledRow = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 10px;
+  padding: 5px 10px;
   border-bottom: 1px solid ${props => props.theme.colorBackgroundElevated};
   input {
     background-color: transparent;
@@ -47,8 +47,11 @@ export const StyledRow = styled.div`
     border-bottom: 1px solid #ddd;
     outline: none;
     color: #ddd;
-    font-size: 14px;
+    font-size: 13px;
     padding: 6px;
+  }
+  strong {
+    padding-bottom: 5px;
   }
 `;
 export const StyledHiddenWrapper = styled.div`

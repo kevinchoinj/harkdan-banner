@@ -28,16 +28,6 @@ const SectionEditor = ({
     }
   }
 
-  const handleChangeLock = (e, keyValue, label) => {
-    if (e.target.checked) {
-      updateField(keyValue, {locked: e.target.checked});
-      saveHistory(`Locked ${label}`);
-    }
-    else {
-      updateField(keyValue, {locked: e.target.checked});
-      saveHistory(`Unlocked ${label}`);
-    }
-  }
   return (
     <StyledWrapper>
         <StyledRow>
@@ -46,20 +36,11 @@ const SectionEditor = ({
         <StyledContent>
         <StyledRow>
           <label>
-            Show/Hide
+            Visible
           </label>
           <Toggle
             checked={formData[value.keyValue]?.visible}
             onChange={(e) => handleChange(e, value.keyValue, value.label)}
-          />
-        </StyledRow>
-        <StyledRow>
-          <label>
-            Locked
-          </label>
-          <Toggle
-            checked={formData[value.keyValue]?.locked}
-            onChange={(e) => handleChangeLock(e, value.keyValue, value.label)}
           />
         </StyledRow>
         {formData[value.keyValue]?.fontSize ? (

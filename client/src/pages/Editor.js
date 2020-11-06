@@ -17,7 +17,7 @@ import RightSide from 'components/editor/RightSide';
 const StyledCanvasWrapper = styled.div`
   display: flex;
   justify-content: center;
-  flex: 1;
+  flex: 1 0 580px;
   align-items: center;
   background-color: ${props => props.theme.colorBackground};
   overflow: hidden;
@@ -38,6 +38,7 @@ const StyledCanvas = styled.div`
 const StyledWrapper = styled.div`
   height: 100vh;
   display: flex;
+  overflow-x: auto;
   padding-top: ${props => props.theme.heightNavbar};
   background-color: #3b3b3b;
 `;
@@ -49,6 +50,7 @@ const StyledMenu = styled.div`
   user-select: none;
   overflow-y: auto;
   font-size: 14px;
+  padding-bottom: 6px;
 `;
 const StyledGrid = styled.div`
   position: absolute;
