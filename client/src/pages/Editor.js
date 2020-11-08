@@ -19,7 +19,7 @@ const StyledCanvasWrapper = styled.div`
   justify-content: center;
   flex: 1 0 580px;
   align-items: center;
-  background-color: ${props => props.theme.colorBackground};
+  background-color: ${props => props['data-dark'] ? props.theme.colorBackground : '#ccc'};
   overflow: hidden;
   position: relative;
 `;
@@ -64,8 +64,8 @@ const StyledGrid = styled.div`
   pointer-events: none;
   z-index: 0;
   >div {
-    border-top: 1px solid #222;
-    border-left: 1px solid #222;
+    border-top: 1px solid ${props => props['data-dark'] ? '#222' : '#ccc'};
+    border-left: 1px solid ${props => props['data-dark'] ? '#222' : '#ccc'};
   }
 `;
 const StyledBackdrop = styled.div`
@@ -88,6 +88,7 @@ const keyValues = [
 ];
 
 const Editor = ({
+  darkMode,
   formData,
   hoveredItem,
   showBorders,
@@ -113,7 +114,7 @@ const Editor = ({
           )
         })}
       </StyledMenu>
-      <StyledCanvasWrapper>
+      <StyledCanvasWrapper data-dark={darkMode}>
         <StyledCanvas
           showBorders={showBorders}
           style={{
@@ -122,7 +123,7 @@ const Editor = ({
           }}
         >
           {showGrid &&
-            <StyledGrid>
+            <StyledGrid data-dark={darkMode}>
               <div/><div/><div/><div/><div/>
               <div/><div/><div/><div/><div/>
               <div/><div/><div/><div/><div/>
@@ -310,6 +311,7 @@ const Editor = ({
 
 const mapStateToProps = (state) => {
   return {
+    darkMode: state.formSettings.darkBackground,
     hoveredItem: state.mouse.hoveredItem,
     formData: state.form,
     showBorders: state.formSettings.showBorders,

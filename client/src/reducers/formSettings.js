@@ -5,6 +5,7 @@ import {
   SHOW_BACKGROUND_CHOOSER,
   SHOW_HISTORY,
   SET_FORM_KEY,
+  SET_DARK_BACKGROUND,
 } from 'actions/formSettings';
 
 const DEFAULT_STATE={
@@ -14,6 +15,7 @@ const DEFAULT_STATE={
   backgroundChooserVisible: false,
   historyVisible: true,
   formKey: {keyValue: 'valueUsername', label: 'Username'},
+  darkBackground: true,
 };
 
 const formSettingsReducer = (state=DEFAULT_STATE, payload) => {
@@ -47,6 +49,11 @@ const formSettingsReducer = (state=DEFAULT_STATE, payload) => {
       return state = {
         ...state,
         formKey: payload.value,
+      };
+    case SET_DARK_BACKGROUND:
+      return state = {
+        ...state,
+        darkBackground: payload.value,
       };
     default:
       return state;

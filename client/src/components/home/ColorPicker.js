@@ -3,13 +3,14 @@ import styled from 'styled-components';
 import { ChromePicker } from 'react-color';
 
 const StyledWrapper = styled.div`
-  height: 25px;
-  width: 25px;
   position: relative;
+  display: flex;
+  align-items: center;
 `;
 const StyledButton = styled.div`
-  height: 100%;
-  width: 100%;
+  height: 25px;
+  width: 25px;
+  margin-left: 1rem;
   border: 1px solid ${props => props.theme.colorTextElevated};
   border-radius: 3px;
   cursor: pointer;
@@ -45,6 +46,7 @@ const ColorPicker = ({color, onChangeComplete}) => {
 
   return (
     <StyledWrapper ref={inputRef}>
+      {color}
       <StyledButton
         data-testid="color-picker-button"
         onClick={(e) => toggleDisplay(e)}

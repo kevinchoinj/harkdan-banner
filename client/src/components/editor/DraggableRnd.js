@@ -5,7 +5,6 @@ import {updateAdvancedField} from 'actions/form';
 import styled from 'styled-components';
 import {draggableItemHovered} from 'actions/mouse';
 import {actionTaken} from 'actions/history';
-import {setFormKey} from 'actions/formSettings';
 
 const StyledContent = styled.div`
   height: 100%;
@@ -34,7 +33,6 @@ const DraggableRnd = ({
   keyValue,
   label,
   saveHistory,
-  setRightSide,
   updateField,
 }) => {
   const isSelected = useMemo(() => {
@@ -57,7 +55,6 @@ const DraggableRnd = ({
       onResizeStop={() => {
         saveHistory(`Resized ${label}`);
       }}
-      onClick={() => setRightSide({keyValue: keyValue, label: label})}
       resizeHandleStyles = {
         isSelected ?
         {
@@ -98,7 +95,6 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
   return {
     hoverItem: (keyValue) => dispatch(draggableItemHovered(keyValue)),
-    setRightSide: (value) => dispatch(setFormKey(value)),
     saveHistory: (actionName) => dispatch(actionTaken(actionName)),
     updateField: (keyValue, obj) => dispatch(updateAdvancedField(keyValue, obj)),
   };

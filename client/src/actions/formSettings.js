@@ -4,6 +4,7 @@ export const TOGGLE_EXAMPLES = Symbol('TOGGLE_EXAMPLES');
 export const SHOW_BACKGROUND_CHOOSER = Symbol('SHOW_BACKGROUND_CHOOSER');
 export const SHOW_HISTORY = Symbol('SHOW_HISTORY');
 export const SET_FORM_KEY = Symbol('SET_FORM_KEY');
+export const SET_DARK_BACKGROUND = Symbol('SET_DARK_BACKGROUND');
 
 export const toggleBorders = (value) => {
   return{
@@ -38,6 +39,12 @@ export const showHistory = (value) => {
 export const setFormKey = (value) => {
   return{
     type: SET_FORM_KEY,
+    value,
+  };
+};
+export const setDarkBackground = (value) => {
+  return{
+    type: SET_DARK_BACKGROUND,
     value,
   };
 };

@@ -17,9 +17,9 @@ import RightSide from 'components/editor/RightSide';
 const StyledCanvasWrapper = styled.div`
   display: flex;
   justify-content: center;
-  flex: 1;
+  flex: 1 0 580px;
   align-items: center;
-  background-color: ${props => props.theme.colorBackground};
+  background-color: ${props => props['data-dark'] ? props.theme.colorBackground : '#ccc'};
   overflow: hidden;
   position: relative;
 `;
@@ -38,6 +38,7 @@ const StyledCanvas = styled.div`
 const StyledWrapper = styled.div`
   height: 100vh;
   display: flex;
+  overflow-x: auto;
   padding-top: ${props => props.theme.heightNavbar};
   background-color: #3b3b3b;
 `;
@@ -49,6 +50,7 @@ const StyledMenu = styled.div`
   user-select: none;
   overflow-y: auto;
   font-size: 14px;
+  padding-bottom: 6px;
 `;
 const StyledGrid = styled.div`
   position: absolute;
@@ -62,8 +64,8 @@ const StyledGrid = styled.div`
   pointer-events: none;
   z-index: 0;
   >div {
-    border-top: 1px solid #222;
-    border-left: 1px solid #222;
+    border-top: 1px solid ${props => props['data-dark'] ? '#222' : '#ccc'};
+    border-left: 1px solid ${props => props['data-dark'] ? '#222' : '#ccc'};
   }
 `;
 const StyledBackdrop = styled.div`
@@ -85,7 +87,8 @@ const keyValues = [
   {keyValue: 'valueOfflineBackgroundShape', label: 'Offline - Backdrop Shape'},
 ];
 
-const Editor = ({
+const EditorBasic = ({
+  darkMode,
   formData,
   hoveredItem,
   showBorders,
@@ -111,7 +114,7 @@ const Editor = ({
           )
         })}
       </StyledMenu>
-      <StyledCanvasWrapper>
+      <StyledCanvasWrapper data-dark={darkMode}>
         <StyledCanvas
           showBorders={showBorders}
           style={{
@@ -120,7 +123,7 @@ const Editor = ({
           }}
         >
           {showGrid &&
-            <StyledGrid>
+            <StyledGrid data-dark={darkMode}>
               <div/><div/><div/><div/><div/>
               <div/><div/><div/><div/><div/>
               <div/><div/><div/><div/><div/>
@@ -295,7 +298,6 @@ const Editor = ({
         }
         </StyledCanvas>
       <FormSettingsOverlay
-        isBasic={true}
         offlineMode={offlineMode}
         setOfflineMode={setOfflineMode}
       />
@@ -309,6 +311,7 @@ const Editor = ({
 
 const mapStateToProps = (state) => {
   return {
+    darkMode: state.formSettings.darkBackground,
     hoveredItem: state.mouse.hoveredItem,
     formData: state.form,
     showBorders: state.formSettings.showBorders,
@@ -317,4 +320,4 @@ const mapStateToProps = (state) => {
   };
 };
 
-export default connect(mapStateToProps, null)(Editor);
+export default connect(mapStateToProps, null)(EditorBasic);

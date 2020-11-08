@@ -1,6 +1,6 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import {showHistory, toggleExamples, toggleGrid} from 'actions/formSettings';
+import {setDarkBackground, showHistory, toggleExamples, toggleGrid} from 'actions/formSettings';
 import styled from 'styled-components';
 import SaveButton from 'components/editor/SaveButton';
 import Toggle from 'react-toggle';
@@ -31,6 +31,8 @@ const StyledRow = styled.div`
   align-items: center;
   user-select: none;
   background-color: ${props => props.active && '#111'};
+  margin: 2px;
+  border-radius: 8px;
   label {
     display: none;
     position: absolute;
@@ -44,7 +46,7 @@ const StyledRow = styled.div`
   }
   &:hover {
     background-color: #222;
-    background-color: ${props => props.active && '#343434'};
+    background-color: ${props => props.active && '#111'};
     label {
       display: block;
     }
@@ -65,14 +67,14 @@ const StyledToggle = styled.div`
 `;
 
 const FormSettingsOverlay = ({
+  darkBackground,
+  historyVisible,
   isBasic,
   offlineMode,
   setOfflineMode,
-  showBorders,
   showExamples,
   showGrid,
-  historyVisible,
-  toggleBorders,
+  toggleDarkBackground,
   toggleExamples,
   toggleGrid,
   toggleHistory,
@@ -90,6 +92,14 @@ const FormSettingsOverlay = ({
             onChange={() => setOfflineMode(prev => !prev)}
           />
         </StyledToggleRow>
+        <StyledRow
+          active={darkBackground}
+          onClick={() => toggleDarkBackground(!darkBackground)}
+        >
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M12 10.999c1.437.438 2.562 1.564 2.999 3.001.44-1.437 1.565-2.562 3.001-3-1.436-.439-2.561-1.563-3.001-3-.437 1.436-1.562 2.561-2.999 2.999zm8.001.001c.958.293 1.707 1.042 2 2.001.291-.959 1.042-1.709 1.999-2.001-.957-.292-1.707-1.042-2-2-.293.958-1.042 1.708-1.999 2zm-1-9c-.437 1.437-1.563 2.562-2.998 3.001 1.438.44 2.561 1.564 3.001 3.002.437-1.438 1.563-2.563 2.996-3.002-1.433-.437-2.559-1.564-2.999-3.001zm-7.001 22c-6.617 0-12-5.383-12-12s5.383-12 12-12c1.894 0 3.63.497 5.37 1.179-2.948.504-9.37 3.266-9.37 10.821 0 7.454 5.917 10.208 9.37 10.821-1.5.846-3.476 1.179-5.37 1.179z"/></svg>
+
+          <label>Dark Mode</label>
+        </StyledRow>
         <StyledRow
           active={showGrid}
           onClick={() => toggleGrid(!showGrid)}
@@ -123,7 +133,8 @@ const mapStateToProps = (state) => {
   return {
     historyVisible: state.formSettings.historyVisible,
     showGrid: state.formSettings.showGrid,
-    showExamples: state.formSettings.showExamples
+    showExamples: state.formSettings.showExamples,
+    darkBackground: state.formSettings.darkBackground
   };
 };
 const mapDispatchToProps = (dispatch) => {
@@ -131,6 +142,7 @@ const mapDispatchToProps = (dispatch) => {
     toggleExamples: (bool) => dispatch(toggleExamples(bool)),
     toggleGrid: (bool) => dispatch(toggleGrid(bool)),
     toggleHistory: (bool) => dispatch(showHistory(bool)),
+    toggleDarkBackground: (bool) => dispatch(setDarkBackground(bool)),
   };
 };
 

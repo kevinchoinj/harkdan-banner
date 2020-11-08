@@ -30,9 +30,11 @@ export const StyledHeader = styled.div`
 export const StyledContent = styled.div`
   border-radius: 6px;
   select {
-    padding: 6px;
+    padding: 4px 6px;
     cursor: pointer;
     border-radius: 6px;
+    background-color: ${props => props.theme.colorBackgroundElevated};
+    color: ${props => props.theme.colorText};
   }
 `;
 export const StyledRow = styled.div`
@@ -42,13 +44,12 @@ export const StyledRow = styled.div`
   padding: 5px 10px;
   border-bottom: 1px solid ${props => props.theme.colorBackgroundElevated};
   input {
-    background-color: transparent;
+    background-color: ${props => props.theme.colorBackgroundElevated};
     border: none;
-    border-bottom: 1px solid #ddd;
     outline: none;
     color: #ddd;
     font-size: 13px;
-    padding: 6px;
+    padding: 4px 6px;
   }
   strong {
     padding-bottom: 5px;
