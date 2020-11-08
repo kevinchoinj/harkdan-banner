@@ -6,8 +6,8 @@ import {showHistory} from 'actions/formSettings';
 
 const StyledWrapper = styled.div`
   position: fixed;
-  top: 80px;
-  left: 450px;
+  bottom: 80px;
+  right: 160px;
   width: 225px;
   font-size: 12px;
   color: #ddd;

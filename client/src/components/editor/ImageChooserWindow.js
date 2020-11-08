@@ -123,11 +123,20 @@ const ImageChooserWindow = ({
     );
   };
 
+
   const [currentPage, setCurrentPage] = useState(1);
   const paginatedTemplatesList = useMemo(() => paginate(templatesList, currentPage), [currentPage]);
   return backgroundChooserVisible ? (
     <StyledWrapper
       style={{transform: `translateX(${position.x}px) translateY(${position.y}px)`}}
+      onWheel={(e) => {
+        if (e.deltaY < 0  && !(currentPage < 2)) {
+          setCurrentPage(prev => prev >= 2 && prev - 1)
+        }
+        else if (e.deltaY > 0 && !(templatesList.length/(currentPage*4) <= 1)) {
+          setCurrentPage(prev => templatesList.length/(currentPage*4) >= 1 && prev + 1)
+        }
+      }}
     >
       <StyledTitle
         onMouseDown={(e) => handleMouseDown(e)}
