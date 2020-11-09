@@ -11,7 +11,7 @@ import InputFont from 'components/editor/InputFont';
 import {actionTaken} from 'actions/history';
 import ColorPicker from 'components/home/ColorPicker';
 
-const SectionEditor = ({
+const RightSideEditor = ({
   formData,
   saveHistory,
   updateField,
@@ -191,29 +191,51 @@ const SectionEditor = ({
         ) : null
       }
 
-          <StyledRow>
-            <label>X Coord</label>
+        <StyledRow>
+          <label>X Coord</label>
+          <input
+            onChange={(e) => {
+              updateField(value.keyValue, {x: e.target.value});
+              saveHistory(`X Coord to ${e.target.value}`);
+            }}
+            value={formData[value.keyValue]?.x}
+          />
+        </StyledRow>
+
+        <StyledRow>
+          <label>Y Coord</label>
+          <input
+            onChange={(e) => {
+              updateField(value.keyValue, {y: e.target.value});
+              saveHistory(`Y Coord to ${e.target.value}`);
+            }}
+            value={formData[value.keyValue]?.y}
+          />
+        </StyledRow>
+
+        <StyledRow>
+            <label>Height</label>
             <input
               onChange={(e) => {
-                updateField(value.keyValue, {x: e.target.value});
-                saveHistory(`X Coord to ${e.target.value}`);
+                updateField(value.keyValue, {height: e.target.value});
+                saveHistory(`Height to ${e.target.value}`);
               }}
-              value={formData[value.keyValue]?.x}
+              value={formData[value.keyValue]?.height}
             />
           </StyledRow>
 
           <StyledRow>
-            <label>Y Coord</label>
+            <label>Width</label>
             <input
               onChange={(e) => {
-                updateField(value.keyValue, {y: e.target.value});
-                saveHistory(`Y Coord to ${e.target.value}`);
+                updateField(value.keyValue, {width: e.target.value});
+                saveHistory(`Width to ${e.target.value}`);
               }}
-              value={formData[value.keyValue]?.y}
+              value={formData[value.keyValue]?.width}
             />
           </StyledRow>
 
-        </StyledContent>
+      </StyledContent>
     </StyledWrapper>
   )
 }
@@ -230,4 +252,4 @@ const mapDispatchToProps = (dispatch) => {
   };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(SectionEditor);
+export default connect(mapStateToProps, mapDispatchToProps)(RightSideEditor);

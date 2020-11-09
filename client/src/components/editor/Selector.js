@@ -11,7 +11,7 @@ import {
 import {actionTaken} from 'actions/history';
 import {setFormKey} from 'actions/formSettings';
 
-const SectionEditor = ({
+const Selector = ({
   draggableHovered,
   formData,
   formKey,
@@ -80,4 +80,4 @@ const mapDispatchToProps = (dispatch) => {
   };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(SectionEditor);
+export default connect(mapStateToProps, mapDispatchToProps)(Selector);

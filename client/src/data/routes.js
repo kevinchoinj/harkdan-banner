@@ -6,7 +6,6 @@ export const routes = {
   privacy: '/privacy',
   tos: '/terms',
   editor: '/editor',
-  editorBasic: '/editorBasic',
   login: '/login',
   register: '/register',
   checkout: '/checkout'
