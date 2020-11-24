@@ -9,7 +9,6 @@ import Home from 'pages/Home';
 import Faq from 'pages/Faq';
 import Navbar from 'components/general/Navbar';
 import {routes} from 'data/routes';
-import Editor from 'pages/Editor';
 import Login from 'pages/Login';
 import PrivateRoutes from 'routes/PrivateRoutes';
 import InitialLoad from 'components/editor/InitialLoad';
